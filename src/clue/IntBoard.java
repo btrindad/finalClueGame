@@ -14,7 +14,7 @@ public class IntBoard {
 		
 	}
 	
-	public void startTargets() {
+	public void startTargets(int location, int distance) {
 		
 	}
 	
@@ -22,7 +22,7 @@ public class IntBoard {
 		return new HashSet<Integer>();
 	}
 	
-	public ArrayList<Integer> getAdjList() {
+	public ArrayList<Integer> getAdjList(int location) {
 		return new ArrayList<Integer>();
 	}
 	
