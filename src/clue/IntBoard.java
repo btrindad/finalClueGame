@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class IntBoard {
-	private int number = 0;
 	
 	public IntBoard() {
 		
