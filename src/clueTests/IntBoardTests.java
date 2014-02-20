@@ -3,8 +3,7 @@ package clueTests;
 import java.util.ArrayList;
 import java.util.Set;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -89,7 +88,7 @@ public class IntBoardTests {
 	@Test
 	public void testTargets0_3() {
 		testBoard.startTargets(0, 3);
-		Set targets = testBoard.getTargets();
+		Set<Integer> targets = testBoard.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(12));
 		Assert.assertTrue(targets.contains(9));
@@ -102,7 +101,7 @@ public class IntBoardTests {
 	@Test
 	public void testTargets14_2() {
 		testBoard.startTargets(14, 2);
-		Set targets = testBoard.getTargets();
+		Set<Integer> targets = testBoard.getTargets();
 		Assert.assertEquals(4, targets.size());
 		Assert.assertTrue(targets.contains(11));
 		Assert.assertTrue(targets.contains(6));
@@ -113,7 +112,7 @@ public class IntBoardTests {
 	@Test
 	public void testTargets6_1() {
 		testBoard.startTargets(6, 1);
-		Set targets = testBoard.getTargets();
+		Set<Integer> targets = testBoard.getTargets();
 		Assert.assertEquals(4, targets.size());
 		Assert.assertTrue(targets.contains(2));
 		Assert.assertTrue(targets.contains(7));
@@ -124,7 +123,7 @@ public class IntBoardTests {
 	@Test
 	public void testTargets5_4() {
 		testBoard.startTargets(5, 4);
-		Set targets = testBoard.getTargets();
+		Set<Integer> targets = testBoard.getTargets();
 		Assert.assertEquals(7, targets.size());
 		Assert.assertTrue(targets.contains(2));
 		Assert.assertTrue(targets.contains(7));
@@ -138,7 +137,7 @@ public class IntBoardTests {
 	@Test
 	public void testTargets15_2() {
 		testBoard.startTargets(15, 2);
-		Set targets = testBoard.getTargets();
+		Set<Integer> targets = testBoard.getTargets();
 		Assert.assertEquals(3, targets.size());
 		Assert.assertTrue(targets.contains(7));
 		Assert.assertTrue(targets.contains(10));
@@ -148,7 +147,7 @@ public class IntBoardTests {
 	@Test
 	public void testTargets2_3() {
 		testBoard.startTargets(2, 3);
-		Set targets = testBoard.getTargets();
+		Set<Integer> targets = testBoard.getTargets();
 		Assert.assertEquals(7, targets.size());
 		Assert.assertTrue(targets.contains(6));
 		Assert.assertTrue(targets.contains(11));
