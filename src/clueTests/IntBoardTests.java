@@ -124,6 +124,9 @@ public class IntBoardTests {
 	public void testTargets5_4() {
 		testBoard.startTargets(5, 4);
 		Set<Integer> targets = testBoard.getTargets();
+		for (Integer i : targets) {
+			System.out.println(i);
+		}
 		Assert.assertEquals(7, targets.size());
 		Assert.assertTrue(targets.contains(2));
 		Assert.assertTrue(targets.contains(7));

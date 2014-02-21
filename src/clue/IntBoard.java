@@ -10,10 +10,12 @@ public class IntBoard {
 	private static final int BOARD_COLUMNS = 4;
 	
 	private Map<Integer, ArrayList<Integer>> adjMtx;
-	private ArrayList<Integer> targets;
-	private boolean[] visited = new boolean[BOARD_ROWS * BOARD_COLUMNS - 1];
+	private Set<Integer> targets;
+	private boolean[] visited;
 	
 	public IntBoard() {
+		targets = new HashSet<Integer>();
+		visited = new boolean[BOARD_ROWS * BOARD_COLUMNS];
 		
 	}
 	
@@ -46,8 +48,8 @@ public class IntBoard {
 	
 	public void startTargets(int location, int distance) {
 		// Setup
-		for (boolean b : visited) {
-			b = false;
+		for (int i = 0; i < visited.length; i++) {
+			visited[i] = false;
 		}
 		if (adjMtx.isEmpty()) {
 			calcAdjacencies();
@@ -58,11 +60,27 @@ public class IntBoard {
 	}
 	
 	private void calcTargets(int location, int distance) {
+		ArrayList<Integer> adjacentCells = new ArrayList<Integer>();
+		for (Integer cell : getAdjList(location)) {
+			if (!visited[cell]) {
+				adjacentCells.add(cell);
+			}
+		}
+		for (Integer cell : adjacentCells) {
+			visited[cell] = true;
+			if (distance == 1) {
+				targets.add(cell);
+			}
+			else {
+				calcTargets(cell, distance--);
+			}
+			visited[cell] = false;
+		}
 		
 	}
 	
 	public Set<Integer> getTargets() {
-		return new HashSet<Integer>();
+		return targets;
 	}
 	
 	public ArrayList<Integer> getAdjList(int location) {
