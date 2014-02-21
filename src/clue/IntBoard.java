@@ -10,6 +10,8 @@ public class IntBoard {
 	private static final int BOARD_COLUMNS = 4;
 	
 	private Map<Integer, ArrayList<Integer>> adjMtx;
+	private ArrayList<Integer> targets;
+	private boolean[] visited = new boolean[BOARD_ROWS * BOARD_COLUMNS - 1];
 	
 	public IntBoard() {
 		
@@ -34,7 +36,7 @@ public class IntBoard {
 					adjMtx.get(index).add(calcIndex(row, column - 1));
 				}
 				// RIGHT
-				if (row < (BOARD_COLUMNS - 1)) {
+				if (column < (BOARD_COLUMNS - 1)) {
 					adjMtx.get(index).add(calcIndex(row, column + 1));
 				}
 			}
@@ -43,6 +45,19 @@ public class IntBoard {
 	}
 	
 	public void startTargets(int location, int distance) {
+		// Setup
+		for (boolean b : visited) {
+			b = false;
+		}
+		if (adjMtx.isEmpty()) {
+			calcAdjacencies();
+		}
+		targets.clear();
+		visited[location] = true;
+		calcTargets(location, distance);
+	}
+	
+	private void calcTargets(int location, int distance) {
 		
 	}
 	

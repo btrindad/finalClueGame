@@ -45,9 +45,6 @@ public class IntBoardTests {
 		
 		// Right Edge
 		testList = testBoard.getAdjList(7);
-		for (Integer i : testList) {
-			System.out.println(i);
-		}
 		Assert.assertTrue(testList.contains(11));
 		Assert.assertTrue(testList.contains(3));
 		Assert.assertTrue(testList.contains(6));
