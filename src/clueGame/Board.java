@@ -3,6 +3,7 @@ package clueGame;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -10,13 +11,14 @@ import java.util.Scanner;
 
 public class Board {
 
-	private static final int MAX_ROWS = 22;
-	private static final int MAX_COLUMNS = 23;
 	private ArrayList<BoardCell> cells;
 	private Map<Character,String> rooms;
 	private int numRows;
-	private int numColumns;	
-	private String legend = "legend.txt";
+	private int numColumns;
+	
+	public Board(String configFile, String legendFile) {
+		
+	}
 	
 	public void loadLegend() throws FileNotFoundException{
 		
@@ -29,10 +31,18 @@ public class Board {
 	public void loadConfigFiles() {
 		
 	}
+	
+	public RoomCell getRoomCellAt(int rows, int columns) {
+		return new RoomCell();
+	}
+	
+	public BoardCell getCellAt(int index) {
+		return null;
+	}
 		
 
 	public int calcIndex(int row, int column){
-		return (MAX_COLUMNS * row) + column;
+		return (numColumns * row) + column;
 	}
 	
 	public int getRows(){
@@ -41,6 +51,10 @@ public class Board {
 	
 	public int getColumns(){
 		return numColumns;
+	}
+	
+	public Map<Character,String> getRooms() {
+		return new HashMap<Character,String>();
 	}
 	
 	
