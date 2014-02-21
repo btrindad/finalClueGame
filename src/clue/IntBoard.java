@@ -72,7 +72,7 @@ public class IntBoard {
 				targets.add(cell);
 			}
 			else {
-				calcTargets(cell, distance--);
+				calcTargets(cell, (distance - 1));
 			}
 			visited[cell] = false;
 		}
