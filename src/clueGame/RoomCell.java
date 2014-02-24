@@ -1,9 +1,15 @@
 package clueGame;
 
 public class RoomCell extends BoardCell {
+	
 	public enum DoorDirection {UP, DOWN, RIGHT, LEFT, NONE};
 	DoorDirection doorDirection;
 	char roomInitial;
+	
+	public RoomCell(String type, int row, int column) {
+		super(row, column);
+		
+	}
 	
 	
 	public boolean isRoom(){
@@ -11,7 +17,7 @@ public class RoomCell extends BoardCell {
 	}
 	
 	public DoorDirection getDoorDirection() {
-		return null;
+		return DoorDirection.NONE;
 	}
 	
 	public char getInitial() {

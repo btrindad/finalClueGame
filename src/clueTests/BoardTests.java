@@ -21,7 +21,7 @@ public class BoardTests {
 	
 	@BeforeClass
 	public static void setUp() {
-		board = new Board("configuration.csv", "legend.txt");
+		board = new Board("ClueLayout.csv", "ClueLegend.txt");
 		board.loadConfigFiles();
 	}
 
@@ -71,8 +71,9 @@ public class BoardTests {
 		for (int i=0; i<totalCells; i++)
 		{
 			BoardCell cell = board.getCellAt(i);
-			if (cell.isDoorway())
+			if (cell.isDoorway()) {
 				numDoors++;
+			}
 		}
 		assertEquals(9, numDoors);
 	}

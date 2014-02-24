@@ -47,15 +47,41 @@ public class Board {
 				throw new BadConfigFormatException();
 			}
 		}
-		System.out.println("Rooms is now this large: " + rooms.size());
 		input.close();
 	}
 	
 	public void loadBoard() throws FileNotFoundException, BadConfigFormatException {
+		cells = new ArrayList<BoardCell>();
 		FileReader read = new FileReader(configFile);
 		Scanner input = new Scanner(read);
+		String line = new String();
+		int row = 0;
+		int column;
 		while (input.hasNextLine()) {
-			// Read config?
+			line = input.nextLine();
+			if (line.contains(",")) {
+				String[] parts = line.split(",");
+				column = 0;
+				for (String s : parts) {
+					if (s.equals("W")) {
+						cells.add(new WalkwayCell(row, column));
+					} else {
+						cells.add(new RoomCell(s, row, column));
+					}
+					column++;
+				}
+				if (numColumns == 0) {
+					numColumns = column;
+				}
+				row++;
+				
+			} else {
+				input.close();
+				throw new BadConfigFormatException();
+			}
+		}
+		if (numRows == 0) {
+			numRows = row;
 		}
 		input.close();
 	}
@@ -63,7 +89,7 @@ public class Board {
 	public void loadConfigFiles() {
 		try {
 			loadLegend();
-			//loadBoard();
+			loadBoard();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found.");
 			
@@ -74,8 +100,8 @@ public class Board {
 		
 	}
 	
-	public RoomCell getRoomCellAt(int rows, int columns) {
-		return new RoomCell();
+	public RoomCell getRoomCellAt(int row, int column) {
+		return new RoomCell(null, row, column);
 	}
 	
 	public BoardCell getCellAt(int index) {
