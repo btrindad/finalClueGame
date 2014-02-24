@@ -49,7 +49,7 @@ public class BoardTests {
 		room = board.getRoomCellAt(12, 18);
 		assertTrue(room.isDoorway());
 		assertEquals(RoomCell.DoorDirection.RIGHT, room.getDoorDirection());
-		room = board.getRoomCellAt(4, 20);
+		room = board.getRoomCellAt(4, 21);
 		assertTrue(room.isDoorway());
 		assertEquals(RoomCell.DoorDirection.LEFT, room.getDoorDirection());
 		room = board.getRoomCellAt(1, 11);

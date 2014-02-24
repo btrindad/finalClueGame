@@ -91,7 +91,6 @@ public class Board {
 			loadLegend();
 			loadBoard();
 		} catch (FileNotFoundException e) {
-			System.out.println("File not found.");
 			
 		} catch (BadConfigFormatException e) {
 			
@@ -101,13 +100,13 @@ public class Board {
 	}
 	
 	public RoomCell getRoomCellAt(int row, int column) {
-		return new RoomCell(null, row, column);
+		return (RoomCell) cells.get(calcIndex(row, column));
 	}
 	
 	public BoardCell getCellAt(int index) {
-		return null;
+		return cells.get(index);
 	}
-		
+	
 
 	public int calcIndex(int row, int column){
 		return (numColumns * row) + column;
