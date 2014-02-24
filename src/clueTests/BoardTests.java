@@ -15,13 +15,13 @@ import clueGame.RoomCell;
 
 public class BoardTests {
 	private static Board board;
-	public static final int NUM_ROOMS = 9;
+	public static final int NUM_ROOMS = 11;
 	public static final int NUM_ROWS = 22;
 	public static final int NUM_COLUMNS = 23;
 	
 	@BeforeClass
 	public static void setUp() {
-		board = new Board("ClueLayout.csv", "ClueLegend.txt");
+		board = new Board("configuration.csv", "legend.txt");
 		board.loadConfigFiles();
 	}
 
