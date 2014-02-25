@@ -92,7 +92,8 @@ public class Board {
 						if ((s.charAt(1) != 'U') &&
 								(s.charAt(1) != 'D') &&
 								(s.charAt(1) != 'L') &&
-								(s.charAt(1) != 'R')) {
+								(s.charAt(1) != 'R') &&
+								(s.charAt(1) != 'N')) {
 							input.close();
 							throw new BadConfigFormatException("Config file has an invalid door direction: " + s);
 						}

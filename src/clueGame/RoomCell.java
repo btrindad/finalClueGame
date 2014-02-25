@@ -23,6 +23,9 @@ public class RoomCell extends BoardCell {
 			case('R'):
 				doorDirection = DoorDirection.RIGHT;
 				break;
+			default:
+				doorDirection = DoorDirection.NONE;
+				break;
 			}
 		}
 		else {
