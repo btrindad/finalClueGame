@@ -26,6 +26,9 @@ public class Board {
 		this.legendFile = legendFile;
 	}
 	
+	public Board() {
+	}
+
 	public void loadLegend() throws FileNotFoundException, BadConfigFormatException {
 		rooms = new HashMap<Character,String>();
 		FileReader read = new FileReader(legendFile);
@@ -169,6 +172,20 @@ public class Board {
 	
 	public Map<Character,String> getRooms() {
 		return rooms;
+	}
+
+	public ArrayList<Integer> getAdjList(int index) {
+		return null;
+	}
+
+	public void calcAdjacencies() {
+	}
+
+	public void calcTargets(int row, int column, int move) {		
+	}
+
+	public Set<BoardCell> getTargets() {
+		return null;
 	}
 	
 	
