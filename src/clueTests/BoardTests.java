@@ -100,19 +100,22 @@ public class BoardTests {
 	@Test (expected = BadConfigFormatException.class)
 	public void testBadColumns() throws BadConfigFormatException, FileNotFoundException {
 		Board b = new Board("ClueLayoutBadColumns.csv", "ClueLegend.txt");
-		b.loadConfigFiles();
+		b.loadLegend();
+		b.loadBoard();
 	}
 	
 	@Test (expected = BadConfigFormatException.class)
 	public void testBadRoom() throws BadConfigFormatException, FileNotFoundException {
 		Board b = new Board("ClueLayoutBadRoom.csv", "ClueLegend.txt");
+		b.loadLegend();
+		b.loadBoard();
 		b.loadConfigFiles();
 	}
 	
 	@Test (expected = BadConfigFormatException.class)
 	public void testBadRoomFormat() throws BadConfigFormatException, FileNotFoundException {
 		Board b = new Board("ClueLayout.csv", "ClueLegendBadFormat.txt");
-		b.loadConfigFiles();
+		b.loadLegend();
 	}
 
 }
