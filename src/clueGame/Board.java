@@ -6,9 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+
+import clueGame.RoomCell.DoorDirection;
 
 
 
@@ -16,6 +19,9 @@ public class Board {
 
 	private ArrayList<BoardCell> cells;
 	private Map<Character,String> rooms;
+	private Map<Integer, ArrayList<Integer>> adjMtx;
+	private Set<BoardCell> targets;
+	private boolean[] visited;
 	private int numRows;
 	private int numColumns;
 	private String configFile;
@@ -26,8 +32,6 @@ public class Board {
 		this.legendFile = legendFile;
 	}
 	
-	public Board() {
-	}
 
 	public void loadLegend() throws FileNotFoundException, BadConfigFormatException {
 		rooms = new HashMap<Character,String>();
@@ -175,17 +179,110 @@ public class Board {
 	}
 
 	public ArrayList<Integer> getAdjList(int index) {
-		return null;
+		return adjMtx.get(index);
 	}
 
 	public void calcAdjacencies() {
+		adjMtx = new HashMap<Integer, ArrayList<Integer>>();
+		for (int row = 0; row < numRows; row++) {
+			for (int column = 0; column < numColumns; column++) {
+				int index = calcIndex(row, column);
+				adjMtx.put(index, new ArrayList<Integer>());
+				// First check if doorway
+				if (cells.get(calcIndex(row,column)).isDoorway()) {
+					DoorDirection dir = cells.get(calcIndex(row, column)).getDoorDirection();
+					switch (dir) {
+					case UP:
+						adjMtx.get(index).add(calcIndex(row - 1, column));
+						break;
+					case DOWN:
+						adjMtx.get(index).add(calcIndex(row + 1, column));
+						break;
+					case LEFT:
+						adjMtx.get(index).add(calcIndex(row, column - 1));
+						break;
+					case RIGHT:
+						adjMtx.get(index).add(calcIndex(row, column + 1));
+						break;
+					case NONE:
+						break;
+					}
+				} else {
+					// ABOVE
+					if (row > 0) {
+						if (cells.get(calcIndex(row - 1, column)).isWalkway() ||
+								(cells.get(calcIndex(row - 1,column)).isDoorway() &&
+										(cells.get(calcIndex(row - 1,column)).getDoorDirection() == DoorDirection.DOWN))) {
+							adjMtx.get(index).add(calcIndex(row - 1, column));
+						}
+					}
+					// BELOW
+					if (row < (numRows - 1)) {
+						if (cells.get(calcIndex(row + 1, column)).isWalkway() ||
+								(cells.get(calcIndex(row + 1,column)).isDoorway() &&
+										(cells.get(calcIndex(row + 1,column)).getDoorDirection() == DoorDirection.UP))) {
+							adjMtx.get(index).add(calcIndex(row + 1, column));
+						}
+					}
+					// LEFT
+					if (column > 0) {
+						if (cells.get(calcIndex(row, column - 1)).isWalkway() ||
+								(cells.get(calcIndex(row,column - 1)).isDoorway() &&
+										(cells.get(calcIndex(row,column - 1)).getDoorDirection() == DoorDirection.RIGHT))) {
+							adjMtx.get(index).add(calcIndex(row, column - 1));
+						}
+					}
+					// RIGHT
+					if (column < (numColumns - 1)) {
+						if (cells.get(calcIndex(row, column + 1)).isWalkway() ||
+								(cells.get(calcIndex(row,column + 1)).isDoorway() &&
+										(cells.get(calcIndex(row,column + 1)).getDoorDirection() == DoorDirection.LEFT))) {
+							adjMtx.get(index).add(calcIndex(row, column + 1));
+						}
+					}
+				}
+			}
+		}
 	}
+	
+	public void startTargets(int row, int column, int move) {
+		/*
+		// Setup
+		for (int i = 0; i < visited.length; i++) {
+			visited[i] = false;
+		}
+		if (adjMtx.isEmpty()) {
+			calcAdjacencies();
+		}
+		targets.clear();
+		visited[calcIndex(row, column)] = true;
+		//calcTargets(row, column, move);
+		 */
+	}
+	
 
-	public void calcTargets(int row, int column, int move) {		
-	}
+	/*
+	public void calcTargets(int row, int column, int move) {
+		ArrayList<Integer> adjacentCells = new ArrayList<Integer>();
+		for (Integer cell : getAdjList(move)) {
+			if (!visited[cell]) {
+				adjacentCells.add(cell);
+			}
+		}
+		for (Integer cell : adjacentCells) {
+			visited[cell] = true;
+			if (move == 1) {
+				targets.add(cell);
+			}
+			else {
+				calcTargets(cell, (move - 1));
+			}
+			visited[cell] = false;
+		}
+	}*/
 
 	public Set<BoardCell> getTargets() {
-		return null;
+		return new HashSet<BoardCell>();
 	}
 	
 	

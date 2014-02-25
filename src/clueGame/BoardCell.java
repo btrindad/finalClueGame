@@ -1,5 +1,7 @@
 package clueGame;
 
+import clueGame.RoomCell.DoorDirection;
+
 abstract public class BoardCell {
 
 	private int row;
@@ -30,6 +32,10 @@ abstract public class BoardCell {
 
 	public int getColumn() {
 		return column;
+	}
+
+	public DoorDirection getDoorDirection() {
+		return DoorDirection.NONE;
 	}
 	
 

@@ -34,6 +34,7 @@ public class RoomCell extends BoardCell {
 		roomInitial = type.charAt(0);
 	}
 	
+	@Override
 	public boolean isDoorway() {
 		if (doorDirection == DoorDirection.NONE) {
 			return false;
@@ -42,11 +43,12 @@ public class RoomCell extends BoardCell {
 		}
 	}
 	
-	
+	@Override
 	public boolean isRoom(){
 		return true;
 	}
 	
+	@Override
 	public DoorDirection getDoorDirection() {
 		return doorDirection;
 	}

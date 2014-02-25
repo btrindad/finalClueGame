@@ -6,6 +6,7 @@ public class WalkwayCell extends BoardCell {
 		super(row, column);
 	}
 
+	@Override
 	public boolean isWalkway(){
 		return true;
 	}

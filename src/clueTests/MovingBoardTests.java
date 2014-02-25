@@ -1,28 +1,20 @@
 package clueTests;
 
-import static org.junit.Assert.*;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Set;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import clueGame.BadConfigFormatException;
 import clueGame.Board;
 import clueGame.BoardCell;
-import clueGame.IntBoard;
-import clueGame.RoomCell;
 
 public class MovingBoardTests {
 	private static Board board;
 	@BeforeClass
 	public static void setUp() {
-		board = new Board();
+		board = new Board("ClueLayout.csv", "ClueLegend.txt");
 		board.loadConfigFiles();
 		board.calcAdjacencies();
 
@@ -143,7 +135,7 @@ public class MovingBoardTests {
 	@Test
 	public void testTargetWalkways(){
 		//upper right, one step
-		board.calcTargets(2, 16, 1);
+		board.startTargets(2, 16, 1);
 		Set<BoardCell> targets= board.getTargets();
 		Assert.assertEquals(4, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(2, 17))));
@@ -151,7 +143,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(3, 16))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(1, 16))));
 		//upper left, 2 steps
-		board.calcTargets(2, 7, 2);
+		board.startTargets(2, 7, 2);
 		targets= board.getTargets();
 		Assert.assertEquals(8, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(0, 7))));
@@ -163,7 +155,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(1, 8))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(1, 6))));
 		//middle left, 3 steps
-		board.calcTargets(11, 8, 3);
+		board.startTargets(11, 8, 3);
 		targets= board.getTargets();
 		Assert.assertEquals(12, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(11, 11))));
@@ -179,7 +171,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(9, 7))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(13, 7))));
 		//bottom right, 5 steps
-		board.calcTargets(21, 17, 5);
+		board.startTargets(21, 17, 5);
 		targets= board.getTargets();
 		Assert.assertEquals(9, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(21, 16))));
@@ -192,7 +184,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(17, 18))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 17))));
 		//bottom middle, 2 steps
-		board.calcTargets(16, 13, 2);
+		board.startTargets(16, 13, 2);
 		targets= board.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 15))));
@@ -206,7 +198,7 @@ public class MovingBoardTests {
 	@Test
 	public void testRoomTargets(){
 		//left above room C, 2 steps
-		board.calcTargets(8, 4, 2);
+		board.startTargets(8, 4, 2);
 		Set<BoardCell> targets= board.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(9, 4))));
@@ -216,7 +208,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 3))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 5))));
 		//bottom next to room O, 3 steps
-		board.calcTargets(18, 8, 3);
+		board.startTargets(18, 8, 3);
 		targets= board.getTargets();
 		Assert.assertEquals(12, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(19, 9))));
@@ -232,7 +224,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(18, 7))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(19, 8))));
 		//right between rooms H and D
-		board.calcTargets(15, 20, 2);
+		board.startTargets(15, 20, 2);
 		targets= board.getTargets();
 		Assert.assertEquals(8, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(15, 22))));
@@ -248,7 +240,7 @@ public class MovingBoardTests {
 	@Test
 	public void testLeavingRoom(){
 		//Room O door, left
-		board.calcTargets(19, 9, 4);
+		board.startTargets(19, 9, 4);
 		Set<BoardCell> targets= board.getTargets();
 		Assert.assertEquals(10, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(21, 7))));
@@ -262,7 +254,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(17, 9))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 8))));
 		//room C door, Up
-		board.calcTargets(9, 4, 3);
+		board.startTargets(9, 4, 3);
 		targets= board.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 6))));
@@ -272,7 +264,7 @@ public class MovingBoardTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 5))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 4))));
 		//room H door, left
-		board.calcTargets(8, 20, 1);
+		board.startTargets(8, 20, 1);
 		targets= board.getTargets();
 		Assert.assertEquals(1, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 19))));
