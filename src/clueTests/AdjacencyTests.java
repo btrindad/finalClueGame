@@ -10,7 +10,7 @@ import org.junit.Test;
 import clueGame.Board;
 import clueGame.BoardCell;
 
-public class MovingBoardTests {
+public class AdjacencyTests {
 	private static Board board;
 	@BeforeClass
 	public static void setUp() {
@@ -54,10 +54,9 @@ public class MovingBoardTests {
 		//top edge, no walkways
 		testList = board.getAdjList(board.calcIndex(0, 11));
 		Assert.assertEquals(0, testList.size());
-		//right edge, 1 walkway
+		//right edge, 1 walkway, in a room
 		testList = board.getAdjList(board.calcIndex(17, 22));
-		Assert.assertEquals(1, testList.size());
-		Assert.assertTrue(testList.contains(board.calcIndex(16, 22)));
+		Assert.assertEquals(0, testList.size());
 	}
 	//tests walkways by room cells that aren't doorways
 	@Test
@@ -229,12 +228,12 @@ public class MovingBoardTests {
 		Assert.assertEquals(8, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(15, 22))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 21))));
-		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(15, 20))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 19))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(15, 18))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(14, 19))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(13, 20))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(14, 21))));
+		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(17, 20))));
 	}
 	//tests targets when leaving a room
 	@Test

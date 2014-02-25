@@ -66,9 +66,9 @@ public class Board {
 		FileReader read = new FileReader(configFile);
 		Scanner input = new Scanner(read);
 		String line = new String();
+		Set<Character> validRooms = rooms.keySet();
 		int row = 0;
 		int column;
-		Set<Character> validRooms = rooms.keySet();
 		while (input.hasNextLine()) {
 			line = input.nextLine();
 			if (line.contains(",")) {
@@ -190,56 +190,61 @@ public class Board {
 			for (int column = 0; column < numColumns; column++) {
 				int index = calcIndex(row, column);
 				adjMtx.put(index, new ArrayList<Integer>());
-				// First check if doorway
-				if (cells.get(calcIndex(row,column)).isDoorway()) {
-					DoorDirection dir = cells.get(calcIndex(row, column)).getDoorDirection();
-					switch (dir) {
-					case UP:
-						adjMtx.get(index).add(calcIndex(row - 1, column));
-						break;
-					case DOWN:
-						adjMtx.get(index).add(calcIndex(row + 1, column));
-						break;
-					case LEFT:
-						adjMtx.get(index).add(calcIndex(row, column - 1));
-						break;
-					case RIGHT:
-						adjMtx.get(index).add(calcIndex(row, column + 1));
-						break;
-					case NONE:
-						break;
-					}
-				} else {
-					// ABOVE
-					if (row > 0) {
-						if (cells.get(calcIndex(row - 1, column)).isWalkway() ||
-								(cells.get(calcIndex(row - 1,column)).isDoorway() &&
-										(cells.get(calcIndex(row - 1,column)).getDoorDirection() == DoorDirection.DOWN))) {
+				// Check if it is a room without a door, if it is, can't have any adjacencies
+				// Check if doorway
+				if (!cells.get(calcIndex(row,column)).isRoom() ||
+					(cells.get(calcIndex(row,column)).isRoom() &&
+					cells.get(calcIndex(row,column)).isDoorway())) {
+					if (cells.get(calcIndex(row,column)).isDoorway()) {
+						DoorDirection dir = cells.get(calcIndex(row, column)).getDoorDirection();
+						switch (dir) {
+						case UP:
 							adjMtx.get(index).add(calcIndex(row - 1, column));
-						}
-					}
-					// BELOW
-					if (row < (numRows - 1)) {
-						if (cells.get(calcIndex(row + 1, column)).isWalkway() ||
-								(cells.get(calcIndex(row + 1,column)).isDoorway() &&
-										(cells.get(calcIndex(row + 1,column)).getDoorDirection() == DoorDirection.UP))) {
+							break;
+						case DOWN:
 							adjMtx.get(index).add(calcIndex(row + 1, column));
-						}
-					}
-					// LEFT
-					if (column > 0) {
-						if (cells.get(calcIndex(row, column - 1)).isWalkway() ||
-								(cells.get(calcIndex(row,column - 1)).isDoorway() &&
-										(cells.get(calcIndex(row,column - 1)).getDoorDirection() == DoorDirection.RIGHT))) {
+							break;
+						case LEFT:
 							adjMtx.get(index).add(calcIndex(row, column - 1));
-						}
-					}
-					// RIGHT
-					if (column < (numColumns - 1)) {
-						if (cells.get(calcIndex(row, column + 1)).isWalkway() ||
-								(cells.get(calcIndex(row,column + 1)).isDoorway() &&
-										(cells.get(calcIndex(row,column + 1)).getDoorDirection() == DoorDirection.LEFT))) {
+							break;
+						case RIGHT:
 							adjMtx.get(index).add(calcIndex(row, column + 1));
+							break;
+						case NONE:
+							break;
+						}
+					} else {
+						// ABOVE
+						if (row > 0) {
+							if (cells.get(calcIndex(row - 1, column)).isWalkway() ||
+									(cells.get(calcIndex(row - 1,column)).isDoorway() &&
+											(cells.get(calcIndex(row - 1,column)).getDoorDirection() == DoorDirection.DOWN))) {
+								adjMtx.get(index).add(calcIndex(row - 1, column));
+							}
+						}
+						// BELOW
+						if (row < (numRows - 1)) {
+							if (cells.get(calcIndex(row + 1, column)).isWalkway() ||
+									(cells.get(calcIndex(row + 1,column)).isDoorway() &&
+											(cells.get(calcIndex(row + 1,column)).getDoorDirection() == DoorDirection.UP))) {
+								adjMtx.get(index).add(calcIndex(row + 1, column));
+							}
+						}
+						// LEFT
+						if (column > 0) {
+							if (cells.get(calcIndex(row, column - 1)).isWalkway() ||
+									(cells.get(calcIndex(row,column - 1)).isDoorway() &&
+											(cells.get(calcIndex(row,column - 1)).getDoorDirection() == DoorDirection.RIGHT))) {
+								adjMtx.get(index).add(calcIndex(row, column - 1));
+							}
+						}
+						// RIGHT
+						if (column < (numColumns - 1)) {
+							if (cells.get(calcIndex(row, column + 1)).isWalkway() ||
+									(cells.get(calcIndex(row,column + 1)).isDoorway() &&
+											(cells.get(calcIndex(row,column + 1)).getDoorDirection() == DoorDirection.LEFT))) {
+								adjMtx.get(index).add(calcIndex(row, column + 1));
+							}
 						}
 					}
 				}
@@ -271,6 +276,8 @@ public class Board {
 		for (Integer cell : adjacentCells) {
 			visited[cell] = true;
 			if (move == 1) {
+				targets.add(cells.get(cell));
+			} else if (cells.get(cell).isDoorway()) {
 				targets.add(cells.get(cell));
 			}
 			else {
