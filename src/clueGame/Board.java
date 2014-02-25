@@ -30,6 +30,7 @@ public class Board {
 	public Board(String configFile, String legendFile) {
 		this.configFile = configFile;
 		this.legendFile = legendFile;
+		targets = new HashSet<BoardCell>();
 	}
 	
 
@@ -133,6 +134,7 @@ public class Board {
 			numRows = row;
 		}
 		input.close();
+		visited = new boolean[numRows * numColumns];
 	}
 	
 	public void loadConfigFiles() {
@@ -246,7 +248,6 @@ public class Board {
 	}
 	
 	public void startTargets(int row, int column, int move) {
-		/*
 		// Setup
 		for (int i = 0; i < visited.length; i++) {
 			visited[i] = false;
@@ -256,15 +257,13 @@ public class Board {
 		}
 		targets.clear();
 		visited[calcIndex(row, column)] = true;
-		//calcTargets(row, column, move);
-		 */
+		calcTargets(calcIndex(row,column), move);
 	}
 	
 
-	/*
-	public void calcTargets(int row, int column, int move) {
+	public void calcTargets(int index, int move) {
 		ArrayList<Integer> adjacentCells = new ArrayList<Integer>();
-		for (Integer cell : getAdjList(move)) {
+		for (Integer cell : getAdjList(index)) {
 			if (!visited[cell]) {
 				adjacentCells.add(cell);
 			}
@@ -272,17 +271,17 @@ public class Board {
 		for (Integer cell : adjacentCells) {
 			visited[cell] = true;
 			if (move == 1) {
-				targets.add(cell);
+				targets.add(cells.get(cell));
 			}
 			else {
 				calcTargets(cell, (move - 1));
 			}
 			visited[cell] = false;
 		}
-	}*/
+	}
 
 	public Set<BoardCell> getTargets() {
-		return new HashSet<BoardCell>();
+		return targets;
 	}
 	
 	

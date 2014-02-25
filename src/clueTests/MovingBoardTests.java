@@ -256,13 +256,12 @@ public class MovingBoardTests {
 		//room C door, Up
 		board.startTargets(9, 4, 3);
 		targets= board.getTargets();
-		Assert.assertEquals(6, targets.size());
+		Assert.assertEquals(5, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 6))));
-		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 4))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 2))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 3))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 5))));
-		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 4))));
+		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(6, 4))));
 		//room H door, left
 		board.startTargets(8, 20, 1);
 		targets= board.getTargets();
