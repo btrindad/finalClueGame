@@ -6,6 +6,15 @@ package clueTests;
 
 import org.junit.*;
 
-public class CardTests {
+import clueGame.ClueGame;
+import static org.junit.Assert.*;
 
+public class CardTests {
+	private ClueGame game;
+	
+	@BeforeClass
+	public void setUp(){
+		game = new ClueGame();
+		game.loadConfigFiles();
+	}
 }

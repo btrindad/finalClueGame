@@ -4,8 +4,25 @@
  **/
 package clueTests;
 
+import static org.junit.Assert.*;
+
 import org.junit.*;
 
+import clueGame.ClueGame;
+
 public class MechanicsTests {
+	ClueGame testGame;
+	
+	@BeforeClass
+	public void setUp(){
+		testGame =  new ClueGame();
+		testGame.loadConfigFiles();
+	}
+	
+	@Test
+	public void testHasDeck(){
+		assertFalse(testGame.deck.isEmpty());
+	}
+	
 
 }

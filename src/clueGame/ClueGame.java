@@ -1,5 +1,7 @@
 package clueGame;
 
-public class ClueGame {
+import java.util.HashSet;
 
+public class ClueGame {
+public HashSet<Card> deck;
 }
