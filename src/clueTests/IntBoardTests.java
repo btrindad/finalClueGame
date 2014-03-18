@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import clueGame.IntBoard;
+import clueBoard.IntBoard;
 
 public class IntBoardTests {
 	

@@ -1,4 +1,4 @@
-package clueGame;
+package clueBoard;
 
 public class WalkwayCell extends BoardCell {
 	

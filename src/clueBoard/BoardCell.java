@@ -1,6 +1,6 @@
-package clueGame;
+package clueBoard;
 
-import clueGame.RoomCell.DoorDirection;
+import clueBoard.RoomCell.DoorDirection;
 
 abstract public class BoardCell {
 

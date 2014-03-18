@@ -12,10 +12,10 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import clueGame.BadConfigFormatException;
-import clueGame.Board;
-import clueGame.BoardCell;
-import clueGame.RoomCell;
+import clueBoard.BadConfigFormatException;
+import clueBoard.Board;
+import clueBoard.BoardCell;
+import clueBoard.RoomCell;
 
 public class BoardTests_rader {
 	// I made this static because I only want to set it up one 

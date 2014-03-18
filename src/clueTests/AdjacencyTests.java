@@ -7,8 +7,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import clueGame.Board;
-import clueGame.BoardCell;
+import clueBoard.Board;
+import clueBoard.BoardCell;
 
 public class AdjacencyTests {
 	private static Board board;
