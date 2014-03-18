@@ -19,10 +19,5 @@ public class MechanicsTests {
 		testGame.loadConfigFiles();
 	}
 	
-	@Test
-	public void testHasDeck(){
-		assertFalse(testGame.deck.isEmpty());
-	}
-	
 
 }

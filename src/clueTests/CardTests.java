@@ -10,11 +10,17 @@ import clueGame.ClueGame;
 import static org.junit.Assert.*;
 
 public class CardTests {
-	private ClueGame game;
+	private ClueGame testGame;
 	
 	@BeforeClass
 	public void setUp(){
-		game = new ClueGame();
-		game.loadConfigFiles();
+		testGame = new ClueGame();
+		testGame.loadConfigFiles();
 	}
+
+	@Test
+	public void testHasDeck(){
+		assertFalse(testGame.deck.isEmpty());
+	}
+	
 }
