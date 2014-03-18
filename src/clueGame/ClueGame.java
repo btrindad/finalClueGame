@@ -1,13 +1,14 @@
 package clueGame;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import clueBoard.Board;
 
 public class ClueGame {
 	private Solution theSolution;
 	private Board theBoard; //new Board("ClueLayout.csv", "ClueLegend.txt");
-	public HashSet<Card> deck;
+	private Set<Card> deck;
 	
 	public void deal() {
 		
@@ -29,4 +30,8 @@ public class ClueGame {
 		return false; // Returns false for testing purposes, change later
 		
 	}
+	
+	/*-----------Getters and Setters for Testing Purposes ONLY ------*/
+	
+	public Set<Card> getDeck(){ return deck; }
 }

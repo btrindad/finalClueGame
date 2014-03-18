@@ -6,11 +6,15 @@ package clueTests;
 
 import org.junit.*;
 
-import clueGame.ClueGame;
+import clueGame.*;
 import static org.junit.Assert.*;
 
 public class CardTests {
 	private ClueGame testGame;
+	private final int TOTAL_CARDS = 21;
+	private final int ROOM_CARDS = 9;
+	private final int WEAPON_CARDS = 6;
+	private final int PLAYER_CARDS = 6;
 	
 	@BeforeClass
 	public void setUp(){
@@ -19,8 +23,95 @@ public class CardTests {
 	}
 
 	@Test
-	public void testHasDeck(){
-		assertFalse(testGame.deck.isEmpty());
+	public void testDeck(){
+		assertFalse(testGame.getDeck().isEmpty());
+		assertEquals(testGame.getDeck().size(), TOTAL_CARDS);
+		assertEquals(countCards(CardType.ROOM), ROOM_CARDS);
+		assertEquals(countCards(CardType.PERSON), PLAYER_CARDS);
+		assertEquals(countCards(CardType.WEAPON), WEAPON_CARDS);
+	}
+	
+	@Test
+	public void testRoomCards(){
+		Card testCard = new Card("library", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("conservatory", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("kitchen", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("ballroom", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("billiard room", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("study", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("dining room", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("lounge", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("hall", "Room");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+	}
+	
+	@Test
+	public void testPlayerCards(){
+		Card testCard = new Card("miss scarlett", "Person");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("colonel mustard", "Person");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("mrs. white", "Person");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("reverend green", "Person");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("mrs. peacock", "Person");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("professor plum", "Person");
+		assertTrue(testGame.getDeck().contains(testCard));
+	}
+	
+	@Test
+	public void testWeaponCards(){
+		Card testCard = new Card("candlestick", "Weapon");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("dagger", "Weapon");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("lead pipe", "Weapon");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("Revolver", "Weapon");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("Rope", "Weapon");
+		assertTrue(testGame.getDeck().contains(testCard));
+		
+		testCard = new Card("wrench", "Weapon");
+		assertTrue(testGame.getDeck().contains(testCard));
+	}
+	
+	private int countCards(CardType type){
+		int counter = 0;
+		for(Card c : testGame.getDeck()){
+			if(c.cardType == type){
+				counter++;
+			}
+		}
+		return counter;
 	}
 	
 }
