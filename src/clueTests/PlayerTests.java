@@ -53,7 +53,7 @@ public class PlayerTests {
 	public void testLoadingPlayerInMiddle() {
 		Assert.assertEquals("Mrs. White", testGame.getPlayer(2).getName());
 		Assert.assertEquals("White", testGame.getPlayer(2).getColor());
-		Assert.assertEquals(299, testGame.getPlayer(2).getStartingLocation());
+		Assert.assertEquals(499, testGame.getPlayer(2).getStartingLocation());
 	}
 	
 	@Test
