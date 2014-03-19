@@ -9,8 +9,8 @@ import clueBoard.Board;
 public class ClueGame {
 	private Solution theSolution;
 	private Board theBoard; //new Board("ClueLayout.csv", "ClueLegend.txt");
-	public HashSet<Card> deck;
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private ArrayList<Player> players;// = new ArrayList<Player>();
+	private Set<Card> deck;
 	
 	public void deal() {
 		
@@ -33,6 +33,7 @@ public class ClueGame {
 		
 	}
 	
+
 	public Player getPlayer (int n) {
 		return players.get(n);
 	}
@@ -40,4 +41,11 @@ public class ClueGame {
 	public int getNumPlayers() {
 		return players.size();
 	}
+
+	/*-----------Getters and Setters for Testing Purposes ONLY ------*/
+	
+	public Set<Card> getDeck(){
+		return deck;
+	}
+
 }

@@ -10,8 +10,8 @@ public class Player {
 	private Set<Card> myCards = new HashSet<Card>();
 	
 	public Card disproveSuggestion(String person, String room, String weapon) {
-		// Create dummy card to remove error messages until function is implemented
-		Card nullCard = new Card();
+		// Create bogus card to remove error messages until function is implemented
+		Card nullCard = new Card("DR. ORANGE", "PERSON");
 		return nullCard;
 	}
 	

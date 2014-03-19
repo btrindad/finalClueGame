@@ -19,5 +19,10 @@ public class MechanicsTests {
 		testGame.loadConfigFiles();
 	}
 	
+	@Test
+	public void testDeal(){
+		
+	}
+	
 
 }
