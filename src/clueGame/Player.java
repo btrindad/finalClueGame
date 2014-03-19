@@ -9,7 +9,7 @@ public class Player {
 	private int startingLocation;
 	private Set<Card> myCards = new HashSet<Card>();
 	
-	public Card disproveSuggestion(String person, String room, String weapon) {
+	public Card disproveSuggestion(Card person, Card room, Card weapon) {
 		// Create bogus card to remove error messages until function is implemented
 		Card nullCard = new Card("DR. ORANGE", "PERSON");
 		return nullCard;
@@ -25,6 +25,10 @@ public class Player {
 	
 	public int getStartingLocation() {
 		return startingLocation;
+	}
+	
+	public void addCard(Card c) {
+		myCards.add(c);
 	}
 	
 }

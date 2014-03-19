@@ -21,4 +21,9 @@ public class Card {
 			break;
 		}
 	}
+	
+	public Card(String name, CardType type) {
+		this.name = name;
+		cardType = type;
+	}
 }
