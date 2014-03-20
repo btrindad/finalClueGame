@@ -13,7 +13,11 @@ public class ClueGame {
 	private Set<Card> deck;
 	
 	public void deal() {
-				
+		selectAnswer();
+		
+		while(!deck.isEmpty()){
+			
+		}
 	}
 	
 	public void loadConfigFiles() {
