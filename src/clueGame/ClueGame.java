@@ -13,7 +13,7 @@ public class ClueGame {
 	private Set<Card> deck;
 	
 	public void deal() {
-		
+				
 	}
 	
 	public void loadConfigFiles() {

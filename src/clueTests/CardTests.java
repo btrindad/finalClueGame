@@ -22,6 +22,10 @@ public class CardTests {
 		testGame.loadConfigFiles();
 	}
 
+	/*
+	 * Test that upon loading the cards are added to the deck. Check for the correct
+	 * number of cards, and the right number of each type of card
+	 */
 	@Test
 	public void testDeck(){
 		assertFalse(testGame.getDeck().isEmpty());
@@ -31,6 +35,9 @@ public class CardTests {
 		assertEquals(countCards(CardType.WEAPON), WEAPON_CARDS);
 	}
 	
+	/*
+	 * test that deck contains all the rooms
+	 */
 	@Test
 	public void testRoomCards(){
 		Card testCard = new Card("library", "Room");
