@@ -50,5 +50,14 @@ public class MechanicsTests {
 		assertEquals(newDeck.size(), NUM_CARDS_IN_PLAY);
 	}
 	
+	@Test
+	public void testSelectAnswers(){
+		testGame.selectAnswer();
+		assertEquals(testGame.getDeck().size(), NUM_CARDS_IN_PLAY);
+		assertEquals(CardTests.countCards(CardType.PERSON), CardTests.PLAYER_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.WEAPON), CardTests.WEAPON_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.ROOM), CardTests.ROOM_CARDS-1);
+				
+	}
 
 }

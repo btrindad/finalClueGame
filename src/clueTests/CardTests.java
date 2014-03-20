@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
 public class CardTests {
 	private static ClueGame testGame;
 	static final int TOTAL_CARDS = 21;
-	final int ROOM_CARDS = 9;
-	final int WEAPON_CARDS = 6;
-	final int PLAYER_CARDS = 6;
+	static final int ROOM_CARDS = 9;
+	static final int WEAPON_CARDS = 6;
+	static final int PLAYER_CARDS = 6;
 	
 	@BeforeClass
 	public static void setUp(){
@@ -117,7 +117,7 @@ public class CardTests {
 		assertTrue(testGame.getDeck().contains(testCard));
 	}
 	
-	int countCards(CardType type){
+	static int countCards(CardType type){
 		int counter = 0;
 		for(Card c : testGame.getDeck()){
 			if(c.cardType == type){
