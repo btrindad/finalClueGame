@@ -35,7 +35,7 @@ public class ClueGame {
 					String s = inScanner.nextLine();
 					String[] queue = s.split(",");
 					Card c = new Card(queue[0], queue[1]);
-					System.out.println("DECK: " + deck);
+					System.out.println(c.name + "<--------");
 					deck.add(c);
 					System.out.println("java sucks");
 				}

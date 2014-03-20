@@ -86,9 +86,10 @@ public class CardTests {
 	@Test
 	public void testWeaponCards(){
 		Card testCard = new Card("candlestick", "Weapon");
+		assertTrue(testCard.equals(new Card("candlestick", "weapon")));
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("dagger", "Weapon");
+		testCard = new Card("knife", "Weapon");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
 		testCard = new Card("lead pipe", "Weapon");
