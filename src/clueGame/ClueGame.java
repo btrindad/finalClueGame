@@ -127,9 +127,13 @@ public class ClueGame {
 
 	}
 
-	public boolean checkAccusation(Solution solution) {
-		return false; // Returns false for testing purposes, change later
-
+	public boolean checkAccusation(Solution sol) {
+		if (sol.equals(theSolution)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public Player getPlayer(int n) {
