@@ -158,6 +158,9 @@ public class ClueGame {
 	public void setSolution(Solution s) {
 		theSolution = s;
 	}
-
+	
+	public Solution getSolution() {
+		return theSolution;
+	}
 
 }

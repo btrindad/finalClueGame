@@ -50,44 +50,55 @@ public class MechanicsTests {
 		assertEquals(newDeck.size(), NUM_CARDS_IN_PLAY);
 	}
 	
+	
 	@Test
 	public void testCheckAccusationAllCorrect() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
 		Solution accusation = new Solution("Mr. White", "Candlestick", "Library");
+		Solution temp = testGame.getSolution();
 		testGame.setSolution(s);
 		assertTrue(testGame.checkAccusation(accusation));
+		testGame.setSolution(temp);
 	}
 	
 	@Test
 	public void testCheckAccusationWrongRoom() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
 		Solution accusation = new Solution("Mr. White", "Candlestick", "Hall");
+		Solution temp = testGame.getSolution();
 		testGame.setSolution(s);
 		assertFalse(testGame.checkAccusation(accusation));
+		testGame.setSolution(temp);
 	}
 	
 	@Test
 	public void testCheckAccusationWrongPerson() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
 		Solution accusation = new Solution("Mrs. Peacock", "Candlestick", "Library");
+		Solution temp = testGame.getSolution();
 		testGame.setSolution(s);
 		assertFalse(testGame.checkAccusation(accusation));
+		testGame.setSolution(temp);
 	}
 	
 	@Test
 	public void testCheckAccusationWrongWeapon() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
 		Solution accusation = new Solution("Mr. White", "Knife", "Library");
+		Solution temp = testGame.getSolution();
 		testGame.setSolution(s);
 		assertFalse(testGame.checkAccusation(accusation));
+		testGame.setSolution(temp);
 	}
 	
 	@Test
 	public void testCheckAccusationAllWrong() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
 		Solution accusation = new Solution("Mrs. Peacock", "Knife", "Hall");
+		Solution temp = testGame.getSolution();
 		testGame.setSolution(s);
 		assertFalse(testGame.checkAccusation(accusation));
+		testGame.setSolution(temp);
 	}
 	
 	/*
