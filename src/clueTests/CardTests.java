@@ -10,14 +10,14 @@ import clueGame.*;
 import static org.junit.Assert.*;
 
 public class CardTests {
-	private ClueGame testGame;
+	private static ClueGame testGame;
 	static final int TOTAL_CARDS = 21;
 	final int ROOM_CARDS = 9;
 	final int WEAPON_CARDS = 6;
 	final int PLAYER_CARDS = 6;
 	
 	@BeforeClass
-	public void setUp(){
+	public static void setUp(){
 		testGame = new ClueGame();
 		testGame.loadConfigFiles();
 	}
@@ -33,31 +33,31 @@ public class CardTests {
 	
 	@Test
 	public void testRoomCards(){
-		Card testCard = new Card("library", "Room");
+		Card testCard = new Card("Library", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("conservatory", "Room");
+		testCard = new Card("Conservatory", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("kitchen", "Room");
+		testCard = new Card("Kitchen", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("ballroom", "Room");
+		testCard = new Card("Ballroom", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("billiard room", "Room");
+		testCard = new Card("Billiard Room", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("study", "Room");
+		testCard = new Card("Study", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("dining room", "Room");
+		testCard = new Card("Dining Room", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("lounge", "Room");
+		testCard = new Card("Lounge", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("hall", "Room");
+		testCard = new Card("Hall", "ROOM");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
 	}

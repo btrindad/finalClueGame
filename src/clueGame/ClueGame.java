@@ -15,13 +15,11 @@ public class ClueGame {
 	private ArrayList<Player> players;
 	private Set<Card> deck;
 	
-	public void ClueGame() {
-		System.out.println("Constructor initiated.");
+	public ClueGame() {
 		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
 		theBoard.loadConfigFiles();
 		players = new ArrayList<Player>();
 		deck = new HashSet<Card>();
-		System.out.println("Constructor completed.");
 	}
 	
 	public void deal() {
@@ -58,14 +56,18 @@ public class ClueGame {
 			try {
 				boolean firstLoaded = true;
 				while (inScanner.hasNextLine()) {
+					System.out.println("Stupid project");
 					String s = inScanner.nextLine();
 					String[] queue = s.split(",");
+					System.out.println("Stupid setup");
 					if (firstLoaded) {
+						System.out.println("B");
 						HumanPlayer h = new HumanPlayer(queue[0], queue[1], Integer.parseInt(queue[2]));
 						players.add(h);
 						firstLoaded = false;
 					}
 					else {
+						System.out.println("T");
 						ComputerPlayer c = new ComputerPlayer(queue[0], queue[1], Integer.parseInt(queue[2]));
 						players.add(c);						
 					}
@@ -84,7 +86,7 @@ public class ClueGame {
 		loadDeck();
 		System.out.println("Hi");
 		loadPlayers();
-		
+		System.out.println("Ouch");
 	}
 	
 	public void selectAnswer() {

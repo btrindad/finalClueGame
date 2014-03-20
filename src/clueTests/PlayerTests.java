@@ -27,8 +27,11 @@ public class PlayerTests {
 	
 	@BeforeClass
 	public static void setUp() {
+		System.out.println("YOLO");
 		testGame = new ClueGame();
+		System.out.println("BAHAHAHA");
 		testGame.loadConfigFiles();
+		System.out.println("UNLIMITED POWER!!!");
 		mustardCard = new Card("Colonel Mustard", CardType.PERSON);
 		knifeCard = new Card("Knife", CardType.WEAPON);
 		plumCard = new Card("Professor Plum", CardType.PERSON);

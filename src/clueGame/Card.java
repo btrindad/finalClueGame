@@ -32,6 +32,11 @@ public class Card {
 		cardType = null;
 	}
 	
+	//@Override
+	//public int hashCode() {
+		
+	//}
+	
 	public boolean equals(Card t) {
 		if (name.equals(t.name) && cardType == t.cardType) {
 			return true;
@@ -41,4 +46,5 @@ public class Card {
 		}
 		
 	}
+
 }
