@@ -23,7 +23,11 @@ public class ClueGame {
 	}
 	
 	public void deal() {
+		selectAnswer();
 		
+		while(!deck.isEmpty()){
+			
+		}
 	}
 	
 	public void loadDeck() {
