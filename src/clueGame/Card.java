@@ -7,7 +7,7 @@ public class Card {
 
 	public Card(String name, String type) {
 		this.name = name.toUpperCase();
-		type.toUpperCase();
+		type = type.toUpperCase();
 
 		switch (type) {
 		case "ROOM":
@@ -23,7 +23,7 @@ public class Card {
 	}
 	
 	public Card(String name, CardType type) {
-		this.name = name;
+		this.name = name.toUpperCase();
 		cardType = type;
 	}
 
@@ -32,10 +32,6 @@ public class Card {
 		cardType = null;
 	}
 	
-	//@Override
-	//public int hashCode() {
-		
-	//}
 	
 	@Override
 	public int hashCode() {

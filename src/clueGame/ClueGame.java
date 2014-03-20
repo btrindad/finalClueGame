@@ -23,7 +23,19 @@ public class ClueGame {
 	}
 	
 	public void deal() {
+		selectAnswer();
 		
+		int counter = 0;
+		Player currentPlayer;
+		while(!deck.isEmpty()){
+			Card topCard = (Card) deck.toArray()[0];
+			System.out.println(topCard.name + "<------");
+			currentPlayer = players.get(counter%players.size());
+			System.out.println(currentPlayer.getName() + " <-----");
+			currentPlayer.addCard(topCard);
+			deck.remove(topCard);
+			counter++;
+		}
 	}
 	
 	public void loadDeck() {
@@ -35,7 +47,6 @@ public class ClueGame {
 					String s = inScanner.nextLine();
 					String[] queue = s.split(",");
 					Card c = new Card(queue[0], queue[1]);
-					System.out.println("DECK: " + deck);
 					deck.add(c);
 					System.out.println("java sucks");
 				}

@@ -13,6 +13,7 @@ public class Player {
 		name = n;
 		color = c;
 		startingLocation = sL;
+		myCards = new HashSet<Card>();
 	}
 	
 	public Card disproveSuggestion(Card person, Card room, Card weapon) {
