@@ -23,6 +23,10 @@ public class MechanicsTests {
 		testGame.loadConfigFiles();
 	}
 	
+	/*
+	 * test that the deck is dealt out and that each player gets the same number of
+	 * cards
+	 */
 	@Test
 	public void testDeal(){
 		testGame.deal();
@@ -32,6 +36,9 @@ public class MechanicsTests {
 		assertTrue(testGame.getDeck().isEmpty());
 	}
 	
+	/*
+	 * test that players are not dealt any duplicates
+	 */
 	@Test
 	public void testDeckDuplicates(){
 		Set<Card> newDeck = new HashSet<Card>();

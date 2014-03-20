@@ -69,6 +69,9 @@ public class CardTests {
 		
 	}
 	
+	/*
+	 * test that the deck had all the player cards
+	 */
 	@Test
 	public void testPlayerCards(){
 		Card testCard = new Card("miss scarlett", "Person");
@@ -90,6 +93,9 @@ public class CardTests {
 		assertTrue(testGame.getDeck().contains(testCard));
 	}
 	
+	/*
+	 * test that the deck has all the weapon cards
+	 */
 	@Test
 	public void testWeaponCards(){
 		Card testCard = new Card("candlestick", "Weapon");
