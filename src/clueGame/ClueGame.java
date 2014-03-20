@@ -31,9 +31,7 @@ public class ClueGame {
 		Player currentPlayer;
 		while (!deck.isEmpty()) {
 			Card topCard = (Card) deck.toArray()[0];
-			System.out.println(topCard.name + "<------");
 			currentPlayer = players.get(counter % players.size());
-			System.out.println(currentPlayer.getName() + " <-----");
 			currentPlayer.addCard(topCard);
 			deck.remove(topCard);
 			counter++;
@@ -55,7 +53,6 @@ public class ClueGame {
 				inScanner.close();
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("ClueDeck.txt not found");
 			e.printStackTrace();
 		}
 	}
@@ -98,20 +95,16 @@ public class ClueGame {
 		for (Card c : deck) {
 			if (theSolution.person == null && c.cardType == CardType.PERSON) {
 				theSolution.person = c.name;
-				System.out.println("Solution person set");
 				toRemove.add(c);
 			} else if (theSolution.room == null && c.cardType == CardType.ROOM) {
 				theSolution.room = c.name;
-				System.out.println("Solution room set");
 				toRemove.add(c);
 			} else if (theSolution.weapon == null && c.cardType == CardType.WEAPON) {
 				theSolution.weapon = c.name;
-				System.out.println("Solution weapon set");
 				toRemove.add(c);
 			}
 		}
 		deck.removeAll(toRemove);
-		System.out.println("deck size is: " + deck.size() + " <------");
 	}
 
 	public void handleSuggestion(String person, String room, String weapon,
