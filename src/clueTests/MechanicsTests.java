@@ -21,6 +21,7 @@ public class MechanicsTests {
 	
 	@Test
 	public void testDeal(){
+		testGame.deal();
 		
 	}
 	

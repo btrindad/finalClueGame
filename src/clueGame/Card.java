@@ -21,4 +21,9 @@ public class Card {
 			break;
 		}
 	}
+
+	public Card() {
+		name = null;
+		cardType = null;
+	}
 }
