@@ -16,6 +16,7 @@ import clueGame.*;
 public class MechanicsTests {
 	private static ClueGame testGame;
 	private final int SIZE_OF_HAND = 3;
+	private final int NUM_CARDS_IN_PLAY = 18;
 	
 	@BeforeClass
 	public static void setUp(){
@@ -41,11 +42,12 @@ public class MechanicsTests {
 	 */
 	@Test
 	public void testDeckDuplicates(){
+		testGame.deal();
 		Set<Card> newDeck = new HashSet<Card>();
 		for(Player p : testGame.getPlayers()){
 			newDeck.addAll(p.getCards());
 		}
-		assertEquals(newDeck.size(), CardTests.TOTAL_CARDS);
+		assertEquals(newDeck.size(), NUM_CARDS_IN_PLAY);
 	}
 	
 

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -20,6 +21,7 @@ public class ClueGame {
 		theBoard.loadConfigFiles();
 		players = new ArrayList<Player>();
 		deck = new HashSet<Card>();
+		theSolution = new Solution();
 	}
 	
 	public void deal() {
@@ -100,8 +102,29 @@ public class ClueGame {
 		System.out.println("Ouch");
 	}
 	
-	public void selectAnswer() {
-		
+	public void selectAnswer() {		
+		try{
+			for(Card c : deck){
+				if(theSolution.person == null && c.cardType == CardType.PERSON){
+					theSolution.person = c.name;
+					System.out.println("Solution person set");
+					deck.remove(c);
+				}
+				else if(theSolution.room == null && c.cardType == CardType.ROOM){
+					theSolution.room = c.name;
+					System.out.println("Solution room set");
+					deck.remove(c);
+				}
+				else if(theSolution.weapon == null && c.cardType == CardType.WEAPON){
+					theSolution.weapon = c.name;
+					System.out.println("Solution weapon set");
+					deck.remove(c);
+				}
+			}
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		System.out.println("deck size is: " + deck.size() + " <------");
 	}
 	
 	public void handleSuggestion (String person, String room, String weapon, Player accusingPerson) {
