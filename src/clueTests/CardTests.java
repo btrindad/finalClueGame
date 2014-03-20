@@ -64,44 +64,43 @@ public class CardTests {
 	
 	@Test
 	public void testPlayerCards(){
-		Card testCard = new Card("miss scarlett", "Person");
+		Card testCard = new Card("Miss Scarlett", "PERSON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("colonel mustard", "Person");
+		testCard = new Card("Colonel Mustard", "PERSON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("mrs. white", "Person");
+		testCard = new Card("Mrs. White", "PERSON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("reverend green", "Person");
+		testCard = new Card("Mr. Green", "PERSON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("mrs. peacock", "Person");
+		testCard = new Card("Mrs. Peacock", "PERSON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("professor plum", "Person");
+		testCard = new Card("Professor Plum", "PERSON");
 		assertTrue(testGame.getDeck().contains(testCard));
 	}
 	
 	@Test
 	public void testWeaponCards(){
-		Card testCard = new Card("candlestick", "Weapon");
-		assertTrue(testCard.equals(new Card("candlestick", "weapon")));
+		Card testCard = new Card("Candlestick", "WEAPON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("knife", "Weapon");
+		testCard = new Card("Knife", "WEAPON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("lead pipe", "Weapon");
+		testCard = new Card("Lead Pipe", "WEAPON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("Revolver", "Weapon");
+		testCard = new Card("Revolver", "WEAPON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("Rope", "Weapon");
+		testCard = new Card("Rope", "WEAPON");
 		assertTrue(testGame.getDeck().contains(testCard));
 		
-		testCard = new Card("wrench", "Weapon");
+		testCard = new Card("Wrench", "WEAPON");
 		assertTrue(testGame.getDeck().contains(testCard));
 	}
 	

@@ -7,7 +7,7 @@ public class Card {
 
 	public Card(String name, String type) {
 		this.name = name.toUpperCase();
-		type.toUpperCase();
+		type = type.toUpperCase();
 
 		switch (type) {
 		case "ROOM":
@@ -60,6 +60,11 @@ public class Card {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 
 }
