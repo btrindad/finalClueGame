@@ -9,6 +9,7 @@ public class ClueGame {
 	private Solution theSolution;
 	private Board theBoard; //new Board("ClueLayout.csv", "ClueLegend.txt");
 	private Set<Card> deck;
+	private Set<Player> players;
 	
 	public void deal() {
 		
@@ -34,4 +35,5 @@ public class ClueGame {
 	/*-----------Getters and Setters for Testing Purposes ONLY ------*/
 	
 	public Set<Card> getDeck(){ return deck; }
+	public Set<Player> getPlayers(){ return players; }
 }
