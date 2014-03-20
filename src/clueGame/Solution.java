@@ -46,7 +46,9 @@ public class Solution {
 			return false;
 		return true;
 	}
-	
 
-	
+	public Solution() {
+		person = weapon = room = null;
+	}
+
 }
