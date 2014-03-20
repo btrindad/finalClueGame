@@ -41,5 +41,30 @@ public class MechanicsTests {
 		assertEquals(newDeck.size(), CardTests.TOTAL_CARDS);
 	}
 	
+	@Test
+	public void testCheckAccusationAllCorrect() {
+
+	}
+	
+	@Test
+	public void testCheckAccusationWrongRoom() {
+		
+	}
+	
+	@Test
+	public void testCheckAccusationWrongPerson() {
+		
+	}
+	
+	@Test
+	public void testCheckAccusationWrongWeapon() {
+		
+	}
+	
+	@Test
+	public void testCheckAccusationAllWrong() {
+		
+	}
+	
 
 }
