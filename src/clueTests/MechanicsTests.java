@@ -50,27 +50,42 @@ public class MechanicsTests {
 	
 	@Test
 	public void testCheckAccusationAllCorrect() {
-
+		Solution s = new Solution("Mr. White", "Candlestick", "Library");
+		Solution accusation = new Solution("Mr. White", "Candlestick", "Library");
+		testGame.setSolution(s);
+		assertTrue(testGame.checkAccusation(accusation));
 	}
 	
 	@Test
 	public void testCheckAccusationWrongRoom() {
-		
+		Solution s = new Solution("Mr. White", "Candlestick", "Library");
+		Solution accusation = new Solution("Mr. White", "Candlestick", "Hall");
+		testGame.setSolution(s);
+		assertFalse(testGame.checkAccusation(accusation));
 	}
 	
 	@Test
 	public void testCheckAccusationWrongPerson() {
-		
+		Solution s = new Solution("Mr. White", "Candlestick", "Library");
+		Solution accusation = new Solution("Mrs. Peacock", "Candlestick", "Library");
+		testGame.setSolution(s);
+		assertFalse(testGame.checkAccusation(accusation));
 	}
 	
 	@Test
 	public void testCheckAccusationWrongWeapon() {
-		
+		Solution s = new Solution("Mr. White", "Candlestick", "Library");
+		Solution accusation = new Solution("Mr. White", "Knife", "Library");
+		testGame.setSolution(s);
+		assertFalse(testGame.checkAccusation(accusation));
 	}
 	
 	@Test
 	public void testCheckAccusationAllWrong() {
-		
+		Solution s = new Solution("Mr. White", "Candlestick", "Library");
+		Solution accusation = new Solution("Mrs. Peacock", "Knife", "Hall");
+		testGame.setSolution(s);
+		assertFalse(testGame.checkAccusation(accusation));
 	}
 	
 

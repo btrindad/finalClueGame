@@ -126,5 +126,8 @@ public class ClueGame {
 	
 	public Set<Card> getDeck(){ return deck; }
 	public ArrayList<Player> getPlayers(){ return players; }
+	public void setSolution(Solution s) {
+		theSolution = s;
+	}
 
 }
