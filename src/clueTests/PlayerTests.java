@@ -16,17 +16,19 @@ import clueGame.ClueGame;
 import clueGame.Player;
 
 public class PlayerTests {
-	ClueGame testGame = new ClueGame();
+	private static ClueGame testGame;
 	
-	static Card mustardCard;
-	static Card knifeCard;
-	static Card plumCard;
-	static Card revolverCard;
-	static Card kitchenCard;
-	static Card libraryCard;
+	private static Card mustardCard;
+	private static Card knifeCard;
+	private static Card plumCard;
+	private static Card revolverCard;
+	private static Card kitchenCard;
+	private static Card libraryCard;
 	
 	@BeforeClass
 	public static void setUp() {
+		testGame = new ClueGame();
+		testGame.loadConfigFiles();
 		mustardCard = new Card("Colonel Mustard", CardType.PERSON);
 		knifeCard = new Card("Knife", CardType.WEAPON);
 		plumCard = new Card("Professor Plum", CardType.PERSON);
@@ -65,7 +67,7 @@ public class PlayerTests {
 	
 	@Test
 	public void testDisproveSuggestion_OnePlayerOneMatch() {
-		Player testPlayer = new Player();
+		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
 		Card personCard = new Card("Mrs. White", CardType.PERSON);
 		Card roomCard = new Card("Study", CardType.ROOM);
 		Card weaponCard = new Card("Revolver", CardType.WEAPON);
@@ -97,7 +99,7 @@ public class PlayerTests {
 	
 	@Test
 	public void testDisproveSuggestion_OnePlayerMultipleMatches() {
-		Player testPlayer = new Player();
+		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
 		Set<Card> testSet = new HashSet<Card>();
 		testPlayer.addCard(mustardCard);
 		testPlayer.addCard(knifeCard);

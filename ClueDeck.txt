@@ -1,21 +1,21 @@
-Miss Scarlett, PERSON
-Colonel Mustard, PERSON
-Mrs. White, PERSON
-Mr. Green, PERSON
-Mrs. Peacock, PERSON
-Professor Plum, PERSON
-Candlestick, WEAPON
-Knife, WEAPON
-Lead Pipe, WEAPON
-Revolver, WEAPON
-Rope, WEAPON
-Wrench, WEAPON
-Conservatory, ROOM
-Kitchen, ROOM
-Ballroom, ROOM
-Billiard Room, ROOM
-Library, ROOM
-Study, ROOM
-Dining Room, ROOM
-Lounge, ROOM
-Hall, ROOM
+Miss Scarlett,PERSON
+Colonel Mustard,PERSON
+Mrs. White,PERSON
+Mr. Green,PERSON
+Mrs. Peacock,PERSON
+Professor Plum,PERSON
+Candlestick,WEAPON
+Knife,WEAPON
+Lead Pipe,WEAPON
+Revolver,WEAPON
+Rope,WEAPON
+Wrench,WEAPON
+Conservatory,ROOM
+Kitchen,ROOM
+Ballroom,ROOM
+Billiard Room,ROOM
+Library,ROOM
+Study,ROOM
+Dining Room,ROOM
+Lounge,ROOM
+Hall,ROOM

@@ -21,9 +21,24 @@ public class Card {
 			break;
 		}
 	}
+	
+	public Card(String name, CardType type) {
+		this.name = name;
+		cardType = type;
+	}
 
 	public Card() {
 		name = null;
 		cardType = null;
+	}
+	
+	public boolean equals(Card t) {
+		if (name.equals(t.name) && cardType == t.cardType) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 }

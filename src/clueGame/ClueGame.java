@@ -1,24 +1,89 @@
 package clueGame;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 import clueBoard.Board;
 
 public class ClueGame {
 	private Solution theSolution;
-	private Board theBoard; //new Board("ClueLayout.csv", "ClueLegend.txt");
-	private ArrayList<Player> players;// = new ArrayList<Player>();
+	private Board theBoard;
+	private ArrayList<Player> players;
 	private Set<Card> deck;
+	
+	public void ClueGame() {
+		System.out.println("Constructor initiated.");
+		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
+		theBoard.loadConfigFiles();
+		players = new ArrayList<Player>();
+		deck = new HashSet<Card>();
+		System.out.println("Constructor completed.");
+	}
 	
 	public void deal() {
 		
 	}
 	
+	public void loadDeck() {
+		try {
+			FileReader reader = new FileReader("ClueDeck.txt");
+			Scanner inScanner = new Scanner(reader);
+			try {
+				while (inScanner.hasNextLine()) {
+					String s = inScanner.nextLine();
+					String[] queue = s.split(",");
+					Card c = new Card(queue[0], queue[1]);
+					System.out.println("DECK: " + deck);
+					deck.add(c);
+					System.out.println("java sucks");
+				}
+			}
+			finally {
+				inScanner.close();
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("ClueDeck.txt not found");
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadPlayers() {
+		try {
+			FileReader reader = new FileReader("CluePlayers.txt");
+			Scanner inScanner = new Scanner(reader);
+			try {
+				boolean firstLoaded = true;
+				while (inScanner.hasNextLine()) {
+					String s = inScanner.nextLine();
+					String[] queue = s.split(",");
+					if (firstLoaded) {
+						HumanPlayer h = new HumanPlayer(queue[0], queue[1], Integer.parseInt(queue[2]));
+						players.add(h);
+						firstLoaded = false;
+					}
+					else {
+						ComputerPlayer c = new ComputerPlayer(queue[0], queue[1], Integer.parseInt(queue[2]));
+						players.add(c);						
+					}
+				}
+			}
+			finally {
+				inScanner.close();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void loadConfigFiles() {
-		//loadDeck();
-		//loadPlayers();
+		System.out.println("Hey");
+		loadDeck();
+		System.out.println("Hi");
+		loadPlayers();
 		
 	}
 	

@@ -9,6 +9,12 @@ public class Player {
 	private int startingLocation;
 	private Set<Card> myCards;
 	
+	public Player(String n, String c, int sL) {
+		name = n;
+		color = c;
+		startingLocation = sL;
+	}
+	
 	public Card disproveSuggestion(Card person, Card room, Card weapon) {
 		// Create bogus card to remove error messages until function is implemented
 		Card nullCard = new Card("DR. ORANGE", "PERSON");
