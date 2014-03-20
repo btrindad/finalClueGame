@@ -65,5 +65,10 @@ public class Card {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 
 }
