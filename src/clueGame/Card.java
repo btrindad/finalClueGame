@@ -21,6 +21,11 @@ public class Card {
 			break;
 		}
 	}
+	
+	public Card(String name, CardType type){
+		this.name = name;
+		this.cardType = type;
+	}
 
 	public Card() {
 		name = null;
