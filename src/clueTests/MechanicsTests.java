@@ -50,7 +50,7 @@ public class MechanicsTests {
 		assertEquals(newDeck.size(), NUM_CARDS_IN_PLAY);
 	}
 	
-	
+	// Test that checkAccusation returns true in response to an accusation that matches the solution
 	@Test
 	public void testCheckAccusationAllCorrect() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
@@ -61,6 +61,8 @@ public class MechanicsTests {
 		testGame.setSolution(temp);
 	}
 	
+	// Test that checkAccusation returns false in response to an accusation that matches the solution
+	// except for an incorrect room
 	@Test
 	public void testCheckAccusationWrongRoom() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
@@ -71,6 +73,8 @@ public class MechanicsTests {
 		testGame.setSolution(temp);
 	}
 	
+	// Test that checkAccusation returns false in response to an accusation that matches the solution
+	// except for an incorrect person
 	@Test
 	public void testCheckAccusationWrongPerson() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
@@ -81,6 +85,8 @@ public class MechanicsTests {
 		testGame.setSolution(temp);
 	}
 	
+	// Test that checkAccusation returns false in response to an accusation that matches the solution
+	// except for an incorrect weapon
 	@Test
 	public void testCheckAccusationWrongWeapon() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");
@@ -91,6 +97,7 @@ public class MechanicsTests {
 		testGame.setSolution(temp);
 	}
 	
+	// Test that checkAccusation returns false in response to an accusation that in no way matches the solution
 	@Test
 	public void testCheckAccusationAllWrong() {
 		Solution s = new Solution("Mr. White", "Candlestick", "Library");

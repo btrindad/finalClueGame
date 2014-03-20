@@ -50,7 +50,6 @@ public class ClueGame {
 					String[] queue = s.split(",");
 					Card c = new Card(queue[0], queue[1]);
 					deck.add(c);
-					System.out.println("java sucks");
 				}
 			} finally {
 				inScanner.close();
@@ -68,18 +67,14 @@ public class ClueGame {
 			try {
 				boolean firstLoaded = true;
 				while (inScanner.hasNextLine()) {
-					System.out.println("Stupid project");
 					String s = inScanner.nextLine();
 					String[] queue = s.split(",");
-					System.out.println("Stupid setup");
 					if (firstLoaded) {
-						System.out.println("B");
 						HumanPlayer h = new HumanPlayer(queue[0], queue[1],
 								Integer.parseInt(queue[2]));
 						players.add(h);
 						firstLoaded = false;
 					} else {
-						System.out.println("T");
 						ComputerPlayer c = new ComputerPlayer(queue[0],
 								queue[1], Integer.parseInt(queue[2]));
 						players.add(c);
@@ -94,11 +89,8 @@ public class ClueGame {
 	}
 
 	public void loadConfigFiles() {
-		System.out.println("Hey");
 		loadDeck();
-		System.out.println("Hi");
 		loadPlayers();
-		System.out.println("Ouch");
 	}
 
 	public void selectAnswer() {
