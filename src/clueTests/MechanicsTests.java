@@ -15,7 +15,7 @@ import clueGame.*;
 
 public class MechanicsTests {
 	private static ClueGame testGame;
-	private final int SIZE_OF_HAND = 5;
+	private final int SIZE_OF_HAND = 3;
 	
 	@BeforeClass
 	public static void setUp(){
