@@ -30,9 +30,9 @@ public class CardTests {
 	public void testDeck(){
 		assertFalse(testGame.getDeck().isEmpty());
 		assertEquals(testGame.getDeck().size(), TOTAL_CARDS);
-		assertEquals(countCards(CardType.ROOM), ROOM_CARDS);
-		assertEquals(countCards(CardType.PERSON), PLAYER_CARDS);
-		assertEquals(countCards(CardType.WEAPON), WEAPON_CARDS);
+		assertEquals(countCards(CardType.ROOM, testGame), ROOM_CARDS);
+		assertEquals(countCards(CardType.PERSON, testGame), PLAYER_CARDS);
+		assertEquals(countCards(CardType.WEAPON, testGame), WEAPON_CARDS);
 	}
 	
 	/*
@@ -117,9 +117,9 @@ public class CardTests {
 		assertTrue(testGame.getDeck().contains(testCard));
 	}
 	
-	static int countCards(CardType type){
+	static int countCards(CardType type, ClueGame game){
 		int counter = 0;
-		for(Card c : testGame.getDeck()){
+		for(Card c : game.getDeck()){
 			if(c.cardType == type){
 				counter++;
 			}

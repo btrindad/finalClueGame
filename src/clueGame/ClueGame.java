@@ -102,22 +102,23 @@ public class ClueGame {
 	}
 
 	public void selectAnswer() {
+		Set<Card> toRemove = new HashSet<Card>();
 		for (Card c : deck) {
 			if (theSolution.person == null && c.cardType == CardType.PERSON) {
 				theSolution.person = c.name;
 				System.out.println("Solution person set");
-				deck.remove(c);
+				toRemove.add(c);
 			} else if (theSolution.room == null && c.cardType == CardType.ROOM) {
 				theSolution.room = c.name;
 				System.out.println("Solution room set");
-				deck.remove(c);
-			} else if (theSolution.weapon == null
-					&& c.cardType == CardType.WEAPON) {
+				toRemove.add(c);
+			} else if (theSolution.weapon == null && c.cardType == CardType.WEAPON) {
 				theSolution.weapon = c.name;
 				System.out.println("Solution weapon set");
-				deck.remove(c);
+				toRemove.add(c);
 			}
 		}
+		deck.removeAll(toRemove);
 		System.out.println("deck size is: " + deck.size() + " <------");
 	}
 

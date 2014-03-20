@@ -50,13 +50,18 @@ public class MechanicsTests {
 		assertEquals(newDeck.size(), NUM_CARDS_IN_PLAY);
 	}
 	
+	/*
+	 * test the function that picks cards to push into the solution and
+	 * removes them from the deck
+	 */
 	@Test
 	public void testSelectAnswers(){
+		setUp();
 		testGame.selectAnswer();
 		assertEquals(testGame.getDeck().size(), NUM_CARDS_IN_PLAY);
-		assertEquals(CardTests.countCards(CardType.PERSON), CardTests.PLAYER_CARDS-1);
-		assertEquals(CardTests.countCards(CardType.WEAPON), CardTests.WEAPON_CARDS-1);
-		assertEquals(CardTests.countCards(CardType.ROOM), CardTests.ROOM_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.PERSON, testGame), CardTests.PLAYER_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.WEAPON, testGame), CardTests.WEAPON_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.ROOM, testGame), CardTests.ROOM_CARDS-1);
 				
 	}
 
