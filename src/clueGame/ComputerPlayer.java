@@ -11,7 +11,9 @@ public class ComputerPlayer extends Player {
 		super(n, c, sL);
 	}
 
-	public void pickLocation(Set<BoardCell> targets) {
+	public BoardCell pickLocation(Set<BoardCell> targets) {
+		return null;
+		//for (BoardCell b : targets)
 		
 	}
 	
@@ -21,5 +23,9 @@ public class ComputerPlayer extends Player {
 	
 	public void updateSeen (Card seen) {
 		
+	}
+	
+	public void setLastRoomVisited(char c) {
+		lastRoomVisited = c;
 	}
 }

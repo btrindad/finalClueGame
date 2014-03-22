@@ -4,15 +4,21 @@
  * */
 package clueTests;
 
+import static org.junit.Assert.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.*;
 
 import clueBoard.Board;
+import clueBoard.BoardCell;
+import clueBoard.RoomCell;
+import clueBoard.WalkwayCell;
 import clueGame.Card;
 import clueGame.CardType;
 import clueGame.ClueGame;
+import clueGame.ComputerPlayer;
 import clueGame.Player;
 
 public class PlayerTests {
@@ -137,6 +143,95 @@ public class PlayerTests {
 		
 	//}
 	
+	@Test
+	public void testTargetSelectionRoom() {
+		Board B = new Board("ClueLayout.csv", "ClueLegend.txt");
+		B.loadConfigFiles();
+		B.calcAdjacencies();
+		B.calcTargets(B.calcIndex(4, 4), 1);
+		ComputerPlayer testCP = new ComputerPlayer("TEST", "CP", 0);
+		testCP.setLastRoomVisited('L');
+		
+		for (int i = 0; i < 100; i++) {
+			RoomCell temp = (RoomCell)testCP.pickLocation(B.getTargets());
+			assertEquals(B.getRoomCellAt(4, 3), temp);
+		}
+
+
+	}
 	
+	@Test
+	public void testTargetSelectionNoRooms() {
+		Board B = new Board("ClueLayout.csv", "ClueLegend.txt");
+		B.loadConfigFiles();
+		B.calcAdjacencies();
+		B.calcTargets(B.calcIndex(21, 5), 1);
+		ComputerPlayer testCP = new ComputerPlayer("TEST", "CP", 0);
+		
+		int cell21_4 = 0;
+		int cell20_5 = 0;
+		int cell21_6 = 0;
+		
+		for (int i = 0; i < 100; i++) {
+			BoardCell temp = testCP.pickLocation(B.getTargets());
+			if (temp == B.getCellAt(B.calcIndex(21, 4))) {
+				cell21_4++;
+			}
+			else if (temp == B.getCellAt(B.calcIndex(20, 5))) {
+				cell20_5++;
+			}
+			else if (temp == B.getCellAt(B.calcIndex(21, 6))) {
+				cell21_6++;
+			}
+			else {
+				fail("Invalid target selected.");
+			}
+		}
+		
+		assertEquals(100, cell21_4 + cell20_5 + cell21_6);
+		assertTrue(cell21_4 > 10);
+		assertTrue(cell20_5 > 10);
+		assertTrue(cell21_6 > 10);
+	}
+	
+	@Test
+	public void testTargetsLastRoom() {
+		Board B = new Board("ClueLayout.csv", "ClueLegend.txt");
+		B.loadConfigFiles();
+		B.calcAdjacencies();
+		B.calcTargets(B.calcIndex(2, 11), 1);
+		ComputerPlayer testCP = new ComputerPlayer("TEST", "CP", 0);
+		testCP.setLastRoomVisited('L');
+		
+		int room1_11 = 0;
+		int cell2_10 = 0;
+		int cell2_12 = 0;
+		int cell3_11 = 0;
+
+		for (int i = 0; i < 100; i++) {
+			BoardCell temp = testCP.pickLocation(B.getTargets());
+			if (temp == B.getCellAt(B.calcIndex(2, 10))) {
+				cell2_10++;
+			}
+			else if (temp == B.getCellAt(B.calcIndex(2, 12))) {
+				cell2_12++;
+			}
+			else if (temp == B.getCellAt(B.calcIndex(3, 11))) {
+				cell3_11++;
+			}
+			else if (temp == B.getCellAt(B.calcIndex(1, 11))) {
+				fail("Cannot re-enter last room visited.");
+			}
+			else {
+				fail("Invalid target selected.");
+			}
+		}
+		
+		assertEquals(100, cell2_10 + cell2_12 + cell3_11);
+		assertTrue(cell2_10 > 10);
+		assertTrue(cell2_12 > 10);
+		assertTrue(cell3_11 > 10);
+		
+	}
 	
 }
