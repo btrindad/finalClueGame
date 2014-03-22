@@ -220,17 +220,18 @@ public class PlayerTests {
 				cell3_11++;
 			}
 			else if (temp == B.getCellAt(B.calcIndex(1, 11))) {
-				fail("Cannot re-enter last room visited.");
+				room1_11++;
 			}
 			else {
 				fail("Invalid target selected.");
 			}
 		}
 		
-		assertEquals(100, cell2_10 + cell2_12 + cell3_11);
+		assertEquals(100, cell2_10 + cell2_12 + cell3_11 + room1_11);
 		assertTrue(cell2_10 > 10);
 		assertTrue(cell2_12 > 10);
 		assertTrue(cell3_11 > 10);
+		assertTrue(room1_11 > 10);
 		
 	}
 	
