@@ -107,9 +107,9 @@ public class ClueGame {
 		deck.removeAll(toRemove);
 	}
 
-	public void handleSuggestion(String person, String room, String weapon,
+	public Card handleSuggestion(Card person, Card room,Card weapon,
 			Player accusingPerson) {
-
+				return null;
 	}
 
 	public boolean checkAccusation(Solution sol) {
@@ -146,6 +146,10 @@ public class ClueGame {
 	
 	public Solution getSolution() {
 		return theSolution;
+	}
+	
+	public void setPlayers(ArrayList<Player> p) {
+		players = p;
 	}
 
 }

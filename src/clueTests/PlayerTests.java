@@ -34,6 +34,12 @@ public class PlayerTests {
 	private static Card revolverCard;
 	private static Card kitchenCard;
 	private static Card libraryCard;
+	private static Card ballroomCard;
+	private static Card studyCard;
+	private static Card greenCard;
+	private static Card whiteCard;
+	private static Card ropeCard;
+	private static Card wrenchCard;
 	
 	@BeforeClass
 	public static void setUp() {
@@ -45,6 +51,13 @@ public class PlayerTests {
 		revolverCard = new Card("Revolver", CardType.WEAPON);
 		kitchenCard = new Card("Kitchen", CardType.ROOM);
 		libraryCard = new Card("Library", CardType.ROOM);
+		ballroomCard = new Card("Ballroom", CardType.ROOM);
+		studyCard = new Card("Study", CardType.ROOM);
+		greenCard = new Card("Mr. Green", CardType.PERSON);
+		whiteCard = new Card("Mrs. White", CardType.PERSON);
+		ropeCard = new Card("Rope", CardType.WEAPON);
+		wrenchCard = new Card("Wrench", CardType.WEAPON);
+		
 	}
 	
 	// Test that the number of players loaded is correct
@@ -78,7 +91,6 @@ public class PlayerTests {
 		Assert.assertEquals(13, testGame.getPlayer(5).getStartingLocation());
 	}
 	
-	
 	@Test
 	public void testDisproveSuggestion_OnePlayerOneMatch() {
 		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
@@ -100,9 +112,7 @@ public class PlayerTests {
 		Assert.assertEquals(mustardCard, testPlayer.disproveSuggestion(personCard, roomCard, weaponCard));
 		personCard = new Card("Mrs. White", CardType.PERSON);
 		Assert.assertEquals(null, testPlayer.disproveSuggestion(personCard, roomCard, weaponCard));
-		
-	} 
-	
+	}
 	
 	@Test
 	public void testDisproveSuggestion_OnePlayerMultipleMatches() {
@@ -146,14 +156,33 @@ public class PlayerTests {
 		ArrayList<Player> testPlayers = new ArrayList<Player>();
 		HumanPlayer H = new HumanPlayer("HUMAN TEST PLAYER", "ORANGE", 0);
 		testPlayers.add(H);
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 2; i++) {
 			Player p = new Player("TEST COMP PLAYER", "BLACK", i + 1);
 			testPlayers.add(p);
 		}
 		
-		// NOT FINISHED
+		testPlayers.get(0).addCard(mustardCard);
+		testPlayers.get(0).addCard(revolverCard);
+		testPlayers.get(0).addCard(studyCard);
+		testPlayers.get(1).addCard(plumCard);
+		testPlayers.get(1).addCard(kitchenCard);
+		testPlayers.get(1).addCard(knifeCard);
+		testPlayers.get(2).addCard(whiteCard);
+		testPlayers.get(2).addCard(wrenchCard);
+		testPlayers.get(2).addCard(libraryCard);
 		
+		for (Player p : testPlayers) {
+			Assert.assertNull(p.disproveSuggestion(greenCard, ballroomCard, ropeCard));
+		}
 		
+		assertEquals(mustardCard, testPlayers.get(0).disproveSuggestion(mustardCard, ballroomCard, ropeCard));
+		
+		ClueGame testGame = new ClueGame();
+		testGame.setPlayers(testPlayers);
+		Assert.assertNull(testGame.handleSuggestion(mustardCard, revolverCard, studyCard, testPlayers.get(0)));
+		
+		Assert.assertEquals(knifeCard, testGame.handleSuggestion(whiteCard, ballroomCard, knifeCard, testPlayers.get(0)));
+		Assert.assertEquals(libraryCard, testGame.handleSuggestion(greenCard, libraryCard, ropeCard, testPlayers.get(0)));
 	}
 	
 	@Test
@@ -172,11 +201,7 @@ public class PlayerTests {
 		System.out.println(c.createSuggestion('L'));
 		c.printAllCards();
 		Assert.assertEquals(testSuggestion, c.createSuggestion('L'));
-
-		
 	}
-	
-	
 	
 	@Test
 	public void testTargetSelectionRoom() {
@@ -191,8 +216,6 @@ public class PlayerTests {
 			RoomCell temp = (RoomCell)testCP.pickLocation(B.getTargets());
 			assertEquals(B.getRoomCellAt(4, 3), temp);
 		}
-
-
 	}
 	
 	@Test
