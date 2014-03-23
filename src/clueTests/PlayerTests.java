@@ -202,8 +202,6 @@ public class PlayerTests {
 		c.updateAllCards(revolverCard, false);
 		
 		Solution testSuggestion = new Solution(mustardCard, revolverCard, libraryCard);
-		System.out.println(testSuggestion);
-		System.out.println(c.createSuggestion('L'));
 		c.printAllCards();
 		Assert.assertEquals(testSuggestion, c.createSuggestion('L'));
 	}
