@@ -27,7 +27,6 @@ public class Player {
 	 */
 	public Card disproveSuggestion(Card person, Card room, Card weapon) {
 		ArrayList<Card> disprovedCards = new ArrayList<Card>();
-		System.out.println(disprovedCards);
 		for (Card c : myCards) {
 			if (person.equals(c)) {
 				disprovedCards.add(c);
@@ -39,7 +38,6 @@ public class Player {
 				disprovedCards.add(weapon);
 			}
 		}
-		System.out.println(disprovedCards);
 		if (disprovedCards.isEmpty()) {
 			return null;
 		}
