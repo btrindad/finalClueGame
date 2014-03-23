@@ -5,6 +5,9 @@ public class Card {
 	public String name;
 	public CardType cardType;
 
+	/*
+	 * constructor accepts type as a string, to simplify loading from text file
+	 */
 	public Card(String name, String type) {
 		this.name = name.toUpperCase();
 		type = type.toUpperCase();
@@ -22,17 +25,25 @@ public class Card {
 		}
 	}
 	
+	/*
+	 * constructor to set type using enumerated type, to simplify use in our own code
+	 */
 	public Card(String name, CardType type) {
 		this.name = name.toUpperCase();
 		cardType = type;
 	}
 
+	/*
+	 * default for the use of empty cards primarily in testing
+	 */
 	public Card() {
 		name = null;
 		cardType = null;
 	}
 	
-	
+	/*
+	 * hash code and equals overrides for use in Set functions
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;

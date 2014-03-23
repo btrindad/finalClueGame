@@ -4,23 +4,29 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
-import clueBoard.BadConfigFormatException;
 import clueBoard.BoardCell;
 import clueBoard.RoomCell;
 
 public class ComputerPlayer extends Player {
 	private Random rand = new Random();
 	private char lastRoomVisited;
-	private Map<Card, Boolean> allCards; // The boolean represents whether the card has been seen: 1 for true, 0 for false
+	/*
+	 * this attribute, allCards, works as the notepad in the real version of this game
+	 * the possible cards are the keys in the map and the value is a boolean.
+	 * If the card has been seen the value for the card is true, if the player has not
+	 * yet seen that card the value is false.
+	 */
+	private Map<Card, Boolean> allCards;
 	private static Map<Character,String> roomLegend;
 	
-	
+	/*
+	 * constructor, uses the parent class constructor then loads necessary information
+	 */
 	public ComputerPlayer(String n, String c, int sL) {
 		super(n, c, sL);
 		allCards = new HashMap<Card, Boolean>();
@@ -28,6 +34,9 @@ public class ComputerPlayer extends Player {
 		loadLegend();
 	}
 
+	/*
+	 * load all the cards in the game for use in the allCards variable
+	 */
 	public void loadAllCards() {
 		try {
 			FileReader reader = new FileReader("ClueDeck.txt");
@@ -47,6 +56,10 @@ public class ComputerPlayer extends Player {
 		}
 	}
 	
+	/*
+	 * load the legend of the rooms in the game, for reference when accessing the player's 
+	 * location
+	 */
 	public void loadLegend() {
 			try {
 				roomLegend = new HashMap<Character,String>();
@@ -75,6 +88,11 @@ public class ComputerPlayer extends Player {
 			}
 	}
 
+	/*
+	 * have the computer player pick a target to move to. Any room that was not
+	 * recently visited gets priority. If there are no rooms available the target
+	 * is chosen pseudo-randomly
+	 */
 	public BoardCell pickLocation(Set<BoardCell> targets) {
 		
 		for (BoardCell b : targets) {
@@ -91,6 +109,9 @@ public class ComputerPlayer extends Player {
 		
 	}
 	
+	/*
+	 * have the computer generate a suggestion using known possibilities
+	 */
 	public Solution createSuggestion(char currentRoom) {
 		ArrayList<Card> possiblePeople = new ArrayList<Card>();
 		ArrayList<Card> possibleWeapons = new ArrayList<Card>();
@@ -117,21 +138,30 @@ public class ComputerPlayer extends Player {
 		
 	}
 	
+	/*
+	 * when a new card is seen update possibilities
+	 */
 	public void updateSeen (Card seen, boolean b) {
 		allCards.put(seen, b);
 	}
 	
+	/*
+	 * set all cards as seen
+	 */
 	public void updateSeen() {
 		for (Card c : myCards) {
 			allCards.put(c, true);
 		}
 	}
 	
+	/*
+	 * update last room visited
+	 */
 	public void setLastRoomVisited(char c) {
 		lastRoomVisited = c;
 	}
 	
-	// Functions for Testing 
+	/* ----------------- Functions for Testing -------------------------- */ 
 	public void clearAllCards() {
 		allCards.clear();
 	}

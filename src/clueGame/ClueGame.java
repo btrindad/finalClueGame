@@ -15,6 +15,9 @@ public class ClueGame {
 	private ArrayList<Player> players;
 	private Set<Card> deck;
 	
+	/*
+	 * a blank game, initialize all attributes
+	 */
 	public ClueGame() {
 		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
 		theBoard.loadConfigFiles();
@@ -23,6 +26,10 @@ public class ClueGame {
 		theSolution = new Solution();
 	}
 
+	/*
+	 * deal a deck to the players, afterwards the deck is empty and each player has about
+	 * the same number of cards
+	 */
 	public void deal() {
 		selectAnswer();
 
@@ -37,6 +44,9 @@ public class ClueGame {
 		}
 	}
 
+	/*
+	 * load the cards in the deck from a text file
+	 */
 	public void loadDeck() {
 		try {
 			FileReader reader = new FileReader("ClueDeck.txt");
@@ -57,6 +67,9 @@ public class ClueGame {
 		
 	}
 
+	/*
+	 * load the players in a game and their attributes from a text file
+	 */
 	public void loadPlayers() {
 		try {
 			FileReader reader = new FileReader("CluePlayers.txt");
@@ -85,11 +98,18 @@ public class ClueGame {
 		}
 	}
 
+	/*
+	 * call all the config methods to load initial data into the game
+	 */
 	public void loadConfigFiles() {
 		loadDeck();
 		loadPlayers();
 	}
 
+	/*
+	 * remove one card of each type from the deck and set as the solution. 
+	 * NOTE: this function should be run before giving any cards to players
+	 */
 	public void selectAnswer() {
 		Set<Card> toRemove = new HashSet<Card>();
 		for (Card c : deck) {
@@ -107,6 +127,10 @@ public class ClueGame {
 		deck.removeAll(toRemove);
 	}
 
+	/*
+	 * when any player makes a suggestion, go to the other players and ask them to disprove
+	 * it if they have a card from the suggestion
+	 */
 	public Card handleSuggestion(Card person, Card room,Card weapon,
 			Player accusingPerson) {
 		for (Player p : players) {
@@ -120,6 +144,10 @@ public class ClueGame {
 		return null;
 	}
 
+	/*
+	 * when a player makes an accusation, check and see if it matches the solution
+	 * true if the accusation was correct, otherwise false
+	 */
 	public boolean checkAccusation(Solution sol) {
 		if (sol.equals(theSolution)) {
 			return true;
@@ -129,10 +157,16 @@ public class ClueGame {
 		}
 	}
 
+	/*
+	 * a getter, return a player at index n from the collection of players
+	 */
 	public Player getPlayer(int n) {
 		return players.get(n);
 	}
 
+	/*
+	 * get the number of players currently in the game
+	 */
 	public int getNumPlayers() {
 		return players.size();
 	}

@@ -21,6 +21,10 @@ public class Player {
 		myCards = new HashSet<Card>();
 	}
 	
+	/*
+	 * given three cards from a suggestion, if player has a card that disproves the suggestion,
+	 * return it
+	 */
 	public Card disproveSuggestion(Card person, Card room, Card weapon) {
 		ArrayList<Card> disprovedCards = new ArrayList<Card>();
 		System.out.println(disprovedCards);
@@ -44,6 +48,7 @@ public class Player {
 		}
 	}
 	
+	// getters and setters
 	public String getName() {
 		return name;
 	}
