@@ -117,6 +117,10 @@ public class CardTests {
 		assertTrue(testGame.getDeck().contains(testCard));
 	}
 	
+	/*
+	 * helper function for tests, to count up how many cards of a particular type are in the
+	 * deck. a ClueGame variable is passed in for use in other tests
+	 */
 	static int countCards(CardType type, ClueGame game){
 		int counter = 0;
 		for(Card c : game.getDeck()){

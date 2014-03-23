@@ -15,7 +15,6 @@ import org.junit.*;
 import clueBoard.Board;
 import clueBoard.BoardCell;
 import clueBoard.RoomCell;
-import clueBoard.WalkwayCell;
 import clueGame.Card;
 import clueGame.CardType;
 import clueGame.ClueGame;
@@ -91,6 +90,7 @@ public class PlayerTests {
 		Assert.assertEquals(13, testGame.getPlayer(5).getStartingLocation());
 	}
 	
+	//check that a player can disprove a suggestion when one card matches the suggestion
 	@Test
 	public void testDisproveSuggestion_OnePlayerOneMatch() {
 		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
@@ -114,6 +114,10 @@ public class PlayerTests {
 		Assert.assertEquals(null, testPlayer.disproveSuggestion(personCard, roomCard, weaponCard));
 	}
 	
+	/* test that when a player has multiple matches for a suggestion, that each time the
+	 * suggestion is made, a new card is picked. In other words, if the same suggestion is
+	 * made each time, the same card disproving it should not be returned every time
+	 */
 	@Test
 	public void testDisproveSuggestion_OnePlayerMultipleMatches() {
 		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
@@ -131,7 +135,6 @@ public class PlayerTests {
 		int numCardTwo = 0;
 		int numCardThree = 0;
 		for (int i = 0; i < 100; i++) {
-			//Assert.assertTrue(testSet.contains(testPlayer.disproveSuggestion(personCard, roomCard, weaponCard))); ?
 			Card returnedCard = testPlayer.disproveSuggestion(personCard, roomCard, weaponCard);
 			if (returnedCard.equals(mustardCard)) {
 				numCardOne++;
@@ -151,6 +154,7 @@ public class PlayerTests {
 		
 	}
 	
+	//test that when a suggestion is made to a group of players, it is disproved
 	@Test
 	public void testDisproveSuggestion_AllPlayersQueried() {
 		ArrayList<Player> testPlayers = new ArrayList<Player>();
@@ -185,6 +189,7 @@ public class PlayerTests {
 		Assert.assertEquals(libraryCard, testGame.handleSuggestion(greenCard, libraryCard, ropeCard, testPlayers.get(0)));
 	}
 	
+	//test that a computer player can create a suggestion based on seen possibilities
 	@Test
 	public void testCreateSuggestion() {
 		ComputerPlayer c = new ComputerPlayer("COMPUTER PLAYER", "BLACK", 34);
@@ -203,6 +208,9 @@ public class PlayerTests {
 		Assert.assertEquals(testSuggestion, c.createSuggestion('L'));
 	}
 	
+	/* assert that the computer player will always pick a room that hasn't been
+	 * recently visited over walkways when possible 
+	 */
 	@Test
 	public void testTargetSelectionRoom() {
 		Board B = new Board("ClueLayout.csv", "ClueLegend.txt");
@@ -218,6 +226,10 @@ public class PlayerTests {
 		}
 	}
 	
+	/*
+	 * test that when no rooms are available, a computer player will randomly pick
+	 * one of the available targets with no priorities
+	 */
 	@Test
 	public void testTargetSelectionNoRooms() {
 		Board B = new Board("ClueLayout.csv", "ClueLegend.txt");
