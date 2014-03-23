@@ -15,7 +15,8 @@ public class ClueGame {
 	private Board theBoard;
 	private ArrayList<Player> players;
 	private Set<Card> deck;
-
+	private Set<Card> totalDeck; // Total Deck approach?
+	
 	public ClueGame() {
 		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
 		theBoard.loadConfigFiles();
@@ -55,6 +56,7 @@ public class ClueGame {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	public void loadPlayers() {

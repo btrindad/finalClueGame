@@ -6,6 +6,7 @@ package clueTests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,9 @@ import clueGame.Card;
 import clueGame.CardType;
 import clueGame.ClueGame;
 import clueGame.ComputerPlayer;
+import clueGame.HumanPlayer;
 import clueGame.Player;
+import clueGame.Solution;
 
 public class PlayerTests {
 	private static ClueGame testGame;
@@ -75,7 +78,7 @@ public class PlayerTests {
 		Assert.assertEquals(13, testGame.getPlayer(5).getStartingLocation());
 	}
 	
-	/*
+	
 	@Test
 	public void testDisproveSuggestion_OnePlayerOneMatch() {
 		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
@@ -98,9 +101,9 @@ public class PlayerTests {
 		personCard = new Card("Mrs. White", CardType.PERSON);
 		Assert.assertEquals(null, testPlayer.disproveSuggestion(personCard, roomCard, weaponCard));
 		
-	} */
+	} 
 	
-	/*
+	
 	@Test
 	public void testDisproveSuggestion_OnePlayerMultipleMatches() {
 		Player testPlayer = new Player("TEST PLAYER", "ORANGE", 0);
@@ -117,7 +120,7 @@ public class PlayerTests {
 		int numCardOne = 0;
 		int numCardTwo = 0;
 		int numCardThree = 0;
-		for (int i = 0; i < 30; i++) { // 30? More/less?
+		for (int i = 0; i < 100; i++) {
 			//Assert.assertTrue(testSet.contains(testPlayer.disproveSuggestion(personCard, roomCard, weaponCard))); ?
 			Card returnedCard = testPlayer.disproveSuggestion(personCard, roomCard, weaponCard);
 			if (returnedCard.equals(mustardCard)) {
@@ -136,12 +139,37 @@ public class PlayerTests {
 		
 		Assert.assertTrue(numCardOne > 0 && numCardTwo > 0 && numCardThree > 0);
 		
-	} */
+	}
 	
-	//@Test
-	//public void testDisproveSuggestion_AllPlayersQueried() {
+	@Test
+	public void testDisproveSuggestion_AllPlayersQueried() {
+		ArrayList<Player> testPlayers = new ArrayList<Player>();
+		HumanPlayer H = new HumanPlayer("HUMAN TEST PLAYER", "ORANGE", 0);
+		testPlayers.add(H);
+		for (int i = 0; i < 5; i++) {
+			Player p = new Player("TEST COMP PLAYER", "BLACK", i + 1);
+			testPlayers.add(p);
+		}
 		
-	//}
+		// NOT FINISHED
+		
+		
+	}
+	
+	@Test
+	public void testCreateSuggestion() {  // I think this one works
+		ComputerPlayer c = new ComputerPlayer("COMPUTER PLAYER", "BLACK", 34);
+		c.updateSeen(kitchenCard);
+		c.updateSeen(libraryCard);
+		c.updateSeen(plumCard);
+		c.updateSeen(knifeCard);
+		
+		Solution testSuggestion = new Solution("Colonel Mustard", "Revoler", "Library");
+		Assert.assertEquals(testSuggestion, c.createSuggestion());
+		
+	}
+	
+	
 	
 	@Test
 	public void testTargetSelectionRoom() {

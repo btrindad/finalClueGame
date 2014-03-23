@@ -1,5 +1,6 @@
 package clueGame;
 
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -9,9 +10,12 @@ import clueBoard.RoomCell;
 public class ComputerPlayer extends Player {
 	private Random rand = new Random();
 	private char lastRoomVisited;
+	private Set<Card> seenCards;
+	
 	
 	public ComputerPlayer(String n, String c, int sL) {
 		super(n, c, sL);
+		seenCards = new HashSet<Card>();
 	}
 
 	public BoardCell pickLocation(Set<BoardCell> targets) {
@@ -30,15 +34,17 @@ public class ComputerPlayer extends Player {
 		
 	}
 	
-	public void createSuggestion() {
+	public Solution createSuggestion() {
+		return null;
 		
 	}
 	
 	public void updateSeen (Card seen) {
-		
+		seenCards.add(seen);
 	}
 	
 	public void setLastRoomVisited(char c) {
 		lastRoomVisited = c;
 	}
+	
 }
