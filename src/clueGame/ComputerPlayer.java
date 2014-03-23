@@ -25,9 +25,7 @@ public class ComputerPlayer extends Player {
 		super(n, c, sL);
 		allCards = new HashMap<Card, Boolean>();
 		loadAllCards();
-		System.out.println("Halfway through loading");
 		loadLegend();
-		System.out.println("Done loading");
 	}
 
 	public void loadAllCards() {
@@ -50,7 +48,6 @@ public class ComputerPlayer extends Player {
 	}
 	
 	public void loadLegend() {
-		if (roomLegend.isEmpty()) {
 			try {
 				roomLegend = new HashMap<Character,String>();
 				FileReader read = new FileReader("ClueLegend.txt");
@@ -76,7 +73,6 @@ public class ComputerPlayer extends Player {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		}
 	}
 
 	public BoardCell pickLocation(Set<BoardCell> targets) {
@@ -109,7 +105,7 @@ public class ComputerPlayer extends Player {
 				}
 			}
 			
-			if (c.cardType == CardType.ROOM && (c.name == roomLegend.get(currentRoom))) {
+			if (c.name.toUpperCase().equals(roomLegend.get(currentRoom).toUpperCase())) {
 				roomCard = c;
 			}
 		}
@@ -133,6 +129,19 @@ public class ComputerPlayer extends Player {
 	
 	public void setLastRoomVisited(char c) {
 		lastRoomVisited = c;
+	}
+	
+	// Functions for Testing 
+	public void clearAllCards() {
+		allCards.clear();
+	}
+	
+	public void updateAllCards(Card c, Boolean b) {
+		allCards.put(c, b);
+	}
+	
+	public void printAllCards() {
+		System.out.println(allCards.toString());
 	}
 	
 }

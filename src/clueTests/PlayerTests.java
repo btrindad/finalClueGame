@@ -157,15 +157,22 @@ public class PlayerTests {
 	}
 	
 	@Test
-	public void testCreateSuggestion() {  // I think this one works
+	public void testCreateSuggestion() {
 		ComputerPlayer c = new ComputerPlayer("COMPUTER PLAYER", "BLACK", 34);
-		c.updateSeen(kitchenCard, true);
-		c.updateSeen(libraryCard, true);
-		c.updateSeen(plumCard, true);
-		c.updateSeen(knifeCard, true);
+		c.clearAllCards();
+		c.updateAllCards(kitchenCard, true);
+		c.updateAllCards(libraryCard, true);
+		c.updateAllCards(plumCard, true);
+		c.updateAllCards(knifeCard, true);
+		c.updateAllCards(mustardCard, false);
+		c.updateAllCards(revolverCard, false);
 		
-		Solution testSuggestion = new Solution("Colonel Mustard", "Revoler", "Library");
+		Solution testSuggestion = new Solution(mustardCard, revolverCard, libraryCard);
+		System.out.println(testSuggestion);
+		System.out.println(c.createSuggestion('L'));
+		c.printAllCards();
 		Assert.assertEquals(testSuggestion, c.createSuggestion('L'));
+
 		
 	}
 	

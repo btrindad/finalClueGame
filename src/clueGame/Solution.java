@@ -17,8 +17,18 @@ public class Solution {
 	
 	public Solution(Card p, Card w, Card r) {
 		personCard = p;
+		person = personCard.name;
 		weaponCard = w;
+		weapon = weaponCard.name;
 		roomCard = r;
+		room = roomCard.name;
+	}
+
+	@Override
+	public String toString() {
+		return "Solution [person=" + person + ", weapon=" + weapon + ", room="
+				+ room + ", personCard=" + personCard + ", weaponCard="
+				+ weaponCard + ", roomCard=" + roomCard + "]";
 	}
 
 	@Override
