@@ -1,9 +1,12 @@
 package clueGame;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class Player {
+	private Random r = new Random();
 	private String name;
 	private String color;
 	private int startingLocation;
@@ -19,9 +22,26 @@ public class Player {
 	}
 	
 	public Card disproveSuggestion(Card person, Card room, Card weapon) {
-		// Create bogus card to remove error messages until function is implemented
-		Card nullCard = new Card("DR. ORANGE", "PERSON");
-		return nullCard;
+		ArrayList<Card> disprovedCards = new ArrayList<Card>();
+		System.out.println(disprovedCards);
+		for (Card c : myCards) {
+			if (person.equals(c)) {
+				disprovedCards.add(c);
+			}
+			else if (room.equals(c)) {
+				disprovedCards.add(room);
+			}
+			else if (weapon.equals(c)) {
+				disprovedCards.add(weapon);
+			}
+		}
+		System.out.println(disprovedCards);
+		if (disprovedCards.isEmpty()) {
+			return null;
+		}
+		else {
+			return (disprovedCards.get(r.nextInt(disprovedCards.size())));
+		}
 	}
 	
 	public String getName() {

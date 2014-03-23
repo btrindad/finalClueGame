@@ -109,7 +109,15 @@ public class ClueGame {
 
 	public Card handleSuggestion(Card person, Card room,Card weapon,
 			Player accusingPerson) {
-				return null;
+		for (Player p : players) {
+			if (p != accusingPerson) {
+				if (p.disproveSuggestion(person, room, weapon) != null)  {
+					return p.disproveSuggestion(person, room, weapon);
+				}
+			}
+		}
+
+		return null;
 	}
 
 	public boolean checkAccusation(Solution sol) {
