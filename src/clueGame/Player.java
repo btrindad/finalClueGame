@@ -7,12 +7,14 @@ public class Player {
 	private String name;
 	private String color;
 	private int startingLocation;
-	private Set<Card> myCards;
+	private int currentLocation;
+	protected Set<Card> myCards;
 	
 	public Player(String n, String c, int sL) {
 		name = n;
 		color = c;
 		startingLocation = sL;
+		currentLocation = sL;
 		myCards = new HashSet<Card>();
 	}
 	

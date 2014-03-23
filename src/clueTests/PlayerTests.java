@@ -159,13 +159,13 @@ public class PlayerTests {
 	@Test
 	public void testCreateSuggestion() {  // I think this one works
 		ComputerPlayer c = new ComputerPlayer("COMPUTER PLAYER", "BLACK", 34);
-		c.updateSeen(kitchenCard);
-		c.updateSeen(libraryCard);
-		c.updateSeen(plumCard);
-		c.updateSeen(knifeCard);
+		c.updateSeen(kitchenCard, true);
+		c.updateSeen(libraryCard, true);
+		c.updateSeen(plumCard, true);
+		c.updateSeen(knifeCard, true);
 		
 		Solution testSuggestion = new Solution("Colonel Mustard", "Revoler", "Library");
-		Assert.assertEquals(testSuggestion, c.createSuggestion());
+		Assert.assertEquals(testSuggestion, c.createSuggestion('L'));
 		
 	}
 	

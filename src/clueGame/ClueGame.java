@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -15,7 +14,6 @@ public class ClueGame {
 	private Board theBoard;
 	private ArrayList<Player> players;
 	private Set<Card> deck;
-	private Set<Card> totalDeck; // Total Deck approach?
 	
 	public ClueGame() {
 		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
