@@ -1,15 +1,9 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 
 public class ControlGUI extends JFrame {
 	public ControlGUI(){
@@ -24,7 +18,6 @@ public class ControlGUI extends JFrame {
 		controlPanel.add(firstPanel);
 		firstPanel.setLayout(new GridLayout(1,3));
 
-		
 		turnPanel turn = new turnPanel();
 		JButton nextPlayer = new JButton("Next player");
 		JButton makeAccusation = new JButton("Make an accusation");
@@ -35,21 +28,10 @@ public class ControlGUI extends JFrame {
 		
 		JPanel secondPanel = new JPanel(); // secondPanel handles the second row of controlPanel
 		controlPanel.add(secondPanel);
-
-		dieRollPanel diePanel = new dieRollPanel();
-		secondPanel.add(diePanel);
 		
-		guessPanel guess = new guessPanel();
-		secondPanel.add(guess);
-		
-		JPanel resultPanel = new JPanel(); // start of resultPanel
-		JLabel resultLabel = new JLabel("Response");
-		JTextField resultField = new JTextField(10);
-		resultField.setEditable(false);
-		resultPanel.add(resultLabel);
-		resultPanel.add(resultField);
-		resultPanel.setBorder(new TitledBorder (new EtchedBorder(), "Guess Result")); // End of resultPanel
-		secondPanel.add(resultPanel);
+		secondPanel.add(new dieRollPanel());
+		secondPanel.add(new guessPanel());
+		secondPanel.add(new resultsPanel());
 	}
 
 	public static void main(String[] args) {
