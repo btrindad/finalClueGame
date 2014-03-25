@@ -12,8 +12,11 @@ public class ControlGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JButton nextPlayer = new JButton("Next player");
 		JButton makeAccusation = new JButton("Make an accusation");
-		add(nextPlayer, BorderLayout.NORTH);
-		add(makeAccusation, BorderLayout.EAST);
+		turnPanel whoseTurn = new turnPanel();
+		add(whoseTurn, BorderLayout.WEST);
+		add(makeAccusation, BorderLayout.CENTER);
+		add(nextPlayer, BorderLayout.EAST);
+		
 	}
 
 	public static void main(String[] args) {
