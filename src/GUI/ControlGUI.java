@@ -49,13 +49,8 @@ public class ControlGUI extends JFrame {
 		guessPanel guess = new guessPanel();
 		secondPanel.add(guess);
 		
-		JPanel resultPanel = new JPanel();
-		JLabel resultLabel = new JLabel("Response");
-		JTextField resultField = new JTextField(10);
-		resultPanel.add(resultLabel);
-		resultPanel.add(resultField);
-		resultPanel.setBorder(new TitledBorder (new EtchedBorder(), "Guess Result"));
-		secondPanel.add(resultPanel);
+		resultsPanel results = new resultsPanel();
+		secondPanel.add(results);
 	}
 
 	public static void main(String[] args) {
