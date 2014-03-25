@@ -31,16 +31,12 @@ public class ControlGUI extends JFrame {
 		JPanel firstPanel = new JPanel();
 		controlPanel.add(firstPanel);
 		firstPanel.setLayout(new GridLayout(1,3));
-		JPanel turnPanel = new JPanel();
-		JLabel turnLabel = new JLabel("Whose turn?");
-		JTextField turnField = new JTextField(15);
-		turnPanel.add(turnLabel);
-		turnPanel.add(turnField);
 		
+		turnPanel turn = new turnPanel();
 		JButton nextPlayer = new JButton("Next player");
 		JButton makeAccusation = new JButton("Make an accusation");
 		
-		firstPanel.add(turnPanel);
+		firstPanel.add(turn);
 		firstPanel.add(nextPlayer);
 		firstPanel.add(makeAccusation);
 		

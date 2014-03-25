@@ -9,11 +9,10 @@ import javax.swing.JTextField;
 
 public class turnPanel extends JPanel {
 	public turnPanel(){
-		JLabel whoseTurn = new JLabel("Whose Turn?");
-		JTextField input = new JTextField(20);
-		input.setFont(new Font("SansSerif", Font.PLAIN, 12));
-		setLayout(new GridLayout(2, 0));
-		add(whoseTurn);
-		add(input);
+		JPanel turnPanel = new JPanel();
+		JLabel turnLabel = new JLabel("Whose turn?");
+		JTextField turnField = new JTextField(15);
+		add(turnLabel);
+		add(turnField);
 	}
 }
