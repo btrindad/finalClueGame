@@ -1,5 +1,6 @@
 package clueBoard;
 
+import java.awt.Graphics;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,11 +12,13 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import javax.swing.JPanel;
+
 import clueBoard.RoomCell.DoorDirection;
 
 
 
-public class Board {
+public class Board extends JPanel {
 
 	private ArrayList<BoardCell> cells;
 	private Map<Character,String> rooms;
@@ -291,5 +294,12 @@ public class Board {
 		return targets;
 	}
 	
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		for (BoardCell c : cells) {
+			c.draw(g, this);
+		}
+	}
 	
 }

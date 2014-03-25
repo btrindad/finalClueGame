@@ -1,11 +1,15 @@
 package clueBoard;
 
+import java.awt.Graphics;
+
 import clueBoard.RoomCell.DoorDirection;
 
 abstract public class BoardCell {
 
 	private int row;
 	private int column;
+	public final static int boardWidth = 800;
+	public final static int boardHeight = 800;
 	
 	public BoardCell(int row, int column) {
 		
@@ -38,5 +42,6 @@ abstract public class BoardCell {
 		return DoorDirection.NONE;
 	}
 	
+	public abstract void draw(Graphics g, Board b);
 
 }

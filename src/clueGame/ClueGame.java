@@ -1,5 +1,6 @@
 package clueGame;
 
+import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -7,9 +8,12 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import clueBoard.Board;
+import javax.swing.JFrame;
 
-public class ClueGame {
+import clueBoard.Board;
+import clueBoard.BoardCell;
+
+public class ClueGame extends JFrame {
 	private Solution theSolution;
 	private Board theBoard;
 	private ArrayList<Player> players;
@@ -24,6 +28,9 @@ public class ClueGame {
 		players = new ArrayList<Player>();
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
+		setSize(BoardCell.boardWidth, BoardCell.boardHeight);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add(theBoard, BorderLayout.CENTER);
 	}
 
 	/*
@@ -169,6 +176,11 @@ public class ClueGame {
 	 */
 	public int getNumPlayers() {
 		return players.size();
+	}
+	
+	public static void main(String[] args) {
+		ClueGame mainGame = new ClueGame();
+		mainGame.setVisible(true);
 	}
 
 	/*-----------Getters and Setters for Testing Purposes ONLY ------*/
