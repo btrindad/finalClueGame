@@ -8,10 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class turnPanel extends JPanel {
+	JLabel turnLabel;
+	JTextField turnField;
+	
 	public turnPanel(){
-		JPanel turnPanel = new JPanel();
-		JLabel turnLabel = new JLabel("Whose turn?");
-		JTextField turnField = new JTextField(15);
+		turnLabel = new JLabel("Whose turn?");
+		turnField = new JTextField(15);
 		add(turnLabel);
 		add(turnField);
 	}
