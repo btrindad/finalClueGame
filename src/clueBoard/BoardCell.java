@@ -48,6 +48,14 @@ abstract public class BoardCell {
 			cellHeight = Board.boardHeightPixels / b.getRows();
 		}
 	}
+	
+	public int getX_coordinate(){
+		return getColumn()*(cellWidth) + (Board.marginSizePixels / 2);
+	}
+	
+	public int getY_coordinate(){
+		return getRow() * (cellHeight);
+	}
 
 	public abstract void draw(Graphics g, Board b);
 

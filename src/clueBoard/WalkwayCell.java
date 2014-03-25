@@ -18,12 +18,12 @@ public class WalkwayCell extends BoardCell {
 	public void draw(Graphics g, Board b) {
 		loadDimensions(b);
 		g.setColor(Color.black);
-		g.drawRect(getColumn()*cellWidth + Board.marginSizePixels/2, getRow()*cellHeight, 
+		g.drawRect(getX_coordinate(), getY_coordinate(), 
 				cellWidth, cellHeight);
 				
 		g.setColor(Color.yellow);
-		g.fillRect(getColumn()*(cellWidth)+ borderLineWidth +(Board.marginSizePixels/2), 
-				getRow()*(cellHeight)+borderLineWidth, 
-				(cellWidth)-borderLineWidth, (cellHeight)-borderLineWidth);
+		g.fillRect(getX_coordinate() + borderLineWidth, 
+				getY_coordinate()+borderLineWidth, 
+				cellWidth-borderLineWidth, cellHeight-borderLineWidth);
 	}
 }
