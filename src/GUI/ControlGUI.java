@@ -42,12 +42,8 @@ public class ControlGUI extends JFrame {
 		
 		JPanel secondPanel = new JPanel();
 		controlPanel.add(secondPanel);
-		JPanel diePanel = new JPanel();
-		JLabel dieLabel = new JLabel("Roll");
-		JTextField dieField = new JTextField(3);
-		diePanel.add(dieLabel);
-		diePanel.add(dieField);
-		diePanel.setBorder(new TitledBorder (new EtchedBorder(), "Die"));
+		
+		dieRollPanel diePanel = new dieRollPanel();
 		secondPanel.add(diePanel);
 		
 		JPanel guessPanel = new JPanel();
