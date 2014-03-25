@@ -22,7 +22,8 @@ public class WalkwayCell extends BoardCell {
 				cellWidth, cellHeight);
 				
 		g.setColor(Color.yellow);
-		g.fillRect(getColumn()*(cellWidth)+1+(Board.marginSizePixels/2), getRow()*(cellHeight)+1, 
+		g.fillRect(getColumn()*(cellWidth)+ borderLineWidth +(Board.marginSizePixels/2), 
+				getRow()*(cellHeight)+borderLineWidth, 
 				(cellWidth)-borderLineWidth, (cellHeight)-borderLineWidth);
 	}
 }
