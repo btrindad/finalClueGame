@@ -1,3 +1,69 @@
+commit ff5aa4c927f8befba26b5f85cf96f8876ba6d1d5
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Sun Mar 23 17:30:35 2014 -0600
+
+    deleted debug statements in game logic. NOTE: when tests run there are still debug statements that I cannot track down
+
+commit 5c16d3736ff603050786622557201b41e03ab3cf
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Sun Mar 23 17:27:02 2014 -0600
+
+    removed debug statements from test files
+
+commit 68f932d821af40871709c9a7eaad0e9ea7aeff1f
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Sun Mar 23 17:25:46 2014 -0600
+
+    added comments to tests
+
+commit a033f0145b9e9363d6bca73da56b9008bc5096ed
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Sun Mar 23 17:13:26 2014 -0600
+
+    added comments explaining methods and general thoughts behind design decisions
+
+commit dd3fa088a56fc9e6690430de8a04d8a5cf48387a
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sun Mar 23 03:29:57 2014 -0600
+
+    Implemented disprove, handleSuggestion
+
+commit a1a145c4d35db3477e5d0b0babff83d544fcb09f
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sun Mar 23 02:55:47 2014 -0600
+
+    Completed test suite for disprove, handleSuggestion
+
+commit b04c5558d035e3a96ea9efc5bd519f1ffe37a324
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sun Mar 23 01:43:51 2014 -0600
+
+    createSuggestion now passes
+
+commit d86191621619c0c4d1a31c5a328f4d6c7820a172
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sun Mar 23 00:02:11 2014 -0600
+
+    Trying to implement createSuggestion
+
+commit d24f45668a612561f06b8b22388e42966017c993
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sat Mar 22 19:02:10 2014 -0600
+
+    added createSuggestion test, restored two disproveSuggestion tests
+
+commit 27669ac395700c72353433ee0295b0c40caffbdb
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sat Mar 22 02:01:15 2014 -0600
+
+    pickLocation now passes tests
+
+commit 752d3bc4505b77ba3f226f718f6046f2742001d0
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Sat Mar 22 01:41:56 2014 -0600
+
+    Added tests for pickLocation
+
 commit 0e499c72544be4b82bacef9e52785bd604302e45
 Author: Bernardo Trindade <btrindade@eeshoo.com>
 Date:   Thu Mar 20 01:35:30 2014 -0600

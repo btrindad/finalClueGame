@@ -1,14 +1,17 @@
 package clueGame;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-public class ControlGUI {
+public class ControlGUI extends JFrame {
+	public ControlGUI(){
+		setSize(800, 250);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
 	public static void main(String[] args) {
-		JFrame controlPanel = new JFrame();
-		controlPanel.setVisible(true);
-		controlPanel.setSize(800, 250);
-		controlPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ControlGUI gui = new ControlGUI();
+		gui.setVisible(true);
 
 	}
 
