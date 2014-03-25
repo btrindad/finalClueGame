@@ -20,6 +20,11 @@ import clueBoard.RoomCell.DoorDirection;
 
 public class Board extends JPanel {
 
+	//constants that define properties of a board
+	public static final int boardWidthPixels = 805;
+	public static final int boardHeightPixels = 770;
+	public static final int marginSizePixels = 10;
+	
 	private ArrayList<BoardCell> cells;
 	private Map<Character,String> rooms;
 	private Map<Integer, ArrayList<Integer>> adjMtx;

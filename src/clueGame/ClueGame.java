@@ -28,7 +28,8 @@ public class ClueGame extends JFrame {
 		players = new ArrayList<Player>();
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
-		setSize(BoardCell.boardWidth + (BoardCell.boardWidth/23), BoardCell.boardHeight + (BoardCell.boardHeight/22));
+		setSize(Board.boardWidthPixels + (Board.boardWidthPixels/theBoard.getColumns()) + Board.marginSizePixels, 
+				Board.boardHeightPixels + (Board.boardHeightPixels/theBoard.getRows()) + Board.marginSizePixels);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(theBoard, BorderLayout.CENTER);
 	}

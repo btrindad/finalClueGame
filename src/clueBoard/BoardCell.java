@@ -8,8 +8,6 @@ abstract public class BoardCell {
 
 	private int row;
 	private int column;
-	public final static int boardWidth = 805;
-	public final static int boardHeight = 770;
 	
 	public BoardCell(int row, int column) {
 		
