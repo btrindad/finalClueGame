@@ -15,17 +15,17 @@ public class ControlGUI extends JFrame {
 	public ControlGUI(){
 		setSize(900, 240);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel controlPanel = new JPanel();
+		JPanel controlPanel = new JPanel(); // controlPanel is the overarching Panel
 		controlPanel.setLayout(new GridLayout(2, 1));
 		add(controlPanel);
-		JPanel firstPanel = new JPanel();
+		JPanel firstPanel = new JPanel(); // firstPanel handles the first row for controlPanel
 		controlPanel.add(firstPanel);
 		firstPanel.setLayout(new GridLayout(1,3));
-		JPanel turnPanel = new JPanel();
+		JPanel turnPanel = new JPanel(); // Start of turnPanel
 		JLabel turnLabel = new JLabel("Whose turn?");
 		JTextField turnField = new JTextField(15);
 		turnPanel.add(turnLabel);
-		turnPanel.add(turnField);
+		turnPanel.add(turnField); // End of turnPanel
 		
 		JButton nextPlayer = new JButton("Next player");
 		JButton makeAccusation = new JButton("Make an accusation");
@@ -34,30 +34,33 @@ public class ControlGUI extends JFrame {
 		firstPanel.add(nextPlayer);
 		firstPanel.add(makeAccusation);
 		
-		JPanel secondPanel = new JPanel();
+		JPanel secondPanel = new JPanel(); // secondPanel handles the second row of controlPanel
 		controlPanel.add(secondPanel);
-		JPanel diePanel = new JPanel();
+		JPanel diePanel = new JPanel(); // Start of diePanel
 		JLabel dieLabel = new JLabel("Roll");
 		JTextField dieField = new JTextField(3);
+		dieField.setEditable(false);
 		diePanel.add(dieLabel);
 		diePanel.add(dieField);
-		diePanel.setBorder(new TitledBorder (new EtchedBorder(), "Die"));
+		diePanel.setBorder(new TitledBorder (new EtchedBorder(), "Die")); // End of diePanel
 		secondPanel.add(diePanel);
 		
-		JPanel guessPanel = new JPanel();
+		JPanel guessPanel = new JPanel(); // Start of guessPanel
 		JLabel guessLabel = new JLabel("Guess");
 		JTextField guessField = new JTextField(30);
+		guessField.setEditable(false);
 		guessPanel.add(guessLabel);
 		guessPanel.add(guessField);
-		guessPanel.setBorder(new TitledBorder (new EtchedBorder(), "Guess"));
+		guessPanel.setBorder(new TitledBorder (new EtchedBorder(), "Guess")); // End of guessPanel
 		secondPanel.add(guessPanel);
 		
-		JPanel resultPanel = new JPanel();
+		JPanel resultPanel = new JPanel(); // start of resultPanel
 		JLabel resultLabel = new JLabel("Response");
 		JTextField resultField = new JTextField(10);
+		resultField.setEditable(false);
 		resultPanel.add(resultLabel);
 		resultPanel.add(resultField);
-		resultPanel.setBorder(new TitledBorder (new EtchedBorder(), "Guess Result"));
+		resultPanel.setBorder(new TitledBorder (new EtchedBorder(), "Guess Result")); // End of resultPanel
 		secondPanel.add(resultPanel);
 	}
 
