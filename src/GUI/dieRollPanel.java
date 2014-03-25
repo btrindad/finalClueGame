@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-public class dieRollPanel extends JPanel {
+public class dieRollPanel extends JPanel { // dieRollPanel contains the current turn
 	public dieRollPanel() {
 		JLabel dieLabel = new JLabel("Roll");
 		JTextField dieField = new JTextField(3);

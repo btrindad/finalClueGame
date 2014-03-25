@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class turnPanel extends JPanel {
+public class turnPanel extends JPanel { // turnPanel contains and handles the current turn
 	public turnPanel(){
 		JPanel turnPanel = new JPanel();
 		JLabel turnLabel = new JLabel("Whose turn?");
