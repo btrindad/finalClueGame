@@ -71,6 +71,9 @@ public class RoomCell extends BoardCell {
 				cellWidth, doorThickness);
 				break;
 			case DOWN:
+				g.fillRect(getColumn()*(cellWidth)+(Board.marginSizePixels/2), 
+						getRow()*(cellHeight)+(cellHeight - doorThickness), 
+						cellWidth, doorThickness);
 				break;
 			case LEFT:
 				break;
