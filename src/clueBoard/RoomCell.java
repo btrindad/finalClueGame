@@ -7,6 +7,7 @@ public class RoomCell extends BoardCell {
 	public enum DoorDirection {UP, DOWN, RIGHT, LEFT, NONE};
 	DoorDirection doorDirection;
 	char roomInitial;
+	private int doorThickness;
 	
 	public RoomCell(String type, int row, int column) {
 		super(row, column);

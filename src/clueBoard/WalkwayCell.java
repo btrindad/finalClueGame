@@ -16,9 +16,7 @@ public class WalkwayCell extends BoardCell {
 	}
 	
 	public void draw(Graphics g, Board b) {
-		int cellWidth = Board.boardWidthPixels/b.getColumns();
-		int cellHeight = Board.boardHeightPixels/b.getRows();
-		
+		loadDimensions(b);
 		g.setColor(Color.black);
 		g.drawRect(getColumn()*cellWidth + Board.marginSizePixels/2, getRow()*cellHeight, 
 				cellWidth, cellHeight);
