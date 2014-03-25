@@ -43,14 +43,9 @@ public class ControlGUI extends JFrame {
 		JPanel secondPanel = new JPanel();
 		controlPanel.add(secondPanel);
 		
-		dieRollPanel diePanel = new dieRollPanel();
-		secondPanel.add(diePanel);
-		
-		guessPanel guess = new guessPanel();
-		secondPanel.add(guess);
-		
-		resultsPanel results = new resultsPanel();
-		secondPanel.add(results);
+		secondPanel.add(new dieRollPanel());
+		secondPanel.add(new guessPanel());
+		secondPanel.add(new resultsPanel());
 	}
 
 	public static void main(String[] args) {
