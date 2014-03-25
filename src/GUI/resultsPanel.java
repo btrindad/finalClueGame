@@ -7,9 +7,12 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class resultsPanel extends JPanel {
+	JLabel resultLabel;
+	JTextField resultField;
+	
 	public resultsPanel(){
-		JLabel resultLabel = new JLabel("Response");
-		JTextField resultField = new JTextField(10);
+		resultLabel = new JLabel("Response");
+		resultField = new JTextField(10);
 		add(resultLabel);
 		add(resultField);
 		setBorder(new TitledBorder (new EtchedBorder(), "Guess Result"));
