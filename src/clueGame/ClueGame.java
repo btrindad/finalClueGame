@@ -114,6 +114,9 @@ public class ClueGame extends JFrame {
 	public void loadConfigFiles() {
 		loadDeck();
 		loadPlayers();
+		for(Player p : players){
+			theBoard.addPlayerMarker(p);
+		}
 	}
 
 	/*
@@ -183,6 +186,7 @@ public class ClueGame extends JFrame {
 	
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
+		mainGame.loadConfigFiles();
 		mainGame.setVisible(true);
 	}
 

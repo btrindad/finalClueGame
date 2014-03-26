@@ -18,9 +18,8 @@ public class NotesDialog extends JDialog {
 	
 	public NotesDialog() {
 		setVisible(true);
-		setDefaultCloseOperation(HIDE_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE); // 
 		setTitle("Notes");
-		setSize(500, 600);
 		setLayout(new GridLayout(3, 2));
 		
 		JPanel peoplePanel = new JPanel(); // Start of people panel
@@ -87,9 +86,11 @@ public class NotesDialog extends JDialog {
 		
 		WeaponGuessPanel weaponGuess = new WeaponGuessPanel();
 		add(weaponGuess);
+		
+		setSize(500, 600);
 	}
 	
-	public static void main(String[] args) {
-		NotesDialog nd = new NotesDialog();
-	}
+	//public static void main(String[] args) { // For debugging
+		//NotesDialog nd = new NotesDialog(); // For Debugging, enable with DISPOSE_ON_CLOSE
+	//}
 }

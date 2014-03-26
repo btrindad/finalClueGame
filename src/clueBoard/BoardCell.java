@@ -8,8 +8,8 @@ abstract public class BoardCell {
 
 	private int row;
 	private int column;
-	static Integer cellWidth;
-	static Integer cellHeight;
+	private Integer cellWidth;
+	private Integer cellHeight;
 
 	public BoardCell(int row, int column) {
 
@@ -37,6 +37,14 @@ abstract public class BoardCell {
 	public int getColumn() {
 		return column;
 	}
+	
+	public int getWidth(){
+		return cellWidth;
+	}
+	
+	public int getHeight(){
+		return cellHeight;
+	}
 
 	public DoorDirection getDoorDirection() {
 		return DoorDirection.NONE;
@@ -47,6 +55,14 @@ abstract public class BoardCell {
 			cellWidth = Board.boardWidthPixels / b.getColumns();
 			cellHeight = Board.boardHeightPixels / b.getRows();
 		}
+	}
+	
+	public int getX_coordinate(){
+		return getColumn()*(cellWidth) + (Board.marginSizePixels / 2);
+	}
+	
+	public int getY_coordinate(){
+		return getRow() * (cellHeight);
 	}
 
 	public abstract void draw(Graphics g, Board b);

@@ -1,21 +1,26 @@
 package clueGame;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import clueBoard.Board;
+import clueBoard.BoardCell;
+
 public class Player {
 	private Random r = new Random();
 	private String name;
-	private String color;
+	private Color color;
 	private int startingLocation;
 	private int currentLocation;
 	protected Set<Card> myCards;
 	
 	public Player(String n, String c, int sL) {
 		name = n;
-		color = c;
+		color = stringToColor(c.toUpperCase());
 		startingLocation = sL;
 		currentLocation = sL;
 		myCards = new HashSet<Card>();
@@ -51,7 +56,7 @@ public class Player {
 		return name;
 	}
 	
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 	
@@ -61,6 +66,41 @@ public class Player {
 	
 	public void addCard(Card c) {
 		myCards.add(c);
+	}
+	
+	public Color stringToColor(String colorNameUpcase){
+		switch(colorNameUpcase){
+		case("YELLOW"):
+			return Color.YELLOW.darker();
+		case("WHITE"):
+			return Color.WHITE;
+		case("PURPLE"):
+			//Color class does not have purple, and I'm a little colorblind
+			//the internet says these RGB values make purple
+			return new Color(153, 0 ,153);
+		case("RED"):
+			return Color.RED;
+		case("GREEN"):
+			return Color.GREEN;
+		case("BLUE"):
+			return Color.BLUE;
+		default:
+			return Color.BLACK;
+		}
+	}
+	
+	public void draw(Graphics g, Board b){
+		try{
+			BoardCell cell = b.getCellAt(startingLocation);
+			g.setColor(Color.BLACK);
+			g.drawOval(cell.getX_coordinate(), cell.getY_coordinate(), 
+					cell.getWidth(), cell.getHeight());
+			g.setColor(color);
+			g.fillOval(cell.getX_coordinate(), cell.getY_coordinate(), 
+					cell.getWidth(), cell.getHeight());
+		}catch (NullPointerException n){
+			System.out.println(n.getMessage());
+		}
 	}
 	
 

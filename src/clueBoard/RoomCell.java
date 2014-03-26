@@ -69,25 +69,21 @@ public class RoomCell extends BoardCell {
 			g.setColor(Color.BLUE);
 			switch (doorDirection) {
 			case UP:
-				g.fillRect(getColumn() * (cellWidth)
-						+ (Board.marginSizePixels / 2),
-						getRow() * (cellHeight), cellWidth, doorThickness);
+				g.fillRect(getX_coordinate(),
+						getY_coordinate(), getWidth(), doorThickness);
 				break;
 			case DOWN:
-				g.fillRect(getColumn() * (cellWidth)
-						+ (Board.marginSizePixels / 2), getRow() * (cellHeight)
-						+ (cellHeight - doorThickness), cellWidth,
-						doorThickness);
+				g.fillRect(getX_coordinate(), getY_coordinate() + (getHeight() - doorThickness), 
+						getWidth(), doorThickness);
 				break;
 			case LEFT:
-				g.fillRect(getColumn() * (cellWidth)
-						+ (Board.marginSizePixels / 2),
-						getRow() * (cellHeight), doorThickness, cellHeight);
+				g.fillRect(getX_coordinate(), getY_coordinate(), 
+						doorThickness, getHeight());
 				break;
 			case RIGHT:
-				g.fillRect(getColumn()*(cellWidth) + (Board.marginSizePixels / 2) + (cellWidth - doorThickness), 
-						getRow() * (cellHeight),
-						doorThickness, cellHeight);
+				g.fillRect(getX_coordinate() + (getWidth() - doorThickness), 
+						getY_coordinate(),
+						doorThickness, getHeight());
 				break;
 			}
 		}

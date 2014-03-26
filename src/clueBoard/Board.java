@@ -1,5 +1,6 @@
 package clueBoard;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,14 +16,15 @@ import java.util.Set;
 import javax.swing.JPanel;
 
 import clueBoard.RoomCell.DoorDirection;
+import clueGame.Player;
 
 
 
 public class Board extends JPanel {
 
 	//constants that define properties of a board
-	public static final int boardWidthPixels = 805;
-	public static final int boardHeightPixels = 770;
+	public static final int boardWidthPixels = 690;
+	public static final int boardHeightPixels = 660;
 	public static final int marginSizePixels = 10;
 	
 	private ArrayList<BoardCell> cells;
@@ -34,11 +36,13 @@ public class Board extends JPanel {
 	private int numColumns;
 	private String configFile;
 	private String legendFile;
+	private Set<Player> playerMarkers;
 	
 	public Board(String configFile, String legendFile) {
 		this.configFile = configFile;
 		this.legendFile = legendFile;
 		targets = new HashSet<BoardCell>();
+		playerMarkers = new HashSet<Player>();
 	}
 	
 
@@ -299,11 +303,19 @@ public class Board extends JPanel {
 		return targets;
 	}
 	
+	public void addPlayerMarker(final Player p){
+		playerMarkers.add(p);
+	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (BoardCell c : cells) {
 			c.draw(g, this);
+		}
+		
+		for(Player p : playerMarkers){
+			p.draw(g, this);
 		}
 	}
 	
