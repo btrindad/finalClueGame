@@ -1,3 +1,22 @@
+commit 76a495bc564d64f7dd88f7d5418cd269e132272d
+Merge: 6387678 1401b34
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 23:26:18 2014 -0600
+
+    Merge branch 'master' of https://github.com/btrindad/CodeSwap
+
+commit 63876781072e70d8ce2ac6fcd372f71ea70f0c8b
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 23:26:05 2014 -0600
+
+    Deleted OptionBox as unnecessary, refactored
+
+commit 1401b3427cb109875a9410c1c1895083a08f1b7f
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 23:24:39 2014 -0600
+
+    updated log file, now in log.txt
+
 commit 8f1b0508150c277c181ce04af4574fa825074eb4
 Merge: 6518589 8f49247
 Author: Bernardo Trindade <btrindade@eeshoo.com>
