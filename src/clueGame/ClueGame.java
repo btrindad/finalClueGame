@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 import clueBoard.Board;
@@ -18,6 +19,7 @@ public class ClueGame extends JFrame {
 	private Board theBoard;
 	private ArrayList<Player> players;
 	private Set<Card> deck;
+	// Add Notes
 	
 	/*
 	 * a blank game, initialize all attributes
