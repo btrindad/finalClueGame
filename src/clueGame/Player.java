@@ -1,5 +1,6 @@
 package clueGame;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -8,14 +9,14 @@ import java.util.Set;
 public class Player {
 	private Random r = new Random();
 	private String name;
-	private String color;
+	private Color color;
 	private int startingLocation;
 	private int currentLocation;
 	protected Set<Card> myCards;
 	
 	public Player(String n, String c, int sL) {
 		name = n;
-		color = c;
+		color = c.toUpperCase();
 		startingLocation = sL;
 		currentLocation = sL;
 		myCards = new HashSet<Card>();
