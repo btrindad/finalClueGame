@@ -16,7 +16,7 @@ public class Player {
 	
 	public Player(String n, String c, int sL) {
 		name = n;
-		color = c.toUpperCase();
+		color = stringToColor(c.toUpperCase());
 		startingLocation = sL;
 		currentLocation = sL;
 		myCards = new HashSet<Card>();
@@ -52,7 +52,7 @@ public class Player {
 		return name;
 	}
 	
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 	
@@ -62,6 +62,27 @@ public class Player {
 	
 	public void addCard(Card c) {
 		myCards.add(c);
+	}
+	
+	public Color stringToColor(String colorNameUpcase){
+		switch(colorNameUpcase){
+		case("YELLOW"):
+			return Color.YELLOW;
+		case("WHITE"):
+			return Color.WHITE;
+		case("PURPLE"):
+			//Color class does not have purple, and I'm a little colorblind
+			//the internet says these RGB values make purple
+			return new Color(153, 0 ,153);
+		case("RED"):
+			return Color.RED;
+		case("GREEN"):
+			return Color.GREEN;
+		case("BLUE"):
+			return Color.BLUE;
+		default:
+			return Color.BLACK;
+		}
 	}
 	
 

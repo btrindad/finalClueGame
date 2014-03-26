@@ -1,5 +1,6 @@
 package clueBoard;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -34,11 +35,13 @@ public class Board extends JPanel {
 	private int numColumns;
 	private String configFile;
 	private String legendFile;
+	private Map<Integer, Color> playerMarkers;
 	
 	public Board(String configFile, String legendFile) {
 		this.configFile = configFile;
 		this.legendFile = legendFile;
 		targets = new HashSet<BoardCell>();
+		playerMarkers = new HashMap<Integer, Color>();
 	}
 	
 
@@ -298,6 +301,8 @@ public class Board extends JPanel {
 	public Set<BoardCell> getTargets() {
 		return targets;
 	}
+	
+	public void addPlayerMarker(int index)
 	
 	@Override
 	public void paintComponent(Graphics g) {
