@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import GUI.OptionBox;
 import GUI.PersonGuessPanel;
 import GUI.RoomGuessPanel;
 import GUI.WeaponGuessPanel;
@@ -24,17 +23,17 @@ public class NotesDialog extends JDialog {
 		
 		JPanel peoplePanel = new JPanel(); // Start of people panel
 		peoplePanel.setLayout(new GridLayout(3, 2));
-		OptionBox scarlett = new OptionBox("Miss Scarlett");
+		JCheckBox scarlett = new JCheckBox("Miss Scarlett");
 		peoplePanel.add(scarlett);
-		OptionBox mustard = new OptionBox("Colonel Mustard");
+		JCheckBox mustard = new JCheckBox("Colonel Mustard");
 		peoplePanel.add(mustard);
-		OptionBox green = new OptionBox("Mr. Green");
+		JCheckBox green = new JCheckBox("Mr. Green");
 		peoplePanel.add(green);
-		OptionBox white = new OptionBox("Mrs. White");
+		JCheckBox white = new JCheckBox("Mrs. White");
 		peoplePanel.add(white);
-		OptionBox peacock = new OptionBox("Mrs. Peacock");
+		JCheckBox peacock = new JCheckBox("Mrs. Peacock");
 		peoplePanel.add(peacock);
-		OptionBox plum = new OptionBox("Professor Plum");
+		JCheckBox plum = new JCheckBox("Professor Plum");
 		peoplePanel.add(plum);
 		peoplePanel.setBorder(new TitledBorder(new EtchedBorder(), "People"));
 		add(peoplePanel);		
@@ -44,23 +43,23 @@ public class NotesDialog extends JDialog {
 		
 		JPanel roomsPanel = new JPanel();
 		roomsPanel.setLayout(new GridLayout(5,2));
-		OptionBox kitchen = new OptionBox("Kitchen");
+		JCheckBox kitchen = new JCheckBox("Kitchen");
 		roomsPanel.add(kitchen);
-		OptionBox dining = new OptionBox("Dining Room");
+		JCheckBox dining = new JCheckBox("Dining Room");
 		roomsPanel.add(dining);
-		OptionBox lounge = new OptionBox("Lounge");
+		JCheckBox lounge = new JCheckBox("Lounge");
 		roomsPanel.add(lounge);
-		OptionBox ballroom = new OptionBox("Ballroom");
+		JCheckBox ballroom = new JCheckBox("Ballroom");
 		roomsPanel.add(ballroom);
-		OptionBox conservatory = new OptionBox("Conservatory");
+		JCheckBox conservatory = new JCheckBox("Conservatory");
 		roomsPanel.add(conservatory);
-		OptionBox hall = new OptionBox("Hall");
+		JCheckBox hall = new JCheckBox("Hall");
 		roomsPanel.add(hall);
-		OptionBox study = new OptionBox("Study");
+		JCheckBox study = new JCheckBox("Study");
 		roomsPanel.add(study);
-		OptionBox library = new OptionBox("Library");
+		JCheckBox library = new JCheckBox("Library");
 		roomsPanel.add(library);
-		OptionBox billiards = new OptionBox("Billiard Room");
+		JCheckBox billiards = new JCheckBox("Billiard Room");
 		roomsPanel.add(billiards);
 		roomsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Rooms"));
 		add(roomsPanel);
@@ -69,17 +68,17 @@ public class NotesDialog extends JDialog {
 		add(roomGuess);
 		
 		JPanel weaponsPanel = new JPanel();
-		OptionBox candlestick = new OptionBox("Candlestick");
+		JCheckBox candlestick = new JCheckBox("Candlestick");
 		weaponsPanel.add(candlestick);
-		OptionBox knife = new OptionBox("Knife");
+		JCheckBox knife = new JCheckBox("Knife");
 		weaponsPanel.add(knife);
-		OptionBox pipe = new OptionBox("Lead Pipe");
+		JCheckBox pipe = new JCheckBox("Lead Pipe");
 		weaponsPanel.add(pipe);
-		OptionBox revolver = new OptionBox("Revolver");
+		JCheckBox revolver = new JCheckBox("Revolver");
 		weaponsPanel.add(revolver);
-		OptionBox rope = new OptionBox("Rope");
+		JCheckBox rope = new JCheckBox("Rope");
 		weaponsPanel.add(rope);
-		OptionBox wrench = new OptionBox("Wrench");
+		JCheckBox wrench = new JCheckBox("Wrench");
 		weaponsPanel.add(wrench);
 		weaponsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Weapons"));
 		add(weaponsPanel);
