@@ -8,8 +8,8 @@ abstract public class BoardCell {
 
 	private int row;
 	private int column;
-	public static Integer cellWidth;
-	public static Integer cellHeight;
+	private Integer cellWidth;
+	private Integer cellHeight;
 
 	public BoardCell(int row, int column) {
 
@@ -36,6 +36,14 @@ abstract public class BoardCell {
 
 	public int getColumn() {
 		return column;
+	}
+	
+	public int getWidth(){
+		return cellWidth;
+	}
+	
+	public int getHeight(){
+		return cellHeight;
 	}
 
 	public DoorDirection getDoorDirection() {

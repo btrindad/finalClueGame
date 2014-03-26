@@ -70,20 +70,20 @@ public class RoomCell extends BoardCell {
 			switch (doorDirection) {
 			case UP:
 				g.fillRect(getX_coordinate(),
-						getY_coordinate(), cellWidth, doorThickness);
+						getY_coordinate(), getWidth(), doorThickness);
 				break;
 			case DOWN:
-				g.fillRect(getX_coordinate(), getY_coordinate() + (cellHeight - doorThickness), 
-						cellWidth, doorThickness);
+				g.fillRect(getX_coordinate(), getY_coordinate() + (getHeight() - doorThickness), 
+						getWidth(), doorThickness);
 				break;
 			case LEFT:
 				g.fillRect(getX_coordinate(), getY_coordinate(), 
-						doorThickness, cellHeight);
+						doorThickness, getHeight());
 				break;
 			case RIGHT:
-				g.fillRect(getX_coordinate() + (cellWidth - doorThickness), 
+				g.fillRect(getX_coordinate() + (getWidth() - doorThickness), 
 						getY_coordinate(),
-						doorThickness, cellHeight);
+						doorThickness, getHeight());
 				break;
 			}
 		}

@@ -19,11 +19,11 @@ public class WalkwayCell extends BoardCell {
 		loadDimensions(b);
 		g.setColor(Color.black);
 		g.drawRect(getX_coordinate(), getY_coordinate(), 
-				cellWidth, cellHeight);
+				getWidth(), getHeight());
 				
 		g.setColor(Color.yellow);
 		g.fillRect(getX_coordinate() + borderLineWidth, 
 				getY_coordinate()+borderLineWidth, 
-				cellWidth-borderLineWidth, cellHeight-borderLineWidth);
+				getWidth()-borderLineWidth, getHeight()-borderLineWidth);
 	}
 }

@@ -94,10 +94,10 @@ public class Player {
 			BoardCell cell = b.getCellAt(startingLocation);
 			g.setColor(Color.BLACK);
 			g.drawOval(cell.getX_coordinate(), cell.getY_coordinate(), 
-					cell.cellWidth, cell.cellHeight);
+					cell.getWidth(), cell.getHeight());
 			g.setColor(color);
 			g.fillOval(cell.getX_coordinate(), cell.getY_coordinate(), 
-					cell.cellWidth, cell.cellHeight);
+					cell.getWidth(), cell.getHeight());
 		}catch (NullPointerException n){
 			System.out.println(n.getMessage());
 		}
