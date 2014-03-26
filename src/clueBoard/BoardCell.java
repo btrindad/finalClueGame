@@ -8,8 +8,8 @@ abstract public class BoardCell {
 
 	private int row;
 	private int column;
-	static Integer cellWidth;
-	static Integer cellHeight;
+	public static Integer cellWidth;
+	public static Integer cellHeight;
 
 	public BoardCell(int row, int column) {
 

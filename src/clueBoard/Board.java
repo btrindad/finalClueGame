@@ -16,6 +16,7 @@ import java.util.Set;
 import javax.swing.JPanel;
 
 import clueBoard.RoomCell.DoorDirection;
+import clueGame.Player;
 
 
 
@@ -35,13 +36,13 @@ public class Board extends JPanel {
 	private int numColumns;
 	private String configFile;
 	private String legendFile;
-	private Map<Integer, Color> playerMarkers;
+	private Set<Player> playerMarkers;
 	
 	public Board(String configFile, String legendFile) {
 		this.configFile = configFile;
 		this.legendFile = legendFile;
 		targets = new HashSet<BoardCell>();
-		playerMarkers = new HashMap<Integer, Color>();
+		playerMarkers = new HashSet<Player>();
 	}
 	
 
@@ -302,13 +303,19 @@ public class Board extends JPanel {
 		return targets;
 	}
 	
-	public void addPlayerMarker(int index)
+	public void addPlayerMarker(final Player p){
+		playerMarkers.add(p);
+	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (BoardCell c : cells) {
 			c.draw(g, this);
+		}
+		
+		for(Player p : playerMarkers){
+			p.draw(g, this);
 		}
 	}
 	

@@ -1,10 +1,14 @@
 package clueGame;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+
+import clueBoard.Board;
+import clueBoard.BoardCell;
 
 public class Player {
 	private Random r = new Random();
@@ -67,7 +71,7 @@ public class Player {
 	public Color stringToColor(String colorNameUpcase){
 		switch(colorNameUpcase){
 		case("YELLOW"):
-			return Color.YELLOW;
+			return Color.YELLOW.darker();
 		case("WHITE"):
 			return Color.WHITE;
 		case("PURPLE"):
@@ -82,6 +86,20 @@ public class Player {
 			return Color.BLUE;
 		default:
 			return Color.BLACK;
+		}
+	}
+	
+	public void draw(Graphics g, Board b){
+		try{
+			BoardCell cell = b.getCellAt(startingLocation);
+			g.setColor(Color.BLACK);
+			g.drawOval(cell.getX_coordinate(), cell.getY_coordinate(), 
+					cell.cellWidth, cell.cellHeight);
+			g.setColor(color);
+			g.fillOval(cell.getX_coordinate(), cell.getY_coordinate(), 
+					cell.cellWidth, cell.cellHeight);
+		}catch (NullPointerException n){
+			System.out.println(n.getMessage());
 		}
 	}
 	
