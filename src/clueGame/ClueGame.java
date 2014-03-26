@@ -1,6 +1,8 @@
 package clueGame;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -8,7 +10,11 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 import clueBoard.Board;
 import clueBoard.BoardCell;
@@ -18,6 +24,8 @@ public class ClueGame extends JFrame {
 	private Board theBoard;
 	private ArrayList<Player> players;
 	private Set<Card> deck;
+	private NotesDialog notesDialog;
+	private JMenuBar menuBar;
 	
 	/*
 	 * a blank game, initialize all attributes
@@ -29,9 +37,13 @@ public class ClueGame extends JFrame {
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
 		setSize(Board.boardWidthPixels + (Board.boardWidthPixels/theBoard.getColumns()) + Board.marginSizePixels, 
-				Board.boardHeightPixels + (Board.boardHeightPixels/theBoard.getRows()) + Board.marginSizePixels);
+				Board.boardHeightPixels + (Board.boardHeightPixels/theBoard.getRows()) + Board.marginSizePixels + 22);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(theBoard, BorderLayout.CENTER);
+		notesDialog = new NotesDialog();
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		menuBar.add(createFileMenu());
 	}
 
 	/*
@@ -182,6 +194,38 @@ public class ClueGame extends JFrame {
 		return players.size();
 	}
 	
+	private JMenu createFileMenu() {
+		JMenu menu = new JMenu("File");
+		menu.add(createShowNotesItem());
+		menu.add(createFileExitItem());
+		return menu;
+	}
+	
+	private JMenuItem createShowNotesItem() {
+		JMenuItem notesItem  = new JMenuItem("Show Notes");
+		class NotesItemListener implements ActionListener {
+			public void actionPerformed(ActionEvent e)
+			{
+				notesDialog.setVisible(true);
+			}
+		}
+		notesItem.addActionListener(new NotesItemListener());
+		return notesItem; 
+	}
+	
+	private JMenuItem createFileExitItem() {
+		JMenuItem exitItem = new JMenuItem("Exit");
+		class ExitItemListener implements ActionListener {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		       System.exit(0);
+		    }
+		  }
+		  exitItem.addActionListener(new ExitItemListener());
+		  return exitItem;
+	}
+	
+	// MAIN
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
 		mainGame.loadConfigFiles();
