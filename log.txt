@@ -1,3 +1,288 @@
+commit 8f1b0508150c277c181ce04af4574fa825074eb4
+Merge: 6518589 8f49247
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 23:20:48 2014 -0600
+
+    Merge branch 'master' of https://github.com/btrindad/CodeSwap
+
+commit 6518589ac89378033ed996da919cb4006161ab6b
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 23:20:41 2014 -0600
+
+    draw room names in appropriate rooms
+
+commit 8f492478e13dad530b19e8e2f0dc633d0b679233
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 23:07:18 2014 -0600
+
+    Modified the notes dialog class to set visibility false
+
+commit a2b81cc3736235ec6d4c4f57f17ba11b20fdea50
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 23:03:23 2014 -0600
+
+    Modified game window size to account for menu
+
+commit a9d8e156c955e32f983dc8b1e78b8b2396d7e67e
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 23:00:58 2014 -0600
+
+    Added menu
+
+commit 2a8a8476911bddda2408d234ec546f2fd969c81f
+Merge: 613fa22 50c34ba
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 22:07:39 2014 -0600
+
+    Modified the notes dialog
+
+commit 613fa2275e71038af5201494e4cf0d2df1336be1
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 21:45:20 2014 -0600
+
+    Initial version of notes
+
+commit 50c34ba81249fe5b4a5ac8d0a50f5faf47ac59d0
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 21:22:46 2014 -0600
+
+    refactored cell height and width to be accessed with getters
+
+commit 28d3d4060c6635480dc09f180b34accf53f93fb9
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 21:15:18 2014 -0600
+
+    draw players on board
+
+commit f6caf7589cd9b2f7878fab4d8482ec61fd699211
+Merge: 7fe3cfb c40cd0e
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 20:51:54 2014 -0600
+
+    Merge branch 'coordinate_refactor' of https://github.com/btrindad/CodeSwap
+
+commit 7fe3cfb90fff738bc6fb441246a7c4d965312020
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 19:29:03 2014 -0600
+
+    changed player to use Java Color class instead of string
+
+commit d075685c9aee2a4059f2f875332badeeaf34ba5b
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Tue Mar 25 18:46:23 2014 -0600
+
+    changed screen dimensions to fit on my laptop monitor
+
+commit c40cd0ed067c029d98863d4b99e2f4f0cafd4218
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 13:39:33 2014 -0600
+
+    refactored code to find x and y coordinates of cells
+
+commit 1ceb5f56880e98e21c5bb112cb11da77020e1107
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 13:27:38 2014 -0600
+
+    draw doors facing right
+
+commit 54666eb8dbcf1d170d40933a85d2398ebb6c6004
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 13:24:22 2014 -0600
+
+    draw doors facing left
+
+commit 27db252019a5eb9d665fd1cdd60bd6661335bdd2
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 13:22:02 2014 -0600
+
+    draw doors facing down
+
+commit f0428f4cc5213cb2e2280a317ba34f58e862561e
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 13:20:28 2014 -0600
+
+    draw doors facing up
+
+commit 32796a018ab97cd337c179e42e01a4e125f0811c
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 13:07:48 2014 -0600
+
+    made height and width attributes for a board cell
+
+commit 436488260b339afd19e3ad93a33e622800c36e99
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 12:55:30 2014 -0600
+
+    moved constants to Board class to make more sense and added handling for setting a margin
+
+commit 030aab9d5f2e552c8e4c5235a32c5a6ad9526562
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 12:33:26 2014 -0600
+
+    resized board and window
+
+commit 93edd718a4cebe486047bf91a3f6b9216f556872
+Author: Bernardo <btrindad@mymail.mines.edu>
+Date:   Tue Mar 25 12:23:23 2014 -0600
+
+    colored in the board
+
+commit 62cd415021b15c7bb3695edf941581c744b3c6a9
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Tue Mar 25 10:44:55 2014 -0600
+
+    Initial version of drawing functions
+
+commit 034e4ff5a3781dd9adbc2f2c3ee7f6c8d95d6b91
+Merge: fa0af0e d04bfca
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 23:34:21 2014 -0600
+
+    Fixed merge conflicts
+
+commit fa0af0e7185feac337fa702dc820dcf2a46b0d93
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 23:32:21 2014 -0600
+
+    Added a few explanatory comments
+
+commit d04bfca8772e6b2cadb577da30c1421069d76298
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:27:40 2014 -0600
+
+    refactored results panel class
+
+commit 20b7f61dd37197a19e4383a84191f40790d34dc5
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:26:45 2014 -0600
+
+    refactored guess panel class
+
+commit 5d3ecea38b60f12963ae5d9206b50990dfee3ef4
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:25:58 2014 -0600
+
+    refactored die panel class
+
+commit 5f8d35f123642f066ec978bb61d0cde4469ba3cd
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:25:02 2014 -0600
+
+    refactored turn panel class
+
+commit 5a8125e07c02b594545a93bcf1f1c026c14e08d7
+Merge: bb235b8 013da66
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 23:19:08 2014 -0600
+
+    Another merge complete
+
+commit bb235b85db17ca98a3a6e7219cd366f2deac043f
+Merge: 4fa888f daa46b1
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 23:13:54 2014 -0600
+
+    Merge complete
+
+commit 013da66f6a80a390e0df520aa200f38d16aaa0d2
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:13:07 2014 -0600
+
+    cleaned up extraneous lines from GUI
+
+commit 9e9eb538ba7deb3fcbc955c1b743d94e053fbb58
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:10:47 2014 -0600
+
+    refactored results panel
+
+commit 4fa888f52b71a620652d5220cf27ea109d847343
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 23:09:56 2014 -0600
+
+    Added editable settings, comments
+
+commit daa46b13930301356f3e7adb5ed7e5fa3d933bbf
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:07:32 2014 -0600
+
+    refactored guess panel
+
+commit 525b8cc599463c301d02e3459b1c628e6c1ed812
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:04:09 2014 -0600
+
+    refactored die roll panel
+
+commit b732b4973bd41716ae16054edd93144c9db7d846
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 23:01:26 2014 -0600
+
+    refactored turn panel
+
+commit c97972f7438ba45c4e93537f6c9322acf994b2ed
+Merge: 8e3f90a 325bf90
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 22:50:47 2014 -0600
+
+    pulled Ryan's code
+
+commit 8e3f90a08c63bec849ecdf5bbbdec47894b05979
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 22:47:51 2014 -0600
+
+    changed layout to use grid
+
+commit 325bf90e9013b8390afb6868723791abf942de8c
+Merge: 5ca87c2 6d637cb
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 22:44:05 2014 -0600
+
+    Initial completed version
+
+commit 45420fc312216b0e9ab80532444886c5826b18b6
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 22:41:52 2014 -0600
+
+    added whose turn text field
+
+commit 5ca87c2f5e3e757daf77fd6bf8e63aec9bbea605
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 22:10:12 2014 -0600
+
+    Added JPanel
+
+commit 6d637cb78fe18c5e21e6529edc6b55aa07cd75db
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 21:57:14 2014 -0600
+
+    moved class into new GUI package
+
+commit 9f518470245b5cee6071b0f385dc0c7e22d994e4
+Merge: 7b1354d a975621
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 21:56:11 2014 -0600
+
+    reorganized current functions in to extension of JFrame
+
+commit a97562183817fb82cb963276684fb2f6f76e9459
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 21:53:58 2014 -0600
+
+    Not much progress...
+
+commit 7b1354d12bf2d1daf35f9910c9b8c339ddc68bd1
+Author: Bernardo Trindade <btrindade@eeshoo.com>
+Date:   Mon Mar 24 21:49:36 2014 -0600
+
+    changed variables around to make controlGUI an extension of JFrame
+
+commit 064b24e223918bf5ade0abc8e0d20f9e7e96ddc7
+Author: rporter <rporter@mymail.mines.edu>
+Date:   Mon Mar 24 21:00:04 2014 -0600
+
+    Started control GUI.
+
 commit ff5aa4c927f8befba26b5f85cf96f8876ba6d1d5
 Author: Bernardo Trindade <btrindade@eeshoo.com>
 Date:   Sun Mar 23 17:30:35 2014 -0600
