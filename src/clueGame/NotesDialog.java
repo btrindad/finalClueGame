@@ -17,7 +17,7 @@ import GUI.WeaponGuessPanel;
 public class NotesDialog extends JDialog {
 	
 	public NotesDialog() {
-		setVisible(true);
+		setVisible(false);
 		setDefaultCloseOperation(HIDE_ON_CLOSE); // 
 		setTitle("Notes");
 		setLayout(new GridLayout(3, 2));
