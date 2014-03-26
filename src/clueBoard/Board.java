@@ -61,7 +61,7 @@ public class Board extends JPanel {
 				else {
 					// Too many or too few parts?
 					input.close();
-					throw new BadConfigFormatException("Legend file has a line with two few or too many parts: " + line);
+					throw new BadConfigFormatException("Legend file has a line with too few or too many parts: " + line);
 				}
 			}
 			else {

@@ -1,12 +1,13 @@
 package clueBoard;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 public class RoomCell extends BoardCell {
 
 	public enum DoorDirection {
-		UP, DOWN, RIGHT, LEFT, NONE
+		UP, DOWN, RIGHT, LEFT, NAME, NONE
 	};
 
 	DoorDirection doorDirection;
@@ -30,6 +31,9 @@ public class RoomCell extends BoardCell {
 			case ('R'):
 				doorDirection = DoorDirection.RIGHT;
 				break;
+			case ('N'):
+				doorDirection = DoorDirection.NAME;
+				break;
 			default:
 				doorDirection = DoorDirection.NONE;
 				break;
@@ -42,7 +46,7 @@ public class RoomCell extends BoardCell {
 
 	@Override
 	public boolean isDoorway() {
-		if (doorDirection == DoorDirection.NONE) {
+		if (doorDirection == DoorDirection.NONE || doorDirection == DoorDirection.NAME) {
 			return false;
 		} else {
 			return true;
@@ -86,6 +90,18 @@ public class RoomCell extends BoardCell {
 						doorThickness, getHeight());
 				break;
 			}
+		}
+		else if (doorDirection == DoorDirection.NAME){
+			drawRoomName(g, b);
+		}
+	}
+	
+	public void drawRoomName(Graphics g, Board b){
+		if(doorDirection == DoorDirection.NAME){
+			g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 12));
+			g.setColor(Color.BLACK);
+			g.drawString(b.getRooms().get(roomInitial), 
+					getX_coordinate()+(getWidth()/2), getY_coordinate()+(getHeight()/2));
 		}
 	}
 }
