@@ -227,7 +227,7 @@ public class Board extends JPanel {
 				adjMtx.put(index, new ArrayList<Integer>());
 				// Check if it is a room without a door, if it is, can't have
 				// any adjacencies
-				
+
 				BoardCell current = cells.get(calcIndex(row, column));
 				// Check if doorway
 				if (current.isDoorway()) {
@@ -296,8 +296,8 @@ public class Board extends JPanel {
 	}
 
 	/*
-	 * initialize variables needed to calculate possible moves for a player
-	 * pass in current position of the player and number of steps
+	 * initialize variables needed to calculate possible moves for a player pass
+	 * in current position of the player and number of steps
 	 */
 	public void startTargets(int row, int column, int move) {
 		// Setup
@@ -313,26 +313,23 @@ public class Board extends JPanel {
 	}
 
 	/*
-	 * recursive function to calculate all possible moves for a player at cell "index"
-	 * with "move" number of steps. All possible targets are put in the "targets" variable
+	 * recursive function to calculate all possible moves for a player at cell
+	 * "index" with "move" number of steps. All possible targets are put in the
+	 * "targets" variable
 	 */
 	public void calcTargets(int index, int move) {
-		ArrayList<Integer> adjacentCells = new ArrayList<Integer>();
 		for (Integer cell : getAdjList(index)) {
 			if (!visited[cell]) {
-				adjacentCells.add(cell);
+				visited[cell] = true;
+				if (move == 1) {
+					targets.add(cells.get(cell));
+				} else if (cells.get(cell).isDoorway()) {
+					targets.add(cells.get(cell));
+				} else {
+					calcTargets(cell, (move - 1));
+				}
+				visited[cell] = false;
 			}
-		}
-		for (Integer cell : adjacentCells) {
-			visited[cell] = true;
-			if (move == 1) {
-				targets.add(cells.get(cell));
-			} else if (cells.get(cell).isDoorway()) {
-				targets.add(cells.get(cell));
-			} else {
-				calcTargets(cell, (move - 1));
-			}
-			visited[cell] = false;
 		}
 	}
 
