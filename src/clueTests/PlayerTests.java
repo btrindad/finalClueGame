@@ -6,6 +6,7 @@ package clueTests;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -40,6 +41,8 @@ public class PlayerTests {
 	private static Card ropeCard;
 	private static Card wrenchCard;
 	
+	private static Color purple;
+	
 	@BeforeClass
 	public static void setUp() {
 		testGame = new ClueGame();
@@ -56,6 +59,7 @@ public class PlayerTests {
 		whiteCard = new Card("Mrs. White", CardType.PERSON);
 		ropeCard = new Card("Rope", CardType.WEAPON);
 		wrenchCard = new Card("Wrench", CardType.WEAPON);
+		purple = new Color(153, 0, 153);
 		
 	}
 	
@@ -69,7 +73,7 @@ public class PlayerTests {
 	@Test
 	public void testLoadingFirstPlayer() {
 		Assert.assertEquals("Miss Scarlett", testGame.getPlayer(0).getName());
-		Assert.assertEquals("Red", testGame.getPlayer(0).getColor());
+		Assert.assertEquals(Color.RED, testGame.getPlayer(0).getColor());
 		Assert.assertEquals(160, testGame.getPlayer(0).getStartingLocation());
 		
 	}
@@ -78,15 +82,16 @@ public class PlayerTests {
 	@Test
 	public void testLoadingPlayerInMiddle() {
 		Assert.assertEquals("Mrs. White", testGame.getPlayer(2).getName());
-		Assert.assertEquals("White", testGame.getPlayer(2).getColor());
+		Assert.assertEquals(Color.WHITE, testGame.getPlayer(2).getColor());
 		Assert.assertEquals(499, testGame.getPlayer(2).getStartingLocation());
 	}
 	
 	// Test that the last player in the file is loaded correctly
+	// note that purple is not a default color so we had to make one up
 	@Test
 	public void testLoadingLastPlayer() {
 		Assert.assertEquals("Professor Plum", testGame.getPlayer(5).getName());
-		Assert.assertEquals("Purple", testGame.getPlayer(5).getColor());
+		Assert.assertEquals(purple, testGame.getPlayer(5).getColor());
 		Assert.assertEquals(13, testGame.getPlayer(5).getStartingLocation());
 	}
 	
