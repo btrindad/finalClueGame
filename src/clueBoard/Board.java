@@ -1,6 +1,5 @@
 package clueBoard;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,16 +26,21 @@ public class Board extends JPanel {
 	public static final int boardHeightPixels = 660;
 	public static final int marginSizePixels = 10;
 	
+	// data structures to hold data about the board
 	private ArrayList<BoardCell> cells;
 	private Map<Character,String> rooms;
+	private int numRows;
+	private int numColumns;
+	private Set<Player> playerMarkers;
+	
+	// structures to hold data for calculating possible player moves
 	private Map<Integer, ArrayList<Integer>> adjMtx;
 	private Set<BoardCell> targets;
 	private boolean[] visited;
-	private int numRows;
-	private int numColumns;
+	
+	//variables to hold directories to config files
 	private String configFile;
 	private String legendFile;
-	private Set<Player> playerMarkers;
 	
 	public Board(String configFile, String legendFile) {
 		this.configFile = configFile;
@@ -46,6 +50,9 @@ public class Board extends JPanel {
 	}
 	
 
+	/*
+	 * Loads the clue legend config file
+	 */
 	public void loadLegend() throws FileNotFoundException, BadConfigFormatException {
 		rooms = new HashMap<Character,String>();
 		FileReader read = new FileReader(legendFile);
@@ -73,6 +80,9 @@ public class Board extends JPanel {
 		input.close();
 	}
 	
+	/*
+	 * loads the board layout from the config file
+	 */
 	public void loadBoard() throws FileNotFoundException, BadConfigFormatException {
 		cells = new ArrayList<BoardCell>();
 		FileReader read = new FileReader(configFile);
@@ -154,7 +164,7 @@ public class Board extends JPanel {
 			loadLegend();
 			loadBoard();
 		} catch (FileNotFoundException e) {
-			
+			System.out.println(e.getMessage());			
 		} catch (BadConfigFormatException e) {
 			try {
 				FileWriter write = new FileWriter("errors.txt", true);
