@@ -119,7 +119,8 @@ public class PlayerTests {
 		Assert.assertEquals(null, testPlayer.disproveSuggestion(personCard, roomCard, weaponCard));
 	}
 	
-	/* test that when a player has multiple matches for a suggestion, that each time the
+	/* 
+	 * test that when a player has multiple matches for a suggestion, that each time the
 	 * suggestion is made, a new card is picked. In other words, if the same suggestion is
 	 * made each time, the same card disproving it should not be returned every time
 	 */
