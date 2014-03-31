@@ -227,8 +227,10 @@ public class Board extends JPanel {
 				adjMtx.put(index, new ArrayList<Integer>());
 				// Check if it is a room without a door, if it is, can't have
 				// any adjacencies
+				
+				BoardCell current = cells.get(calcIndex(row, column));
 				// Check if doorway
-				if (cells.get(calcIndex(row, column)).isDoorway()) {
+				if (current.isDoorway()) {
 					DoorDirection dir = cells.get(calcIndex(row, column))
 							.getDoorDirection();
 					switch (dir) {
@@ -247,7 +249,7 @@ public class Board extends JPanel {
 					case NONE:
 						break;
 					}
-				} else if (cells.get(calcIndex(row, column)).isWalkway()) {
+				} else if (current.isWalkway()) {
 					// ABOVE
 					if (row > 0) {
 						if (cells.get(calcIndex(row - 1, column)).isWalkway()
