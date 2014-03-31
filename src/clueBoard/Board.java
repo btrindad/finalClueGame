@@ -159,6 +159,9 @@ public class Board extends JPanel {
 		visited = new boolean[numRows * numColumns];
 	}
 	
+	/*
+	 * call all functions to load data from config files
+	 */
 	public void loadConfigFiles() {
 		try {
 			loadLegend();
@@ -206,6 +209,10 @@ public class Board extends JPanel {
 		return adjMtx.get(index);
 	}
 
+	/*
+	 * calculate for each cell, all adjacent cell. This information is needed for calculating
+	 * all moves available to a player
+	 */
 	public void calcAdjacencies() {
 		adjMtx = new HashMap<Integer, ArrayList<Integer>>();
 		for (int row = 0; row < numRows; row++) {
