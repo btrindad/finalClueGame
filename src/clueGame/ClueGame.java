@@ -10,14 +10,12 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import clueBoard.Board;
-import clueBoard.BoardCell;
 
 public class ClueGame extends JFrame {
 	private Solution theSolution;

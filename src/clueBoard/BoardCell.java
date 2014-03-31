@@ -50,6 +50,7 @@ abstract public class BoardCell {
 		return DoorDirection.NONE;
 	}
 
+	//use the dimensions of the board to calculate the dimensions of a particular cell
 	public void loadDimensions(Board b) {
 		if (cellWidth == null || cellHeight == null) {
 			cellWidth = Board.boardWidthPixels / b.getColumns();
@@ -57,6 +58,9 @@ abstract public class BoardCell {
 		}
 	}
 	
+	public abstract void draw(Graphics g, Board b);
+	
+	/* ------ helper functions for getting the x and y coordinate of a cell for drawing -----*/
 	public int getX_coordinate(){
 		return getColumn()*(cellWidth) + (Board.marginSizePixels / 2);
 	}
@@ -64,7 +68,4 @@ abstract public class BoardCell {
 	public int getY_coordinate(){
 		return getRow() * (cellHeight);
 	}
-
-	public abstract void draw(Graphics g, Board b);
-
 }
