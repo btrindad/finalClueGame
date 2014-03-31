@@ -341,6 +341,9 @@ public class Board extends JPanel {
 		playerMarkers.add(p);
 	}
 
+	/*
+	 * draws the board and all the players
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
