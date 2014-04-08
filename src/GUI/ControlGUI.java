@@ -1,15 +1,16 @@
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
+
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class ControlGUI extends JPanel {
-	public static final int height = 240;
+	private final int height = 220;
 	
 	public ControlGUI(){
-		setSize(900, 240);
+		//setSize(900, 240);
 
 		JPanel controlPanel = new JPanel(); // controlPanel is the overarching Panel
 
@@ -34,10 +35,12 @@ public class ControlGUI extends JPanel {
 		secondPanel.add(new guessPanel());
 		secondPanel.add(new resultsPanel());
 	}
-
-	public static void main(String[] args) {
-		ControlGUI gui = new ControlGUI();
-		gui.setVisible(true);
+	
+	public void setWidth(int new_width){
+		setSize(new_width, height);	
 	}
+		
+	@Override
+	public int getHeight() { return height; }
 
 }

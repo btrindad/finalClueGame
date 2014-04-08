@@ -21,7 +21,7 @@ public class Board extends JPanel {
 
 	// constants that define properties of a board
 	public static final int boardWidthPixels = 690;
-	public static final int boardHeightPixels = 660;
+	public static final int boardHeightPixels = 550;
 	public static final int marginSizePixels = 10;
 
 	// data structures to hold data about the board
@@ -358,8 +358,8 @@ public class Board extends JPanel {
 	
 	//getters to return total width and height of the board
 	public int getBoardHeight(){
-		return boardHeightPixels + (boardHeightPixels/getRows()) 
-				+ Board.marginSizePixels + 22;
+		return boardHeightPixels + 2*(boardHeightPixels/getRows()) 
+				+ Board.marginSizePixels;
 	}
 	
 	public int getBoardWidth(){

@@ -66,6 +66,6 @@ abstract public class BoardCell {
 	}
 	
 	public int getY_coordinate(){
-		return getRow() * (cellHeight);
+		return getRow() * (cellHeight) + (Board.marginSizePixels/ 2);
 	}
 }

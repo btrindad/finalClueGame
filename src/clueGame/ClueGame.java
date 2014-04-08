@@ -40,15 +40,16 @@ public class ClueGame extends JFrame {
 		players = new ArrayList<Player>();
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
+		controller = new ControlGUI();
 		setSize(theBoard.getBoardWidth(), 
-				theBoard.getBoardHeight());
+				theBoard.getBoardHeight() + controller.getHeight());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(theBoard, BorderLayout.CENTER);
 		notesDialog = new NotesDialog();
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		menuBar.add(createFileMenu());
-		controller = new ControlGUI();
+		controller.setWidth(getWidth());
 		add(controller, BorderLayout.SOUTH);
 	}
 

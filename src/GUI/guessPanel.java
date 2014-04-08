@@ -7,13 +7,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class guessPanel extends JPanel { // guessPanel contains the current guess
-	JLabel guessLabel;
 	JTextField guessField;
 
 	public guessPanel(){
-		guessLabel = new JLabel("Guess");
 		guessField = new JTextField(30);
-		add(guessLabel);
 		add(guessField);
 		setBorder(new TitledBorder (new EtchedBorder(), "Guess"));
 	}
