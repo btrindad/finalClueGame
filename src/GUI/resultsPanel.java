@@ -13,6 +13,7 @@ public class resultsPanel extends JPanel { // resultsPanel contains the response
 	public resultsPanel(){
 		resultLabel = new JLabel("Response");
 		resultField = new JTextField(10);
+		resultField.setEditable(false);
 		add(resultLabel);
 		add(resultField);
 		setBorder(new TitledBorder (new EtchedBorder(), "Guess Result"));

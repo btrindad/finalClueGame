@@ -12,6 +12,7 @@ public class turnPanel extends JPanel { // turnPanel contains and handles the cu
 	
 	public turnPanel(){
 		turnField = new JTextField(15);
+		turnField.setEditable(false);
 		add(turnField);
 		setBorder(new TitledBorder(new EtchedBorder(), "Whose turn?"));
 	}

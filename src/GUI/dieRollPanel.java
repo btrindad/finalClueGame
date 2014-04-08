@@ -13,6 +13,7 @@ public class dieRollPanel extends JPanel { // dieRollPanel contains the current 
 	public dieRollPanel() {
 		dieLabel = new JLabel("Roll");
 		dieField = new JTextField(3);
+		dieField.setEditable(false);
 		add(dieLabel);
 		add(dieField);
 		setBorder(new TitledBorder(new EtchedBorder(), "Die"));
