@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import clueBoard.Board;
 
@@ -228,6 +229,10 @@ public class ClueGame extends JFrame {
 		ClueGame mainGame = new ClueGame();
 		mainGame.loadConfigFiles();
 		mainGame.setVisible(true);
+
+		JOptionPane playerNotice = new JOptionPane();
+		playerNotice.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
+				"Welcome to Clue", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	/*-----------Getters and Setters for Testing Purposes ONLY ------*/
