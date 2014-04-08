@@ -5,10 +5,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class ControlGUI extends JFrame {
+public class ControlGUI extends JPanel {
 	public ControlGUI(){
 		setSize(900, 240);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel controlPanel = new JPanel(); // controlPanel is the overarching Panel
 
