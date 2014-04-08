@@ -1,4 +1,4 @@
-package clueGame;
+package GUI;
 
 import java.awt.GridLayout;
 
@@ -7,10 +7,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
-
-import GUI.PersonGuessPanel;
-import GUI.RoomGuessPanel;
-import GUI.WeaponGuessPanel;
 
 public class NotesDialog extends JDialog {
 	

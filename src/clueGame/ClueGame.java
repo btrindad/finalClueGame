@@ -16,6 +16,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import GUI.NotesDialog;
 import clueBoard.Board;
 
 public class ClueGame extends JFrame {
