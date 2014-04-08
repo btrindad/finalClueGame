@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class ControlGUI extends JPanel {
+	public static final int height = 240;
+	
 	public ControlGUI(){
 		setSize(900, 240);
 

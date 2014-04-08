@@ -355,5 +355,16 @@ public class Board extends JPanel {
 			p.draw(g, this);
 		}
 	}
+	
+	//getters to return total width and height of the board
+	public int getBoardHeight(){
+		return boardHeightPixels + (boardHeightPixels/getRows()) 
+				+ Board.marginSizePixels + 22;
+	}
+	
+	public int getBoardWidth(){
+		return boardWidthPixels + (boardWidthPixels/getColumns()) 
+				+ marginSizePixels;
+	}
 
 }
