@@ -30,6 +30,11 @@ public class Board extends JPanel {
 	private int numRows;
 	private int numColumns;
 	private Set<Player> playerMarkers;
+	private boolean drawTargets;
+
+	public void setDrawTargets(boolean drawTargets) {
+		this.drawTargets = drawTargets;
+	}
 
 	// structures to hold data for calculating possible player moves
 	private Map<Integer, ArrayList<Integer>> adjMtx;
@@ -348,11 +353,17 @@ public class Board extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (BoardCell c : cells) {
-			c.draw(g, this);
+			c.draw(g, this, false);
 		}
 
 		for (Player p : playerMarkers) {
-			p.draw(g, this);
+			p.draw(g, this, false);
+		}
+		
+		if (drawTargets == true){
+			for(BoardCell c : targets){
+				c.draw(g, this, true);
+			}
 		}
 	}
 	

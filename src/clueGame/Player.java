@@ -89,7 +89,7 @@ public class Player {
 		}
 	}
 	
-	public void draw(Graphics g, Board b){
+	public void draw(Graphics g, Board b, boolean targets){
 		try{
 			BoardCell cell = b.getCellAt(startingLocation);
 			g.setColor(Color.BLACK);

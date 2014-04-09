@@ -58,7 +58,7 @@ abstract public class BoardCell {
 		}
 	}
 	
-	public abstract void draw(Graphics g, Board b);
+	public abstract void draw(Graphics g, Board b, boolean targets);
 	
 	/* ------ helper functions for getting the x and y coordinate of a cell for drawing -----*/
 	public int getX_coordinate(){

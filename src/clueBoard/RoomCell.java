@@ -71,8 +71,9 @@ public class RoomCell extends BoardCell {
 	 * draw a room cell onto the board. Draw door in appropriate direction or 
 	 * room name if present
 	 */
-	public void draw(Graphics g, Board b) {
+	public void draw(Graphics g, Board b, boolean targets) {
 		loadDimensions(b);
+		if (targets == false){
 			g.setColor(Color.BLUE);
 			switch (doorDirection) {
 			case UP:
@@ -98,6 +99,12 @@ public class RoomCell extends BoardCell {
 			case NONE:
 				break;
 			}
+		} else {
+			g.setColor(Color.BLUE.brighter());
+			g.fillRect(getX_coordinate(), 
+					getY_coordinate(), 
+					getWidth(), getHeight());
+		}
 	}
 	
 	//helper function to draw a room name
