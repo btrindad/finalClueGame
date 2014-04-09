@@ -44,7 +44,7 @@ public class ClueGame extends JFrame {
 		theSolution = new Solution();
 		controller = new ControlGUI();
 		
-		setSize(theBoard.getBoardWidth(), 
+		setSize(theBoard.getBoardWidth() + MyCardsPanel.WIDTH, 
 				theBoard.getBoardHeight() + controller.getHeight());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(theBoard, BorderLayout.CENTER);
@@ -56,7 +56,7 @@ public class ClueGame extends JFrame {
 		add(controller, BorderLayout.SOUTH);
 		this.loadConfigFiles();
 		this.deal();
-		myCards = new MyCardsPanel(players.get(0).getCards());
+		myCards = new MyCardsPanel(players.get(0).getCards(), theBoard);
 		add(myCards, BorderLayout.EAST);
 	}
 
