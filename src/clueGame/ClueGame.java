@@ -238,8 +238,7 @@ public class ClueGame extends JFrame {
 		mainGame.loadConfigFiles();
 		mainGame.setVisible(true);
 
-		JOptionPane playerNotice = new JOptionPane();
-		playerNotice.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
+		JOptionPane.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
 				"Welcome to Clue", JOptionPane.INFORMATION_MESSAGE);
 	}
 
