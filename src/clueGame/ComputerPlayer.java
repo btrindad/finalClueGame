@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
+import clueBoard.Board;
 import clueBoard.BoardCell;
 import clueBoard.RoomCell;
 
@@ -135,6 +136,13 @@ public class ComputerPlayer extends Player {
 				possibleWeapons.get(rand.nextInt(possibleWeapons.size())), roomCard);
 		
 		return aSuggestion;
+		
+	}
+	
+	public void makeMove(Board board){
+		BoardCell pick = pickLocation(board.getTargets());
+		this.currentLocation = board.calcIndex(pick.getRow(), pick.getColumn());
+		board.repaint();
 		
 	}
 	

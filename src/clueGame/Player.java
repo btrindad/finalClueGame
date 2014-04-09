@@ -15,7 +15,7 @@ public class Player {
 	private String name;
 	private Color color;
 	private int startingLocation;
-	private int currentLocation;
+	protected int currentLocation;
 	protected Set<Card> myCards;
 	
 	public Player(String n, String c, int sL) {
