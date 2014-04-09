@@ -17,6 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import GUI.ControlGUI;
+import GUI.MyCardsPanel;
 import GUI.NotesDialog;
 import clueBoard.Board;
 
@@ -30,6 +31,7 @@ public class ClueGame extends JFrame {
 	private NotesDialog notesDialog;
 	private JMenuBar menuBar;
 	private ControlGUI controller;
+	private MyCardsPanel myCards;
 	
 	/*
 	 * a blank game, initialize all attributes
@@ -41,6 +43,7 @@ public class ClueGame extends JFrame {
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
 		controller = new ControlGUI();
+		
 		setSize(theBoard.getBoardWidth(), 
 				theBoard.getBoardHeight() + controller.getHeight());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -51,6 +54,10 @@ public class ClueGame extends JFrame {
 		menuBar.add(createFileMenu());
 		controller.setWidth(getWidth());
 		add(controller, BorderLayout.SOUTH);
+		this.loadConfigFiles();
+		this.deal();
+		myCards = new MyCardsPanel(players.get(0).getCards());
+		add(myCards, BorderLayout.EAST);
 	}
 
 	/*
@@ -235,7 +242,7 @@ public class ClueGame extends JFrame {
 	// MAIN
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
-		mainGame.loadConfigFiles();
+		//mainGame.loadConfigFiles();
 		mainGame.setVisible(true);
 
 		JOptionPane.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
