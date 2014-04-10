@@ -46,7 +46,7 @@ public class PlayerTests {
 	@BeforeClass
 	public static void setUp() {
 		testGame = new ClueGame();
-		testGame.loadConfigFiles();
+		//testGame.loadConfigFiles();
 		mustardCard = new Card("Colonel Mustard", CardType.PERSON);
 		knifeCard = new Card("Knife", CardType.WEAPON);
 		plumCard = new Card("Professor Plum", CardType.PERSON);
