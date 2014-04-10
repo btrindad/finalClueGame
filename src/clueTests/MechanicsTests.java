@@ -117,7 +117,6 @@ public class MechanicsTests {
 		ClueGame newGame = new ClueGame();
 		newGame.selectAnswer();
 		System.out.println(newGame.getSolution());
-		System.out.println(newGame.getDeck().toString());
 		assertEquals(newGame.getDeck().size(), NUM_CARDS_IN_PLAY);
 		assertEquals(CardTests.countCards(CardType.PERSON, newGame), CardTests.PLAYER_CARDS-1);
 		assertEquals(CardTests.countCards(CardType.WEAPON, newGame), CardTests.WEAPON_CARDS-1);

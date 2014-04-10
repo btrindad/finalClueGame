@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -26,6 +27,10 @@ public class ClueGame extends JFrame {
 	private Board theBoard;
 	private ArrayList<Player> players;
 	private Set<Card> deck;
+	private boolean gameOver = false;
+	private boolean turnFinished = false;
+	private int die = 0;
+	private Random gen = new Random();
 	
 	//GUI attributes
 	private NotesDialog notesDialog;
@@ -39,6 +44,7 @@ public class ClueGame extends JFrame {
 	public ClueGame() {
 		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
 		theBoard.loadConfigFiles();
+		theBoard.calcAdjacencies();
 		players = new ArrayList<Player>();
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
@@ -54,6 +60,7 @@ public class ClueGame extends JFrame {
 		menuBar.add(createFileMenu());
 		controller.setWidth(getWidth());
 		add(controller, BorderLayout.SOUTH);
+		controller.nextPlayer.addActionListener(new ButtonListener());
 		this.loadConfigFiles();
 		this.deal();
 		myCards = new MyCardsPanel(players.get(0).getCards(), theBoard);
@@ -239,14 +246,49 @@ public class ClueGame extends JFrame {
 		  return exitItem;
 	}
 	
+	public void playThrough(){
+		while (gameOver == false){
+			for (int i = 0; i < players.size(); i++){
+				turnFinished = false;
+				dieRoll();
+				controller.setDieRoll(die);
+				controller.setTurn(players.get(i).getName());
+				theBoard.clearTargets();
+				theBoard.calcTargets(players.get(i).currentLocation, die);
+				if (i == 0){
+					((HumanPlayer) players.get(i)).makeMove(theBoard);
+				}else {
+					((ComputerPlayer) players.get(i)).makeMove(theBoard);
+				}
+				while(turnFinished == false){
+					
+				}
+			}
+		}
+	}
+	
+	public void dieRoll(){
+		die = gen.nextInt(6)+1;
+	}
+	
+	public class ButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			if (e.getSource() == controller.nextPlayer){
+				turnFinished = true;
+			}
+		}
+	}
+	
 	// MAIN
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
 		mainGame.setVisible(true);
+		
 
 		JOptionPane.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
 				"Welcome to Clue", JOptionPane.INFORMATION_MESSAGE);
 		
+		mainGame.playThrough();
 	}
 
 	/*-----------Getters and Setters for Testing Purposes ONLY ------*/

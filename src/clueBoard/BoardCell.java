@@ -3,6 +3,8 @@ package clueBoard;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import javax.swing.JOptionPane;
+
 import clueBoard.RoomCell.DoorDirection;
 
 abstract public class BoardCell {
@@ -57,6 +59,7 @@ abstract public class BoardCell {
 				return true;
 			}
 		}
+		
 		return false;
 	}
 

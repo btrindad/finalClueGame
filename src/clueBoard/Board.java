@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import clueBoard.RoomCell.DoorDirection;
@@ -35,6 +36,7 @@ public class Board extends JPanel {
 	private Set<Player> playerMarkers;
 	private boolean drawTargets;
 	private Point p;
+	public BoardCell clickTarget;
 
 	public void setDrawTargets(boolean drawTargets) {
 		this.drawTargets = drawTargets;
@@ -346,6 +348,10 @@ public class Board extends JPanel {
 	public Set<BoardCell> getTargets() {
 		return targets;
 	}
+	
+	public void clearTargets() {
+		targets.clear();
+	}
 
 	public void addPlayerMarker(final Player p) {
 		playerMarkers.add(p);
@@ -357,12 +363,9 @@ public class Board extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+
 		for (BoardCell c : cells) {
 			c.draw(g, this, false);
-		}
-
-		for (Player p : playerMarkers) {
-			p.draw(g, this, false);
 		}
 		
 		if (drawTargets == true){
@@ -370,12 +373,18 @@ public class Board extends JPanel {
 				c.draw(g, this, true);
 			}
 		}
+
+		for (Player p : playerMarkers) {
+			p.draw(g, this, false);
+		}
+		
 	}
 	
 	public class CellClicked implements MouseListener{
 
 		public void mousePressed (MouseEvent event){
 			p = event.getPoint();
+			clickTarget = clicked();
 		}
 		
 		public void mouseClicked (MouseEvent event) {}
@@ -391,6 +400,8 @@ public class Board extends JPanel {
 				return c;
 			}
 		}
+		JOptionPane.showMessageDialog(this, "Invalid Target.", 
+				"FAIL", JOptionPane.INFORMATION_MESSAGE);
 		return null;
 	}
 	

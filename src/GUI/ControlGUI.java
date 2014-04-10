@@ -11,7 +11,8 @@ public class ControlGUI extends JPanel {
 	private guessPanel guess = new guessPanel();
 	private resultsPanel results = new resultsPanel();
 	private turnPanel turn = new turnPanel();
-
+	public JButton nextPlayer = new JButton("Next player");
+	public JButton makeAccusation = new JButton("Make an accusation");
 	
 	public ControlGUI(){
 
@@ -23,8 +24,7 @@ public class ControlGUI extends JPanel {
 		controlPanel.add(firstPanel);
 		firstPanel.setLayout(new GridLayout(1,3));
 
-		JButton nextPlayer = new JButton("Next player");
-		JButton makeAccusation = new JButton("Make an accusation");
+		
 		
 		firstPanel.add(turn);
 		firstPanel.add(nextPlayer);

@@ -49,6 +49,7 @@ public class Player {
 		}
 	}
 	
+	
 	// getters and setters
 	public String getName() {
 		return name;

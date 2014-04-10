@@ -1,6 +1,9 @@
 package clueGame;
 
+import javax.swing.JOptionPane;
+
 import clueBoard.Board;
+import clueBoard.Board.CellClicked;
 
 public class HumanPlayer extends Player {
 	private boolean humanMustFinish;
@@ -14,9 +17,11 @@ public class HumanPlayer extends Player {
 		board.setDrawTargets(true);
 		board.repaint();
 		while(humanMustFinish == true){
-			if(board.clicked() != null){
-				currentLocation = board.calcIndex(board.clicked().getRow(), board.clicked().getColumn());
+			if(board.clickTarget != null){
+				currentLocation = board.calcIndex(board.clickTarget.getRow(), board.clickTarget.getColumn());
 				humanMustFinish = false;
+				board.clickTarget = null;
+				board.setDrawTargets(false);
 			}
 		}
 		board.repaint();
