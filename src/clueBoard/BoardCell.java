@@ -1,6 +1,7 @@
 package clueBoard;
 
 import java.awt.Graphics;
+import java.awt.Point;
 
 import clueBoard.RoomCell.DoorDirection;
 
@@ -48,6 +49,15 @@ abstract public class BoardCell {
 
 	public DoorDirection getDoorDirection() {
 		return DoorDirection.NONE;
+	}
+	
+	public boolean wasClicked(Point p){
+		if((p.getX()-5)/cellWidth > getColumn() && (p.getX()-5)/cellWidth < getColumn()+1){
+			if((p.getY()-5)/cellHeight > getRow() && (p.getY()-5)/cellHeight < getRow()+1){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	//use the dimensions of the board to calculate the dimensions of a particular cell

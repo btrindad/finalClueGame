@@ -7,6 +7,11 @@ import javax.swing.JPanel;
 
 public class ControlGUI extends JPanel {
 	private final int height = 220;
+	private dieRollPanel dieRoll = new dieRollPanel();
+	private guessPanel guess = new guessPanel();
+	private resultsPanel results = new resultsPanel();
+	private turnPanel turn = new turnPanel();
+
 	
 	public ControlGUI(){
 
@@ -18,7 +23,6 @@ public class ControlGUI extends JPanel {
 		controlPanel.add(firstPanel);
 		firstPanel.setLayout(new GridLayout(1,3));
 
-		turnPanel turn = new turnPanel();
 		JButton nextPlayer = new JButton("Next player");
 		JButton makeAccusation = new JButton("Make an accusation");
 		
@@ -29,9 +33,17 @@ public class ControlGUI extends JPanel {
 		JPanel secondPanel = new JPanel(); // secondPanel handles the second row of controlPanel
 		controlPanel.add(secondPanel);
 		
-		secondPanel.add(new dieRollPanel());
-		secondPanel.add(new guessPanel());
-		secondPanel.add(new resultsPanel());
+		secondPanel.add(dieRoll);
+		secondPanel.add(guess);
+		secondPanel.add(results);
+	}
+	
+	public void setDieRoll(int i){
+		dieRoll.dieField.setText(Integer.toString(i));
+	}
+	
+	public void setTurn(String s){
+		turn.turnField.setText(s);
 	}
 	
 	public void setWidth(int new_width){
