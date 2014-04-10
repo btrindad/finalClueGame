@@ -74,7 +74,7 @@ public class PlayerTests {
 	public void testLoadingFirstPlayer() {
 		Assert.assertEquals("Miss Scarlett", testGame.getPlayer(0).getName());
 		Assert.assertEquals(Color.RED, testGame.getPlayer(0).getColor());
-		Assert.assertEquals(160, testGame.getPlayer(0).getStartingLocation());
+		Assert.assertEquals(160, testGame.getPlayer(0).getLocation());
 		
 	}
 	
@@ -83,7 +83,7 @@ public class PlayerTests {
 	public void testLoadingPlayerInMiddle() {
 		Assert.assertEquals("Mrs. White", testGame.getPlayer(2).getName());
 		Assert.assertEquals(Color.WHITE, testGame.getPlayer(2).getColor());
-		Assert.assertEquals(499, testGame.getPlayer(2).getStartingLocation());
+		Assert.assertEquals(499, testGame.getPlayer(2).getLocation());
 	}
 	
 	// Test that the last player in the file is loaded correctly
@@ -92,7 +92,7 @@ public class PlayerTests {
 	public void testLoadingLastPlayer() {
 		Assert.assertEquals("Professor Plum", testGame.getPlayer(5).getName());
 		Assert.assertEquals(purple, testGame.getPlayer(5).getColor());
-		Assert.assertEquals(13, testGame.getPlayer(5).getStartingLocation());
+		Assert.assertEquals(13, testGame.getPlayer(5).getLocation());
 	}
 	
 	//check that a player can disprove a suggestion when one card matches the suggestion

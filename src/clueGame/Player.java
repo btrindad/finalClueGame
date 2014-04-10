@@ -14,14 +14,12 @@ public class Player {
 	private Random r = new Random();
 	private String name;
 	private Color color;
-	private int startingLocation;
 	protected int currentLocation;
 	protected Set<Card> myCards;
 	
 	public Player(String n, String c, int sL) {
 		name = n;
 		color = stringToColor(c.toUpperCase());
-		startingLocation = sL;
 		currentLocation = sL;
 		myCards = new HashSet<Card>();
 	}
@@ -60,8 +58,8 @@ public class Player {
 		return color;
 	}
 	
-	public int getStartingLocation() {
-		return startingLocation;
+	public int getLocation() {
+		return currentLocation;
 	}
 	
 	public void addCard(Card c) {
@@ -91,7 +89,7 @@ public class Player {
 	
 	public void draw(Graphics g, Board b, boolean targets){
 		try{
-			BoardCell cell = b.getCellAt(startingLocation);
+			BoardCell cell = b.getCellAt(currentLocation);
 			g.setColor(Color.BLACK);
 			g.drawOval(cell.getX_coordinate(), cell.getY_coordinate(), 
 					cell.getWidth(), cell.getHeight());

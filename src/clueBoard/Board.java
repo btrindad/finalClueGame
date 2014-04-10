@@ -1,6 +1,9 @@
 package clueBoard;
 
 import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -31,6 +34,7 @@ public class Board extends JPanel {
 	private int numColumns;
 	private Set<Player> playerMarkers;
 	private boolean drawTargets;
+	private Point p;
 
 	public void setDrawTargets(boolean drawTargets) {
 		this.drawTargets = drawTargets;
@@ -50,6 +54,7 @@ public class Board extends JPanel {
 		this.legendFile = legendFile;
 		targets = new HashSet<BoardCell>();
 		playerMarkers = new HashSet<Player>();
+		addMouseListener(new CellClicked());
 	}
 
 	/*
@@ -365,6 +370,28 @@ public class Board extends JPanel {
 				c.draw(g, this, true);
 			}
 		}
+	}
+	
+	public class CellClicked implements MouseListener{
+
+		public void mousePressed (MouseEvent event){
+			p = event.getPoint();
+		}
+		
+		public void mouseClicked (MouseEvent event) {}
+		public void mouseReleased (MouseEvent event) {}
+		public void mouseEntered (MouseEvent event) {}
+		public void mouseExited (MouseEvent event) {}
+
+	}
+	
+	public BoardCell clicked(){
+		for(BoardCell c : targets){
+			if(c.wasClicked(p) == true){
+				return c;
+			}
+		}
+		return null;
 	}
 	
 	//getters to return total width and height of the board
