@@ -31,13 +31,12 @@ public class ClueGame extends JFrame {
 	private boolean turnFinished = false;
 	private int die = 0;
 	private Random gen = new Random();
-	
-	//GUI attributes
+
+	// GUI attributes
 	private NotesDialog notesDialog;
 	private JMenuBar menuBar;
 	private ControlGUI controller;
-	private MyCardsPanel myCards;
-	
+
 	/*
 	 * a blank game, initialize all attributes
 	 */
@@ -49,8 +48,8 @@ public class ClueGame extends JFrame {
 		deck = new HashSet<Card>();
 		theSolution = new Solution();
 		controller = new ControlGUI();
-		
-		setSize(theBoard.getBoardWidth() + MyCardsPanel.WIDTH, 
+
+		setSize(theBoard.getBoardWidth() + MyCardsPanel.WIDTH,
 				theBoard.getBoardHeight() + controller.getHeight());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(theBoard, BorderLayout.CENTER);
@@ -61,15 +60,11 @@ public class ClueGame extends JFrame {
 		controller.setWidth(getWidth());
 		add(controller, BorderLayout.SOUTH);
 		controller.nextPlayer.addActionListener(new ButtonListener());
-		this.loadConfigFiles();
-		this.deal();
-		myCards = new MyCardsPanel(players.get(0).getCards(), theBoard);
-		add(myCards, BorderLayout.EAST);
 	}
 
 	/*
-	 * deal a deck to the players, afterwards the deck is empty and each player has about
-	 * the same number of cards
+	 * deal a deck to the players, afterwards the deck is empty and each player
+	 * has about the same number of cards
 	 */
 	public void deal() {
 		selectAnswer();
@@ -105,7 +100,7 @@ public class ClueGame extends JFrame {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/*
@@ -145,14 +140,14 @@ public class ClueGame extends JFrame {
 	public void loadConfigFiles() {
 		loadDeck();
 		loadPlayers();
-		for(Player p : players){
+		for (Player p : players) {
 			theBoard.addPlayerMarker(p);
 		}
 	}
 
 	/*
-	 * remove one card of each type from the deck and set as the solution. 
-	 * NOTE: this function should be run before giving any cards to players
+	 * remove one card of each type from the deck and set as the solution. NOTE:
+	 * this function should be run before giving any cards to players
 	 */
 	public void selectAnswer() {
 		Set<Card> toRemove = new HashSet<Card>();
@@ -163,7 +158,8 @@ public class ClueGame extends JFrame {
 			} else if (theSolution.room == null && c.cardType == CardType.ROOM) {
 				theSolution.room = c.name;
 				toRemove.add(c);
-			} else if (theSolution.weapon == null && c.cardType == CardType.WEAPON) {
+			} else if (theSolution.weapon == null
+					&& c.cardType == CardType.WEAPON) {
 				theSolution.weapon = c.name;
 				toRemove.add(c);
 			}
@@ -172,14 +168,14 @@ public class ClueGame extends JFrame {
 	}
 
 	/*
-	 * when any player makes a suggestion, go to the other players and ask them to disprove
-	 * it if they have a card from the suggestion
+	 * when any player makes a suggestion, go to the other players and ask them
+	 * to disprove it if they have a card from the suggestion
 	 */
-	public Card handleSuggestion(Card person, Card room,Card weapon,
+	public Card handleSuggestion(Card person, Card room, Card weapon,
 			Player accusingPerson) {
 		for (Player p : players) {
 			if (p != accusingPerson) {
-				if (p.disproveSuggestion(person, room, weapon) != null)  {
+				if (p.disproveSuggestion(person, room, weapon) != null) {
 					return p.disproveSuggestion(person, room, weapon);
 				}
 			}
@@ -189,14 +185,13 @@ public class ClueGame extends JFrame {
 	}
 
 	/*
-	 * when a player makes an accusation, check and see if it matches the solution
-	 * true if the accusation was correct, otherwise false
+	 * when a player makes an accusation, check and see if it matches the
+	 * solution true if the accusation was correct, otherwise false
 	 */
 	public boolean checkAccusation(Solution sol) {
 		if (sol.equals(theSolution)) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -214,102 +209,108 @@ public class ClueGame extends JFrame {
 	public int getNumPlayers() {
 		return players.size();
 	}
-	
+
+	public Board getBoard() {
+		return theBoard;
+	}
+
 	private JMenu createFileMenu() {
 		JMenu menu = new JMenu("File");
 		menu.add(createShowNotesItem());
 		menu.add(createFileExitItem());
 		return menu;
 	}
-	
+
 	private JMenuItem createShowNotesItem() {
-		JMenuItem notesItem  = new JMenuItem("Show Notes");
+		JMenuItem notesItem = new JMenuItem("Show Notes");
 		class NotesItemListener implements ActionListener {
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				notesDialog.setVisible(true);
 			}
 		}
 		notesItem.addActionListener(new NotesItemListener());
-		return notesItem; 
+		return notesItem;
 	}
-	
+
 	private JMenuItem createFileExitItem() {
 		JMenuItem exitItem = new JMenuItem("Exit");
 		class ExitItemListener implements ActionListener {
-		    public void actionPerformed(ActionEvent e)
-		    {
-		       System.exit(0);
-		    }
-		  }
-		  exitItem.addActionListener(new ExitItemListener());
-		  return exitItem;
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		}
+		exitItem.addActionListener(new ExitItemListener());
+		return exitItem;
 	}
-	
-	public void playThrough(){
-		while (gameOver == false){
-			for (int i = 0; i < players.size(); i++){
+
+	public void playThrough() {
+		while (gameOver == false) {
+			for (int i = 0; i < players.size(); i++) {
 				turnFinished = false;
 				dieRoll();
 				controller.setDieRoll(die);
 				controller.setTurn(players.get(i).getName());
 				theBoard.clearTargets();
 				theBoard.calcTargets(players.get(i).currentLocation, die);
-				if (i == 0){
+				if (i == 0) {
 					((HumanPlayer) players.get(i)).makeMove(theBoard);
-				}else {
+				} else {
 					((ComputerPlayer) players.get(i)).makeMove(theBoard);
 				}
-				while(turnFinished == false){
-					
+				while (turnFinished == false) {
+
 				}
 			}
 		}
 	}
-	
-	public void dieRoll(){
-		die = gen.nextInt(6)+1;
+
+	public void dieRoll() {
+		die = gen.nextInt(6) + 1;
 	}
-	
+
 	public class ButtonListener implements ActionListener {
-		public void actionPerformed(ActionEvent e){
-			if (e.getSource() == controller.nextPlayer){
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == controller.nextPlayer) {
 				turnFinished = true;
 			}
 		}
 	}
-	
+
 	// MAIN
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
+		mainGame.loadConfigFiles();
+		mainGame.deal();
+		MyCardsPanel myCards = new MyCardsPanel(mainGame.getPlayer(0)
+				.getCards(), mainGame.getBoard());
+		mainGame.add(myCards, BorderLayout.EAST);
 		mainGame.setVisible(true);
-		
 
-		JOptionPane.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
+		JOptionPane.showMessageDialog(mainGame,
+				"You are Miss Scarlett, press next player to begin.",
 				"Welcome to Clue", JOptionPane.INFORMATION_MESSAGE);
-		
+
 		mainGame.playThrough();
 	}
 
 	/*-----------Getters and Setters for Testing Purposes ONLY ------*/
 
-	
 	public Set<Card> getDeck() {
 		return deck;
 	}
-	
+
 	public ArrayList<Player> getPlayers() {
 		return players;
 	}
-	
+
 	public void setSolution(Solution s) {
 		theSolution = s;
 	}
-	
+
 	public Solution getSolution() {
 		return theSolution;
 	}
-	
+
 	public void setPlayers(ArrayList<Player> p) {
 		players = p;
 	}

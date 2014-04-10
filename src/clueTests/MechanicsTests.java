@@ -21,7 +21,7 @@ public class MechanicsTests {
 	@BeforeClass
 	public static void setUp(){
 		testGame =  new ClueGame();
-		//testGame.loadConfigFiles();
+		testGame.loadConfigFiles();
 	}
 	
 	/*
@@ -114,13 +114,14 @@ public class MechanicsTests {
 	 */
 	@Test
 	public void testSelectAnswers(){
-		ClueGame newGame = new ClueGame();
-		newGame.selectAnswer();
-		System.out.println(newGame.getSolution());
-		assertEquals(newGame.getDeck().size(), NUM_CARDS_IN_PLAY);
-		assertEquals(CardTests.countCards(CardType.PERSON, newGame), CardTests.PLAYER_CARDS-1);
-		assertEquals(CardTests.countCards(CardType.WEAPON, newGame), CardTests.WEAPON_CARDS-1);
-		assertEquals(CardTests.countCards(CardType.ROOM, newGame), CardTests.ROOM_CARDS-1);		
+		setUp();
+		assertEquals(testGame.getDeck().size(), NUM_CARDS_IN_PLAY + 3);
+		testGame.selectAnswer();
+		System.out.println(testGame.getSolution());
+		assertEquals(testGame.getDeck().size(), NUM_CARDS_IN_PLAY);
+		assertEquals(CardTests.countCards(CardType.PERSON, testGame), CardTests.PLAYER_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.WEAPON, testGame), CardTests.WEAPON_CARDS-1);
+		assertEquals(CardTests.countCards(CardType.ROOM, testGame), CardTests.ROOM_CARDS-1);		
 	}
 
 }
