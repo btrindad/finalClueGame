@@ -12,28 +12,37 @@ import clueGame.CardType;
 
 public class MyCardsPanel extends JPanel { // myCardsPanel contains the humans
 											// cards
-	private ArrayList<String> people = new ArrayList<String>();
-	private ArrayList<String> rooms = new ArrayList<String>();
-	private ArrayList<String> weapons = new ArrayList<String>();
+	private ArrayList<String> weapons;
+	private ArrayList<String> rooms;
+	private ArrayList<String> people;
+	private ArrayList<CardsDisplay> displayPanels;
 	public static final int WIDTH = 250;
 	JLabel cardLabel;
 
-	public MyCardsPanel(Set<Card> cards, Board b) {
+	public MyCardsPanel(Set<Card> cards) {
+		weapons = new ArrayList<String>();
+		rooms = new ArrayList<String>();
+		people = new ArrayList<String>();
+		displayPanels = new ArrayList<CardsDisplay>();
+		
 		getCardNames(cards);
-		setSize(WIDTH, b.getHeight());
-
 		cardLabel = new JLabel("My Cards");
-
-		JPanel cardsPanel = new JPanel(); // controlPanel is the overarching
-											// Panel
-
+		
+		displayPanels.add(new CardsDisplay(weapons, "Weapons"));
+		displayPanels.add(new CardsDisplay(rooms, "Rooms"));
+		displayPanels.add(new CardsDisplay(people, "People"));
+	}
+	
+	public void display(Board b){
+		setSize(WIDTH, b.getHeight());
+		JPanel cardsPanel = new JPanel(); // controlPanel is the overarching panel
 		cardsPanel.setLayout(new GridLayout(4, 1));
 		add(cardsPanel);
 		cardsPanel.add(cardLabel);
-		cardsPanel.add(new PeopleCards(people));
-		cardsPanel.add(new RoomCards(rooms));
-		cardsPanel.add(new WeaponCards(weapons));
-
+		for(CardsDisplay d : displayPanels){
+			d.display();
+			cardsPanel.add(d);
+		}
 	}
 
 	public void getCardNames(Set<Card> cards) {

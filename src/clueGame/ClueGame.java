@@ -42,6 +42,7 @@ public class ClueGame extends JFrame {
 	 * a blank game, initialize all attributes
 	 */
 	public ClueGame() {
+		//initialize game attributes
 		theBoard = new Board("ClueLayout.csv", "ClueLegend.txt");
 		theBoard.loadConfigFiles();
 		theBoard.calcAdjacencies();
@@ -50,9 +51,12 @@ public class ClueGame extends JFrame {
 		theSolution = new Solution();
 		controller = new ControlGUI();
 		
+		//set size of the screen and basic options
 		setSize(theBoard.getBoardWidth() + MyCardsPanel.WIDTH, 
 				theBoard.getBoardHeight() + controller.getHeight());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		//build the display
 		add(theBoard, BorderLayout.CENTER);
 		notesDialog = new NotesDialog();
 		menuBar = new JMenuBar();
@@ -64,7 +68,8 @@ public class ClueGame extends JFrame {
 		controller.makeAccusation.addActionListener(new ButtonListener());
 		this.loadConfigFiles();
 		this.deal();
-		myCards = new MyCardsPanel(players.get(0).getCards(), theBoard);
+		myCards = new MyCardsPanel(players.get(0).getCards());
+		myCards.display(theBoard);
 		add(myCards, BorderLayout.EAST);
 	}
 

@@ -5,13 +5,16 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 public class CardsDisplay extends JPanel {
 	ArrayList<JTextField> fields;
+	String name;
 	
-	public CardsDisplay(ArrayList<String> cards){
+	public CardsDisplay(ArrayList<String> cards, String title){
+		name = title;
 		fields = new ArrayList<JTextField>();
-		JTextField temp;
 		for(String s : cards){
 			fields.add(new JTextField(s, s.length()));
 		}
@@ -25,6 +28,6 @@ public class CardsDisplay extends JPanel {
 			add(d);
 		}
 		
-		setBorder(new TitiledBorder(new EtchedBorder))
+		setBorder(new TitledBorder(new EtchedBorder(), name));
 	}
 }
