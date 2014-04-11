@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import clueGame.Solution;
+
 public class ControlGUI extends JPanel {
 	private final int height = 220;
 	private dieRollPanel dieRoll = new dieRollPanel();
@@ -40,6 +42,19 @@ public class ControlGUI extends JPanel {
 	
 	public void setDieRoll(int i){
 		dieRoll.dieField.setText(Integer.toString(i));
+	}
+	
+	public void setResult(String i){
+		results.resultField.setText(i);
+	}
+	
+	public void setGuess(Solution i, boolean noGuess){
+		if(i != null){
+			guess.guessField.setText(i.person + " in the " + i.room + " with the " + i.weapon);
+		}
+		if (noGuess){
+			guess.guessField.setText("");
+		}
 	}
 	
 	public void setTurn(String s){

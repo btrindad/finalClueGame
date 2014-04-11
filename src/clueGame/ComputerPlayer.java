@@ -16,6 +16,8 @@ import clueBoard.RoomCell;
 public class ComputerPlayer extends Player {
 	private Random rand = new Random();
 	private char lastRoomVisited;
+	public Solution solution;
+	public boolean makeAcc = false;
 	/*
 	 * this attribute, allCards, works as the notepad in the real version of this game
 	 * the possible cards are the keys in the map and the value is a boolean.
@@ -143,7 +145,12 @@ public class ComputerPlayer extends Player {
 		BoardCell pick = pickLocation(board.getTargets());
 		this.currentLocation = board.calcIndex(pick.getRow(), pick.getColumn());
 		board.repaint();
-		
+		if(board.getCellAt(currentLocation).isRoom()){
+			setLastRoomVisited(((RoomCell) board.getCellAt(currentLocation)).getInitial());
+			solution = createSuggestion(((RoomCell) board.getCellAt(currentLocation)).getInitial());
+		}else {
+			solution = null;
+		}
 	}
 	
 	/*
