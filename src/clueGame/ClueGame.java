@@ -66,11 +66,6 @@ public class ClueGame extends JFrame {
 		add(controller, BorderLayout.SOUTH);
 		controller.nextPlayer.addActionListener(new ButtonListener());
 		controller.makeAccusation.addActionListener(new ButtonListener());
-		this.loadConfigFiles();
-		this.deal();
-		myCards = new MyCardsPanel(players.get(0).getCards());
-		myCards.display(theBoard);
-		add(myCards, BorderLayout.EAST);
 	}
 
 	/*
@@ -323,12 +318,19 @@ public class ClueGame extends JFrame {
 		}
 	}
 	
+	//draw human player's card panel
+	public void drawCardPanel(){
+		myCards = new MyCardsPanel(players.get(0).getCards());
+		myCards.display(theBoard);
+		add(myCards, BorderLayout.EAST);
+	}
+	
 	// MAIN
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
 		mainGame.setVisible(true);
-		
-
+		mainGame.loadConfigFiles();
+		mainGame.deal();
 		JOptionPane.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
 				"Welcome to Clue", JOptionPane.INFORMATION_MESSAGE);
 		
