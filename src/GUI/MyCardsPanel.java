@@ -35,10 +35,8 @@ public class MyCardsPanel extends JPanel { // myCardsPanel contains the humans
 	
 	public void display(Board b){
 		setSize(WIDTH, b.getHeight());
-		//JPanel cardsPanel = new JPanel(); // controlPanel is the overarching panel
 		//make enough rows for every display panel and one more for the label
 		setLayout(new GridLayout(displayPanels.size()+1, 1));
-		//add(cardsPanel);
 		add(cardLabel);
 		for(CardsDisplay d : displayPanels){
 			d.display(WIDTH, b.getHeight()/(displayPanels.size()+1));

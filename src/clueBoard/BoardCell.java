@@ -53,6 +53,7 @@ abstract public class BoardCell {
 		return DoorDirection.NONE;
 	}
 	
+	/*
 	public boolean wasClicked(Point p){
 		if((p.getX()-5)/cellWidth > getColumn() && (p.getX()-5)/cellWidth < getColumn()+1){
 			if((p.getY()-5)/cellHeight > getRow() && (p.getY()-5)/cellHeight < getRow()+1){
@@ -60,6 +61,15 @@ abstract public class BoardCell {
 			}
 		}
 		
+		return false;
+	}
+*/
+	public boolean wasClicked(Point p){
+		if(p.getX() >= getX_coordinate() && p.getX() < (getX_coordinate() + cellWidth)){
+			if(p.getY() >= getY_coordinate() && p.getY() < (getY_coordinate() + cellHeight)){
+				return true;
+			}
+		}
 		return false;
 	}
 
