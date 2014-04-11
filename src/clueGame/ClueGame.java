@@ -328,9 +328,10 @@ public class ClueGame extends JFrame {
 	// MAIN
 	public static void main(String[] args) {
 		ClueGame mainGame = new ClueGame();
-		mainGame.setVisible(true);
 		mainGame.loadConfigFiles();
 		mainGame.deal();
+		mainGame.drawCardPanel();
+		mainGame.setVisible(true);
 		JOptionPane.showMessageDialog(mainGame, "You are Miss Scarlett, press next player to begin.", 
 				"Welcome to Clue", JOptionPane.INFORMATION_MESSAGE);
 		

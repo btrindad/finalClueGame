@@ -16,7 +16,7 @@ public class MyCardsPanel extends JPanel { // myCardsPanel contains the humans
 	private ArrayList<String> rooms;
 	private ArrayList<String> people;
 	private ArrayList<CardsDisplay> displayPanels;
-	public static final int WIDTH = 250;
+	public static final int WIDTH = 190;
 	JLabel cardLabel;
 
 	public MyCardsPanel(Set<Card> cards) {
@@ -35,13 +35,14 @@ public class MyCardsPanel extends JPanel { // myCardsPanel contains the humans
 	
 	public void display(Board b){
 		setSize(WIDTH, b.getHeight());
-		JPanel cardsPanel = new JPanel(); // controlPanel is the overarching panel
-		cardsPanel.setLayout(new GridLayout(4, 1));
-		add(cardsPanel);
-		cardsPanel.add(cardLabel);
+		//JPanel cardsPanel = new JPanel(); // controlPanel is the overarching panel
+		//make enough rows for every display panel and one more for the label
+		setLayout(new GridLayout(displayPanels.size()+1, 1));
+		//add(cardsPanel);
+		add(cardLabel);
 		for(CardsDisplay d : displayPanels){
-			d.display();
-			cardsPanel.add(d);
+			d.display(WIDTH, b.getHeight()/(displayPanels.size()+1));
+			add(d);
 		}
 	}
 

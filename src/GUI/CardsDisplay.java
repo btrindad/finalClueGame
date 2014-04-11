@@ -20,7 +20,8 @@ public class CardsDisplay extends JPanel {
 		}
 	}
 	
-	public void display(){
+	public void display(int width, int height){
+		setSize(width, height);
 		setLayout(new GridLayout(fields.size(), 1));
 		
 		for(JTextField d : fields){
