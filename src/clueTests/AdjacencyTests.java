@@ -134,7 +134,7 @@ public class AdjacencyTests {
 	@Test
 	public void testTargetWalkways(){
 		//upper right, one step
-		board.startTargets(2, 16, 1);
+		board.startTargets(board.calcIndex(2, 16), 1);
 		Set<BoardCell> targets= board.getTargets();
 		Assert.assertEquals(4, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(2, 17))));
@@ -142,7 +142,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(3, 16))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(1, 16))));
 		//upper left, 2 steps
-		board.startTargets(2, 7, 2);
+		board.startTargets(board.calcIndex(2, 7), 2);
 		targets= board.getTargets();
 		Assert.assertEquals(8, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(0, 7))));
@@ -154,7 +154,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(1, 8))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(1, 6))));
 		//middle left, 3 steps
-		board.startTargets(11, 8, 3);
+		board.startTargets(board.calcIndex(11, 8), 3);
 		targets= board.getTargets();
 		Assert.assertEquals(12, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(11, 11))));
@@ -170,7 +170,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(9, 7))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(13, 7))));
 		//bottom right, 5 steps
-		board.startTargets(21, 17, 5);
+		board.startTargets(board.calcIndex(21, 17), 5);
 		targets= board.getTargets();
 		Assert.assertEquals(9, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(21, 16))));
@@ -183,7 +183,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(17, 18))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 17))));
 		//bottom middle, 2 steps
-		board.startTargets(16, 13, 2);
+		board.startTargets(board.calcIndex(16, 13), 2);
 		targets= board.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 15))));
@@ -197,7 +197,7 @@ public class AdjacencyTests {
 	@Test
 	public void testRoomTargets(){
 		//left above room C, 2 steps
-		board.startTargets(8, 4, 2);
+		board.startTargets(board.calcIndex(8, 4), 2);
 		Set<BoardCell> targets= board.getTargets();
 		Assert.assertEquals(6, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(9, 4))));
@@ -207,7 +207,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 3))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 5))));
 		//bottom next to room O, 3 steps
-		board.startTargets(18, 8, 3);
+		board.startTargets(board.calcIndex(18, 8), 3);
 		targets= board.getTargets();
 		Assert.assertEquals(12, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(19, 9))));
@@ -223,7 +223,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(18, 7))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(19, 8))));
 		//right between rooms H and D
-		board.startTargets(15, 20, 2);
+		board.startTargets(board.calcIndex(15, 20), 2);
 		targets= board.getTargets();
 		Assert.assertEquals(8, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(15, 22))));
@@ -239,7 +239,7 @@ public class AdjacencyTests {
 	@Test
 	public void testLeavingRoom(){
 		//Room O door, left
-		board.startTargets(19, 9, 4);
+		board.startTargets(board.calcIndex(19, 9), 4);
 		Set<BoardCell> targets= board.getTargets();
 		Assert.assertEquals(10, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(21, 7))));
@@ -253,7 +253,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(17, 9))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(16, 8))));
 		//room C door, Up
-		board.startTargets(9, 4, 3);
+		board.startTargets(board.calcIndex(9, 4), 3);
 		targets= board.getTargets();
 		Assert.assertEquals(5, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 6))));
@@ -262,7 +262,7 @@ public class AdjacencyTests {
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(7, 5))));
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(6, 4))));
 		//room H door, left
-		board.startTargets(8, 20, 1);
+		board.startTargets(board.calcIndex(8, 20), 1);
 		targets= board.getTargets();
 		Assert.assertEquals(1, targets.size());
 		Assert.assertTrue(targets.contains(board.getCellAt(board.calcIndex(8, 19))));

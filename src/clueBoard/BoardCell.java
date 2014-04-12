@@ -3,8 +3,6 @@ package clueBoard;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import javax.swing.JOptionPane;
-
 import clueBoard.RoomCell.DoorDirection;
 
 abstract public class BoardCell {
@@ -21,17 +19,9 @@ abstract public class BoardCell {
 
 	}
 
-	public boolean isRoom() {
-		return false;
-	}
-
-	public boolean isWalkway() {
-		return false;
-	}
-
-	public boolean isDoorway() {
-		return false;
-	}
+	public abstract boolean isRoom();
+	public abstract boolean isWalkway();
+	public abstract boolean isDoorway();
 
 	public int getRow() {
 		return row;
@@ -53,17 +43,6 @@ abstract public class BoardCell {
 		return DoorDirection.NONE;
 	}
 	
-	/*
-	public boolean wasClicked(Point p){
-		if((p.getX()-5)/cellWidth > getColumn() && (p.getX()-5)/cellWidth < getColumn()+1){
-			if((p.getY()-5)/cellHeight > getRow() && (p.getY()-5)/cellHeight < getRow()+1){
-				return true;
-			}
-		}
-		
-		return false;
-	}
-*/
 	public boolean wasClicked(Point p){
 		if(p.getX() >= getX_coordinate() && p.getX() < (getX_coordinate() + cellWidth)){
 			if(p.getY() >= getY_coordinate() && p.getY() < (getY_coordinate() + cellHeight)){

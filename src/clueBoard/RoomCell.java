@@ -116,4 +116,9 @@ public class RoomCell extends BoardCell {
 					getX_coordinate()+(getWidth()/2), getY_coordinate()+(getHeight()/2));
 		}
 	}
+
+	@Override
+	public boolean isWalkway() {
+		return false;
+	}
 }

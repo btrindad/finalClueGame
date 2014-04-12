@@ -255,8 +255,7 @@ public class ClueGame extends JFrame {
 				dieRoll();
 				controller.setDieRoll(die);
 				controller.setTurn(players.get(i).getName());
-				theBoard.clearTargets();
-				theBoard.calcTargets(players.get(i).currentLocation, die);
+				theBoard.startTargets(players.get(i).currentLocation, die);
 				if (i == 0){
 					((HumanPlayer) players.get(i)).makeMove(theBoard);
 				}else {

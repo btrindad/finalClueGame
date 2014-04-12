@@ -311,7 +311,7 @@ public class Board extends JPanel {
 	 * initialize variables needed to calculate possible moves for a player pass
 	 * in current position of the player and number of steps
 	 */
-	public void startTargets(int row, int column, int move) {
+	public void startTargets(int index, int move) {
 		// Setup
 		for (int i = 0; i < visited.length; i++) {
 			visited[i] = false;
@@ -320,8 +320,8 @@ public class Board extends JPanel {
 			calcAdjacencies();
 		}
 		targets.clear();
-		visited[calcIndex(row, column)] = true;
-		calcTargets(calcIndex(row, column), move);
+		visited[index] = true;
+		calcTargets(index, move);
 	}
 
 	/*
@@ -347,10 +347,6 @@ public class Board extends JPanel {
 
 	public Set<BoardCell> getTargets() {
 		return targets;
-	}
-	
-	public void clearTargets() {
-		targets.clear();
 	}
 
 	public void addPlayerMarker(final Player p) {

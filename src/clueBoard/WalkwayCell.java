@@ -37,4 +37,14 @@ public class WalkwayCell extends BoardCell {
 					getWidth(), getHeight());
 		}
 	}
+
+	@Override
+	public boolean isRoom() {
+		return false;
+	}
+
+	@Override
+	public boolean isDoorway() {
+		return false;
+	}
 }
